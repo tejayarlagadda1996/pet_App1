@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+
+class OtpScreen extends StatefulWidget {
+  const OtpScreen({Key? key}) : super(key: key);
+
+  @override
+  _OtpScreenState createState() => _OtpScreenState();
+}
+
+class _OtpScreenState extends State<OtpScreen> {
+  final _otpControllers = List<TextEditingController>.generate(4, (index) => TextEditingController());
+  final _otpFocusNodes = List<FocusNode>.generate(4, (index) => FocusNode());
+
+  void _handleOtpChange(String value, int index) {
+    if (value.length == 1 && index < 3) {
+      _otpFocusNodes[index].unfocus();
+      FocusScope.of(context).requestFocus(_otpFocusNodes[index + 1]);
+    } else if (value.isEmpty && index > 0) {
+      _otpFocusNodes[index].unfocus();
+      FocusScope.of(context).requestFocus(_otpFocusNodes[index - 1]);
+    }
+  }
+
+  @override
+  void dispose() {
+    for (var controller in _otpControllers) {
+      controller.dispose();
+    }
+    for (var focusNode in _otpFocusNodes) {
+      focusNode.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Enter OTP'),
+        backgroundColor:const Color.fromARGB(246, 230, 118, 61),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Padding(
+              padding:  EdgeInsets.all(8.0),
+              child: Text('Verification',style: TextStyle(fontSize: 24,color: Colors.purple,fontWeight: FontWeight.bold),),
+            ),
+            const Text('We have sent Otp to verify You Acount, Please Confirm you Mobile Number 99999-99999'),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: List.generate(4, (index) {
+                return SizedBox(
+                  width: 50,
+                  child: TextField(
+                    controller: _otpControllers[index],
+                    focusNode: _otpFocusNodes[index],
+                    keyboardType: TextInputType.number,
+                    textAlign: TextAlign.center,
+                    maxLength: 1,
+                    decoration: const InputDecoration(
+                      counterText: '',
+                    ),
+                    onChanged: (value) => _handleOtpChange(value, index),
+                  ),
+                );
+              }),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: (){},
+              child: const Text('Submit OTP'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
