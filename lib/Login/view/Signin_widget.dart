@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/Login/DynamicTextFieldModel.dart';
-import 'package:pet_app/Login/DynamicTextfield.dart';
-import 'package:pet_app/Login/OtpScreen.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
+import 'package:pet_app/Login/view/DynamicTextfield.dart';
+import 'package:pet_app/Login/view/OtpScreen.dart';
+import 'package:pet_app/global_widgets/Round_button.dart';
 
 class SignInWidget extends StatefulWidget {
   const SignInWidget({super.key});
@@ -11,27 +13,22 @@ class SignInWidget extends StatefulWidget {
 }
 
 class _SignInWidgetState extends State<SignInWidget> {
-  @override
-  Widget build(BuildContext context) {
-    const borderLine = OutlineInputBorder(
-      borderSide: BorderSide(width: 3, color: Colors.blue),
-    );
 
-    final dynamicFormData = [
+  final dynamicFormData = [
       DynamicTextFieldModel(
           placeholderText: 'Email/Number',
           obscureText: false,
           actionType: DynamicTextfieldActionType.text,
-          enabledBorder: borderLine,
-          focusedBorder: borderLine),
+      ),
       DynamicTextFieldModel(
         obscureText: true,
         placeholderText: 'Password',
         actionType: DynamicTextfieldActionType.text,
-        enabledBorder: borderLine,
-        focusedBorder: borderLine,
       ),
     ];
+    
+  @override
+  Widget build(BuildContext context) {
 
     return SingleChildScrollView(
       child: Container(
@@ -47,7 +44,8 @@ class _SignInWidgetState extends State<SignInWidget> {
               dynamicModel: dynamicFormData,
               length: dynamicFormData.length,
               onAction: (DynamicTextfieldActionType result) {
-                result == DynamicTextfieldActionType.dropdown ? null : null;
+                result == DynamicTextfieldActionType.dropdown ?
+                null : null;
               },
               onDataFilled: handleFormFilledData,
             ),
@@ -59,9 +57,11 @@ class _SignInWidgetState extends State<SignInWidget> {
               ],
             ),
             const SizedBox(height: 8),
-            Center(child: ElevatedButton(onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpScreen()));
-            }, child: const Text('Sign In')))
+            RoundButton(
+              roundButtonText: 'Sign in',
+              onPressed: (){
+                Get.to(const OtpScreen());
+            })
           ],
         ),
       ),

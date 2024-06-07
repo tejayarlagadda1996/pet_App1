@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/PetRegistration/view/view/PetRegistration.dart';
+import 'package:pet_app/global_widgets/Round_button.dart';
 
 class OtpScreen extends StatefulWidget {
-  const OtpScreen({Key? key}) : super(key: key);
+  const OtpScreen({super.key});
 
   @override
   _OtpScreenState createState() => _OtpScreenState();
@@ -71,10 +74,10 @@ class _OtpScreenState extends State<OtpScreen> {
               }),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: (){},
-              child: const Text('Submit OTP'),
-            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 20),
+              child: RoundButton(roundButtonText: 'Submit OTP', onPressed: (){Get.to(const PetRegistrationScreen());}),
+            )
           ],
         ),
       ),

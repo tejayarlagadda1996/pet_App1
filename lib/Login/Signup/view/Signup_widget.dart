@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/Login/DynamicTextFieldModel.dart';
-import 'package:pet_app/Login/DynamicTextfield.dart';
+import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
+import 'package:pet_app/Login/view/DynamicTextfield.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/global_widgets/Round_button.dart';
 
 class Signupwidget extends StatefulWidget {
   const Signupwidget({super.key});
@@ -10,10 +12,9 @@ class Signupwidget extends StatefulWidget {
 }
 
 class _SignupwidgetState extends State<Signupwidget> {
+  bool isAgreed = false;
   @override
   Widget build(BuildContext context) {
-    bool isAgreed = false;
-
     const borderLine = OutlineInputBorder(
       borderSide: BorderSide(width: 3, color: Colors.blue),
     );
@@ -78,14 +79,21 @@ class _SignupwidgetState extends State<Signupwidget> {
                       });
                     },
                   ),
-                  const Text('I agree to the terms and conditions'),
+                  const SizedBox(
+                    width: 200,
+                    child: Text('I agree to the terms and conditions',textAlign: TextAlign.start,)),
                 ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                  onPressed: () {}, child: const Text('Sign up')),
+              child: RoundButton(
+                roundButtonText: 'Sign Up',
+                onPressed: (){
+                  Get.back();
+                  Get.snackbar('Succesful', 'please login to your account',backgroundColor: Colors.green);
+                }
+              )
             )
           ],
         ),
@@ -94,6 +102,6 @@ class _SignupwidgetState extends State<Signupwidget> {
   }
 
   void handleFormFilledData(List<String> filledData) {
-    print(filledData);
+    
   }
 }

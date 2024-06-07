@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/Login/Signin_widget.dart';
-import 'package:pet_app/Login/Signup_widget.dart';
+import 'package:pet_app/Login/view/Signin_widget.dart';
+import 'package:pet_app/Login/Signup/view/Signup_widget.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  final bool showSignIn;
+  const Login({super.key, required this.showSignIn});
 
   @override
   State<Login> createState() => _LoginState();
 }
+ 
 
 class _LoginState extends State<Login> {
-  bool showSignIn = true;
+  late bool showSignIn;
 
+  @override
+  void initState() {
+    super.initState();
+    showSignIn = widget.showSignIn;
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +52,7 @@ class _LoginState extends State<Login> {
                 ],
               ),
             ),
+            
             const SizedBox(height: 20)
           ],
         ),
