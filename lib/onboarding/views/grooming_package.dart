@@ -73,8 +73,8 @@ class _GroomingPackageState extends State<GroomingPackage> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Container(
-            height: MediaQuery.of(context).size.width * 0.7,
-            constraints: const BoxConstraints(maxHeight: 260, minHeight: 250),
+            height: MediaQuery.of(context).size.width * 0.75,
+            constraints: const BoxConstraints(maxHeight: 270, minHeight: 250),
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: groomingPackages.length,

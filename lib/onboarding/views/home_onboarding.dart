@@ -3,7 +3,7 @@ import 'package:pet_app/onboarding/views/behaviour_consultation.dart';
 import 'package:pet_app/onboarding/views/best_seller.dart';
 import 'package:pet_app/onboarding/views/condition_consultation.dart';
 import 'package:pet_app/onboarding/views/grooming_package.dart';
-import 'package:pet_app/onboarding/views/home_consultation.dart';
+import 'package:pet_app/onboarding/views/doctor_consultation.dart';
 import 'package:pet_app/onboarding/views/lab_test.dart';
 import 'package:pet_app/global_widgets/display_image.dart';
 import 'package:pet_app/global_widgets/searchbar.dart';
@@ -58,7 +58,7 @@ class _OnBoardingState extends State<OnBoarding> {
         ],
       ),
 
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
