@@ -6,7 +6,7 @@ class Doctor {
   final int doctorExperience;
   final double doctorRating;
   final int doctorPatients;
-  final String doctorAvailibilty;
+  final String doctorAvailability;
 
   Doctor({
     required this.doctorId,
@@ -16,7 +16,7 @@ class Doctor {
     required this.doctorExperience,
     required this.doctorRating,
     required this.doctorPatients,
-    required this.doctorAvailibilty,
+    required this.doctorAvailability,
   });
 
   factory Doctor.fromJson(Map<String, dynamic> json) {
@@ -28,7 +28,7 @@ class Doctor {
       doctorExperience: json['doctorExperience'] as int,
       doctorRating: json['doctorRating'].toDouble(),
       doctorPatients: json['doctorPatients'] as int,
-      doctorAvailibilty: json['doctorAvailibilty'] as String,
+      doctorAvailability: json['doctorAvailability'] as String,
     );
   }
 }

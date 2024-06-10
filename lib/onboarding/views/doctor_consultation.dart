@@ -52,7 +52,7 @@ class HomeConsultation extends StatelessWidget {
                         experience: doctor.doctorExperience,
                         rating: doctor.doctorRating,
                         patientCount: doctor.doctorPatients,
-                        availableTime: doctor.doctorAvailibilty,
+                        availableTime: doctor.doctorAvailability,
                       ),
                     );
                   },

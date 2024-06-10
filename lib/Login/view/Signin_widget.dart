@@ -59,8 +59,8 @@ class _SignInWidgetState extends State<SignInWidget> {
             const SizedBox(height: 8),
             RoundButton(
               roundButtonText: 'Sign in',
-              onPressed: (){
-                Get.to(const OtpScreen());
+              onPressed: () {
+                Get.to(() => const OtpScreen());
             })
           ],
         ),

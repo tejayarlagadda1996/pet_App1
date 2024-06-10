@@ -11,7 +11,8 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
-  final _otpControllers = List<TextEditingController>.generate(4, (index) => TextEditingController());
+  final _otpControllers = List<TextEditingController>.generate(
+      4, (index) => TextEditingController());
   final _otpFocusNodes = List<FocusNode>.generate(4, (index) => FocusNode());
 
   void _handleOtpChange(String value, int index) {
@@ -40,7 +41,7 @@ class _OtpScreenState extends State<OtpScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Enter OTP'),
-        backgroundColor:const Color.fromARGB(246, 230, 118, 61),
+        backgroundColor: const Color.fromARGB(246, 230, 118, 61),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -49,11 +50,24 @@ class _OtpScreenState extends State<OtpScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Padding(
-              padding:  EdgeInsets.all(8.0),
-              child: Text('Verification',style: TextStyle(fontSize: 24,color: Colors.purple,fontWeight: FontWeight.bold),),
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Verification',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Color.fromRGBO(30, 33, 68, 1),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-            const Text('We have sent Otp to verify You Acount, Please Confirm you Mobile Number 99999-99999'),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
+            Text(
+              'We have sent OTP to verify your account. Please check your mobile number 99999-99999',
+              style: TextStyle(
+                color: Colors.grey[500],
+              ),
+            ),
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: List.generate(4, (index) {
@@ -73,10 +87,14 @@ class _OtpScreenState extends State<OtpScreen> {
                 );
               }),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 20),
-              child: RoundButton(roundButtonText: 'Submit OTP', onPressed: (){Get.to(const PetRegistrationScreen());}),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+              child: RoundButton(
+                  roundButtonText: 'Submit OTP',
+                  onPressed: () {
+                    Get.to(const PetRegistrationScreen());
+                  }),
             )
           ],
         ),
