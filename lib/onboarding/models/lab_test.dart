@@ -12,4 +12,15 @@ class LabTest {
     required this.labTestOriginalPrice,
     required this.labTestDiscountedPrice,
   });
+
+  factory LabTest.fromJson(Map<String, dynamic> json) {
+    return LabTest(
+      labTestName: json['labTestName'] as String? ?? '',
+      labTestDescription: json['labTestDescription'] as String? ?? '',
+      labTestParameters: json['labTestParameters'] as int? ?? 0,
+      labTestOriginalPrice: json['labTestOriginalPrice'] as int? ?? 0,
+      labTestDiscountedPrice: json['labTestDiscountedPrice'] as int? ?? 0,
+
+    );
+  }
 }
