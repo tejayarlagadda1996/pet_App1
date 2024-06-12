@@ -5,8 +5,15 @@ class ConsultationHeader extends StatelessWidget {
   final String title;
   final String subtitle;
   final VoidCallback onPressed;
-  const ConsultationHeader(
-      {super.key, required this.title, required this.subtitle, required this.onPressed});
+  final bool showViewAllButton;
+
+  const ConsultationHeader({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.onPressed,
+    required this.showViewAllButton,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +24,10 @@ class ConsultationHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween, // edit this
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width*0.6,
+                width: MediaQuery.of(context).size.width * 0.6,
                 child: AutoSizeText(
                   title,
                   textAlign: TextAlign.left,
@@ -30,17 +37,18 @@ class ConsultationHeader extends StatelessWidget {
                   ),
                 ),
               ),
-              TextButton(
-                onPressed: onPressed,
-                child: const Text(
-                  "View All",
-                  style: TextStyle(
-                    color: Color.fromRGBO(237, 109, 78, 1),
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
+              if (showViewAllButton)
+                TextButton(
+                  onPressed: onPressed,
+                  child: const Text(
+                    "View All",
+                    style: TextStyle(
+                      color: Color.fromRGBO(237, 109, 78, 1),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
           Text(

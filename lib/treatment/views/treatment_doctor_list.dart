@@ -45,13 +45,24 @@ class TreatmentDoctorList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.only(left: 14.0, top: 18, bottom: 8),
+          padding: EdgeInsets.only(left: 14.0, top: 18, bottom: 4),
           child: Text(
-            "Doctors available near you",
+            "We provide at home consultation",
             style: TextStyle(
               color: Color.fromRGBO(26, 25, 25, 1),
               fontSize: 14,
               fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.only(left: 14.0, bottom: 8),
+          child: Text(
+            "Select the doctor of your choice",
+            style: TextStyle(
+              color: Color.fromRGBO(94, 92, 92, 1),
+              fontSize: 12,
+              fontWeight: FontWeight.w300,
             ),
           ),
         ),
@@ -63,7 +74,6 @@ class TreatmentDoctorList extends StatelessWidget {
               (index) {
                 final item = shopBestsellers[index];
                 return Column(
-
                   children: [
                     TreatmentDoctorTile(
                       docImgPath: item['imgUrl'],

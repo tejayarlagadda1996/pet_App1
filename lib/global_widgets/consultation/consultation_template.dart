@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/views/consultation_header.dart';
+import 'package:pet_app/global_widgets/consultation/consultation_header.dart';
 
 class CommonConsultation extends StatefulWidget {
   const CommonConsultation({
@@ -7,11 +7,13 @@ class CommonConsultation extends StatefulWidget {
     required this.title,
     required this.subtitle,
     required this.labels,
+    required this.showViewAllButton,
   });
 
   final String title;
   final String subtitle;
   final List<String> labels;
+  final bool showViewAllButton;
 
   @override
   State<CommonConsultation> createState() => _CommonConsultationState();
@@ -19,7 +21,7 @@ class CommonConsultation extends StatefulWidget {
 
 // Add Functionalities for Condition/Symptom/Behaviour
 class _CommonConsultationState extends State<CommonConsultation> {
-  int? _selectedIndex;
+  final Set<int> _selectedIndices = {};
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +32,10 @@ class _CommonConsultationState extends State<CommonConsultation> {
           title: widget.title,
           subtitle: widget.subtitle,
           onPressed: () {},
+          showViewAllButton: widget.showViewAllButton,
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 14, bottom: 14, left: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
           child: Wrap(
             spacing: 8.0,
             runSpacing: 8.0,
@@ -40,26 +43,32 @@ class _CommonConsultationState extends State<CommonConsultation> {
               return GestureDetector(
                 onTap: () {
                   setState(() {
-                    if (_selectedIndex == index) {
-                      _selectedIndex = null;
+                    if (_selectedIndices.contains(index)) {
+                      _selectedIndices.remove(index);
                     } else {
-                      _selectedIndex = index;
+                      _selectedIndices.add(index);
                     }
                   });
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: _selectedIndex == index
-                        ? const Color.fromRGBO(237, 109, 78, 1)
-                        : const Color.fromRGBO(255, 239, 230, 1),
+                    color: const Color.fromRGBO(255, 239, 230, 1),
                     borderRadius: BorderRadius.circular(8.0),
+                    border: Border.all(
+                      color: _selectedIndices.contains(index)
+                          ? const Color.fromRGBO(237, 109, 78, 1)
+                          : Colors.transparent,
+                      width: 1.2,
+                    ),
                   ),
-                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                   child: Text(
                     widget.labels[index],
                     style: TextStyle(
-                      color:
-                          _selectedIndex == index ? Colors.white : Colors.black,
+                      color: _selectedIndices.contains(index)
+                          ? const Color.fromRGBO(237, 109, 78, 1)
+                          : Colors.black,
                       fontWeight: FontWeight.w500,
                       fontSize: 12,
                     ),

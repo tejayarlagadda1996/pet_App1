@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/onboarding/controllers/lab_test_controller.dart';
-import 'package:pet_app/onboarding/views/consultation_header.dart';
+import 'package:pet_app/global_widgets/consultation/consultation_header.dart';
 import 'package:pet_app/onboarding/views/lab_test_tile.dart';
 
 class LabTest extends StatelessWidget {
@@ -16,6 +16,7 @@ class LabTest extends StatelessWidget {
           title: "Get Your First Lab Test Done",
           subtitle: "Get up to 15% off on your first grooming",
           onPressed: () {},
+          showViewAllButton: true,
         ),
         Obx(() {
           if (labTestController.isLoading.value) {

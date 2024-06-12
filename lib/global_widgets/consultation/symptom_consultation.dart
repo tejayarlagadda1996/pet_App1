@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/views/consultation_template.dart';
+import 'package:pet_app/global_widgets/consultation/consultation_template.dart';
 
-class SymptomConsultation extends StatefulWidget {
-  const SymptomConsultation({super.key});
+class SymptomConsultation extends StatelessWidget {
+  SymptomConsultation({
+    super.key,
+    this.showViewAll = true,
+  });
 
-  @override
-  State<SymptomConsultation> createState() => _SymptomConsultationState();
-}
+  final bool showViewAll;
 
-class _SymptomConsultationState extends State<SymptomConsultation> {
   final List<String> _labels = [
     'Runny Nose',
     'Sneezes',
@@ -26,6 +26,7 @@ class _SymptomConsultationState extends State<SymptomConsultation> {
       subtitle:
           "Get up to 15% off on your first Consultation\nBased on Symptoms",
       labels: _labels,
+      showViewAllButton: showViewAll,
     );
   }
 }

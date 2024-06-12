@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/views/consultation_template.dart';
+import 'package:pet_app/global_widgets/consultation/consultation_template.dart';
 
-class BehaviourConsultation extends StatefulWidget {
-  const BehaviourConsultation({super.key});
+class BehaviourConsultation extends StatelessWidget {
+  BehaviourConsultation({
+    super.key,
+    this.showViewAll = true,
+  });
 
-  @override
-  State<BehaviourConsultation> createState() =>
-      _BehaviourConsultationState();
-}
+  final bool showViewAll;
 
-class _BehaviourConsultationState extends State<BehaviourConsultation> {
   final List<String> _labels = [
     'Barking',
     'Destructive Behaviour',
@@ -26,6 +25,7 @@ class _BehaviourConsultationState extends State<BehaviourConsultation> {
       subtitle:
           "Get up to 15% off on your first Consultation\nBased on Behaviour",
       labels: _labels,
+      showViewAllButton: showViewAll,
     );
   }
 }

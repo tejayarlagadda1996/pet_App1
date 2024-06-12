@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/global_widgets/display_image.dart';
 import 'package:pet_app/global_widgets/searchbar.dart';
+import 'package:pet_app/treatment/views/sliding_images.dart';
 import 'package:pet_app/treatment/views/symptoms.dart';
 import 'package:pet_app/treatment/views/treatment_doctor_list.dart';
 
@@ -26,6 +27,19 @@ class _TreatmentState extends State<Treatment> {
     'Shaking',
     'Dental Issue',
   ];
+
+  final List<String> _selectedLabels = [];
+
+  void _toggleLabel(String label) {
+    setState(() {
+      if (_selectedLabels.contains(label)) {
+        _selectedLabels.remove(label);
+      } else {
+        _selectedLabels.add(label);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,8 +62,10 @@ class _TreatmentState extends State<Treatment> {
           actions: const [
             Padding(
               padding: EdgeInsets.all(12.0),
-              child: Icon(Icons.arrow_forward, color: Colors.transparent,),
-              
+              child: Icon(
+                Icons.arrow_forward,
+                color: Colors.transparent,
+              ),
             ),
           ],
         ),
@@ -59,6 +75,7 @@ class _TreatmentState extends State<Treatment> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SlidingImages(),
               const Padding(
                 padding: EdgeInsets.only(left: 12.0, top: 12),
                 child: Text(
@@ -84,13 +101,10 @@ class _TreatmentState extends State<Treatment> {
               const PetSearchbar(
                 searchbarHintText: "Search with Symptoms ...",
               ),
-              Symptoms(labels: _labels),
-              Container(
-                color: const Color.fromRGBO(255, 248, 247, 1),
-                child: const SizedBox(
-                  height: 8,
-                  child: Center(), // to display the color
-                ),
+              Symptoms(
+                labels: _labels,
+                selectedLabels: _selectedLabels,
+                onToggleLabel: _toggleLabel,
               ),
               TreatmentDoctorList(),
               const DisplayImage(imgUrl: "assets/onboarding_image_4.png"),
@@ -99,3 +113,7 @@ class _TreatmentState extends State<Treatment> {
         ));
   }
 }
+
+
+
+

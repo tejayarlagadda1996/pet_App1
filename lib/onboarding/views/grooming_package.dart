@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/onboarding/controllers/grooming_package_controller.dart';
-import 'package:pet_app/onboarding/views/consultation_header.dart';
+import 'package:pet_app/global_widgets/consultation/consultation_header.dart';
 import 'package:pet_app/onboarding/views/grooming_tile.dart';
 
 class GroomingPackage extends StatelessWidget {
@@ -17,6 +17,7 @@ class GroomingPackage extends StatelessWidget {
           title: "Popular Grooming Package",
           subtitle: "Get up to 15% off on your first grooming",
           onPressed: () {},
+          showViewAllButton: true,
         ),
         Obx(() {
           if (groomingPackageController.isLoading.value) {

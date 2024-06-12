@@ -1,58 +1,102 @@
 import 'package:flutter/material.dart';
+import 'package:pet_app/symptom_treatment/views/home_symptop_treatment.dart';
 
-class Symptoms extends StatefulWidget {
+class Symptoms extends StatelessWidget {
+  final List<String> labels;
+  final List<String> selectedLabels;
+  final Function(String) onToggleLabel;
+
   const Symptoms({
     super.key,
     required this.labels,
+    required this.selectedLabels,
+    required this.onToggleLabel,
   });
-  final List<String> labels;
-
-  @override
-  State<Symptoms> createState() => _SymptomsState();
-}
-
-// Add Functionalities
-class _SymptomsState extends State<Symptoms> {
-  int? _selectedIndex;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
-      child: Wrap(
-        spacing: 8.0,
-        runSpacing: 8.0,
-        children: List.generate(widget.labels.length, (index) {
-          return GestureDetector(
-            onTap: () {
-              setState(() {
-                if (_selectedIndex == index) {
-                  _selectedIndex = null;
-                } else {
-                  _selectedIndex = index;
-                }
-              });
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(14.0),
+          child: Wrap(
+            spacing: 8.0,
+            runSpacing: 8.0,
+            children: labels.map((label) {
+              final isSelected = selectedLabels.contains(label);
+              return GestureDetector(
+                onTap: () => onToggleLabel(label),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(255, 239, 230, 1),
+                    borderRadius: BorderRadius.circular(8.0),
+                    border: Border.all(
+                      color: isSelected
+                          ? const Color.fromRGBO(237, 109, 78, 1)
+                          : Colors.transparent,
+                      width: 1.2,
+                    ),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                  child: Text(
+                    label,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: isSelected
+                          ? const Color.fromRGBO(237, 109, 78, 1)
+                          : Colors.black,
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
+          child: ElevatedButton(
+            onPressed: () {
+              void onPressedFunction() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        SymptomTreatment(selectedLabels: selectedLabels),
+                  ),
+                );
+              }
+
+              onPressedFunction();
             },
-            child: Container(
-              decoration: BoxDecoration(
-                color: _selectedIndex == index
-                    ? const Color.fromRGBO(237, 109, 78, 1)
-                    : const Color.fromRGBO(255, 239, 230, 1),
-                borderRadius: BorderRadius.circular(8.0),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromRGBO(237, 109, 78, 1),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(6),
               ),
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-              child: Text(
-                widget.labels[index],
-                style: TextStyle(
-                  color: _selectedIndex == index ? Colors.white : Colors.black,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
+            ),
+            child: const Center(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "Proceed with Symptoms",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                  ),
                 ),
               ),
             ),
-          );
-        }),
-      ),
+          ),
+        ),
+        Container(
+          color: const Color.fromRGBO(255, 248, 247, 1),
+          child: const SizedBox(
+            height: 8,
+            child: Center(),
+          ),
+        ),
+      ],
     );
   }
 }
