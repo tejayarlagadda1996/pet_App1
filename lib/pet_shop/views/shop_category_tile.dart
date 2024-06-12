@@ -17,7 +17,7 @@ class ShopCategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double width = constraints.maxWidth * 0.8;
+        double width = constraints.maxWidth * 0.9;
         double height = width*0.8;
 
         return GestureDetector(

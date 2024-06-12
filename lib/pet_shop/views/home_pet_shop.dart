@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/Summery/home_summery.dart';
-import 'package:pet_app/global_widgets/display_image.dart';
 import 'package:pet_app/global_widgets/searchbar.dart';
 import 'package:pet_app/pet_shop/views/shop_bestseller.dart';
 import 'package:pet_app/pet_shop/views/shop_by_category.dart';
@@ -17,7 +16,6 @@ class _PetShopState extends State<PetShop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(255, 248, 247, 1),
         appBar: AppBar(
           backgroundColor: Colors.white,
           shadowColor: Colors.white,
@@ -46,22 +44,21 @@ class _PetShopState extends State<PetShop> {
 
         // DISPLAY SCREEN
         body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const DisplayImage(imgUrl: "assets/petshop_image_1.png"),
-              Container(
-                color: Colors.white,
-                child: const Column(
-                  children: [
-                    PetSearchbar(
-                        searchbarHintText: "ex : toys, grooming, medicine"),
-                    ShopByCategory(),
-                  ],
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset("assets/petshop_image_1.png"),
+                const SizedBox(height: 10),
+                const PetSearchbar(
+                  searchbarHintText: "ex : toys, grooming, medicine",
                 ),
-              ),
-              ShopBestseller(),
-            ],
+                const ShopByCategory(),
+                const SizedBox(height: 20),
+                ShopBestseller(),
+              ],
+            ),
           ),
         ));
   }

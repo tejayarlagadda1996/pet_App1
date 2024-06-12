@@ -45,11 +45,12 @@ class Highlights extends StatelessWidget {
             }).toList(),
           ),
           const SizedBox(height: 10),
-          const Text(
+          Text(
             "Note that product packaging may slightly vary than what shown in picture",
             style: TextStyle(
               fontSize: 12,
-              fontWeight: FontWeight.w300,
+              fontWeight: FontWeight.w400,
+              color: Colors.grey[400],
             ),
           ),
         ],

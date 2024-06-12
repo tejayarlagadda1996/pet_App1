@@ -47,14 +47,14 @@ class _SizeSelectorState extends State<SizeSelector> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: const Color.fromRGBO(255, 239, 230, 1),
-                    borderRadius: BorderRadius.circular(2.0),
+                    borderRadius: BorderRadius.circular(3.0),
                     border: Border.all(
                       color: _selectedIndex == index
                           ? const Color.fromRGBO(237, 109, 78, 1)
                           : const Color.fromRGBO(255, 239, 230, 1),
                       width: _selectedIndex == index
                           ? 1
-                          : 0,
+                          : 1,
                     ),
                   ),
                   padding:
@@ -64,7 +64,7 @@ class _SizeSelectorState extends State<SizeSelector> {
                     style: TextStyle(
                       color: _selectedIndex == index
                           ? const Color.fromRGBO(237, 109, 78, 1)
-                          : Color.fromARGB(255, 59, 59, 59),
+                          : Color.fromARGB(255, 118, 118, 118),
                       fontWeight: FontWeight.w500,
                       fontSize: 12,
                     ),

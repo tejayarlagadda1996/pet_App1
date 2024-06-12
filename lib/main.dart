@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/global_widgets/payment/payment_confirmed.dart';
 import 'package:pet_app/welcome/views/home_welcome.dart';
 
 void main() {

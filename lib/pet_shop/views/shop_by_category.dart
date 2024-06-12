@@ -23,7 +23,7 @@ class ShopByCategory extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.only(left: 14.0, top: 14, bottom: 8),
+          padding: EdgeInsets.only(left: 14.0, top: 14, bottom: 14),
           child: Text(
             "Shop by Category",
             style: TextStyle(

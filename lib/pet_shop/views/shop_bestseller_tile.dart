@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/pet_shop/views/home_product_details.dart';
+import 'package:pet_app/product_details/views/home_product_details.dart';
 
 class ShopBestsellerTile extends StatelessWidget {
   final String imgUrl;

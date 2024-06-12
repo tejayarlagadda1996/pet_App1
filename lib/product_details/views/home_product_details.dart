@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/pet_shop/views/bottom_buttons.dart';
-import 'package:pet_app/pet_shop/views/current_product_details.dart';
-import 'package:pet_app/pet_shop/views/delivery_location.dart';
-import 'package:pet_app/pet_shop/views/highlights.dart';
-import 'package:pet_app/pet_shop/views/policy.dart';
-import 'package:pet_app/pet_shop/views/product_details_forward.dart';
-import 'package:pet_app/pet_shop/views/rating_review.dart';
-import 'package:pet_app/pet_shop/views/size_selector.dart';
+import 'package:pet_app/product_details/views/current_product_details.dart';
+import 'package:pet_app/product_details/views/delivery_location.dart';
+import 'package:pet_app/product_details/views/highlights.dart';
+import 'package:pet_app/product_details/views/pet_shop_offer_list.dart';
+import 'package:pet_app/product_details/views/policy.dart';
+import 'package:pet_app/product_details/views/product_details_forward.dart';
+import 'package:pet_app/product_details/views/rating_review.dart';
+import 'package:pet_app/product_details/views/size_selector.dart';
 
 class ProductDetails extends StatefulWidget {
   final String prodImgUrl;
@@ -41,7 +42,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         backgroundColor: Colors.white,
         shadowColor: Colors.white,
@@ -73,9 +74,9 @@ class _ProductDetailsState extends State<ProductDetails> {
               reviews: widget.prodReviews,
               price: widget.prodPrice,
             ),
-            SizeSelector(productSizes: productSizes), // consistent colored UI spacing
+            SizeSelector(productSizes: productSizes),
             const Policy(),
-            // Offers(),
+            const PetShopOffersList(),
             const DeliveryLocation(),
             Highlights(highlights: widget.prodHighlights),
             const ProductDetailsForward(),
