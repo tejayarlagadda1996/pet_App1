@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BottomButtons extends StatelessWidget {
-  const BottomButtons({super.key});
+class PetShopBottomButtons extends StatelessWidget {
+  const PetShopBottomButtons({super.key});
 
   @override
   Widget build(BuildContext context) {

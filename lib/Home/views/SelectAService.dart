@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Home/views/ServiceTile.dart';
+import 'package:pet_app/Home/views/HomeServiceTile.dart';
 import 'package:pet_app/PetShop/views/PetShopRoot.dart';
 import 'package:pet_app/Treatment/views/TreatmentRoot.dart';
 
@@ -26,7 +26,7 @@ class SelectAService extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: ServiceTile(
+              child: HomeServiceTile(
                 name: "Grooming",
                 imgUrl: "assets/grooming_icon.png",
                 onTileTap: () {
@@ -35,7 +35,7 @@ class SelectAService extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ServiceTile(
+              child: HomeServiceTile(
                 name: "Pet Shop",
                 imgUrl: "assets/pet_shop_icon.png",
                 onTileTap: () {
@@ -54,7 +54,7 @@ class SelectAService extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: ServiceTile(
+              child: HomeServiceTile(
                 name: "Treatment",
                 imgUrl: "assets/treatment_icon.png",
                 onTileTap: () {
@@ -68,7 +68,7 @@ class SelectAService extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ServiceTile(
+              child: HomeServiceTile(
                 name: "Lab Test",
                 imgUrl: "assets/lab_test_icon.png",
                 onTileTap: () {}, // remove this and enable below

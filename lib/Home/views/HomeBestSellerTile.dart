@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerTile extends StatelessWidget {
+class HomeBestSellerTile extends StatelessWidget {
   final String imgUrl;
   final String name;
   final double price;
-  const BestSellerTile(
+  const HomeBestSellerTile(
       {super.key,
       required this.imgUrl,
       required this.name,

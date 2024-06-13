@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/Home/views/RectButton.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
-class LabTestTile extends StatelessWidget {
+class HomeLabTestTile extends StatelessWidget {
   final String testName;
   final String description;
   final int parameters;
   final int originalPrice;
   final int discountedPrice;
 
-  const LabTestTile({
+  const HomeLabTestTile({
     super.key,
     required this.testName,
     required this.description,

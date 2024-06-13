@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 
-class ServiceTile extends StatelessWidget {
+class HomeServiceTile extends StatelessWidget {
   final String name;
   final String imgUrl;
   final Callback onTileTap;
 
-  const ServiceTile(
+  const HomeServiceTile(
       {super.key,
       required this.name,
       required this.imgUrl,

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/Home/controllers/lab_test_controller.dart';
 import 'package:pet_app/Utils/Consultation/ConsultationHeader.dart';
-import 'package:pet_app/Home/views/LabTestTile.dart';
+import 'package:pet_app/Home/views/HomeLabTestTile.dart';
 
-class LabTest extends StatelessWidget {
-  LabTest({super.key});
+class HomeLabTest extends StatelessWidget {
+  HomeLabTest({super.key});
   final LabTestController labTestController = Get.put(LabTestController());
 
   @override
@@ -37,7 +37,7 @@ class LabTest extends StatelessWidget {
                   itemCount: labTestController.labTestList.length,
                   itemBuilder: (context, index) {
                     final labTest = labTestController.labTestList[index];
-                    return LabTestTile(
+                    return HomeLabTestTile(
                       testName: labTest.labTestName,
                       description: labTest.labTestDescription,
                       parameters: labTest.labTestParameters,

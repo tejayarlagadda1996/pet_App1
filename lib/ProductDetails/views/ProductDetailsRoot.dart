@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/PetShop/views/bottom_buttons.dart';
+import 'package:pet_app/PetShop/views/PetShopBottomButtons.dart';
 import 'package:pet_app/ProductDetails/views/CurrentProductDetails.dart';
 import 'package:pet_app/ProductDetails/views/DeliveryLocation.dart';
 import 'package:pet_app/ProductDetails/views/Highlights.dart';
@@ -88,7 +88,7 @@ class _ProductDetailsRootState extends State<ProductDetailsRoot> {
           ],
         ),
       ),
-      bottomNavigationBar: const BottomButtons(),
+      bottomNavigationBar: const PetShopBottomButtons(),
     );
   }
 }

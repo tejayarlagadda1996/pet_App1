@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/Home/controllers/bestseller_controller.dart';
-import 'package:pet_app/Home/views/BestSellerTile.dart';
+import 'package:pet_app/Home/views/HomeBestSellerTile.dart';
 
-class BestSeller extends StatelessWidget {
-  BestSeller({super.key});
+class HomeBestSeller extends StatelessWidget {
+  HomeBestSeller({super.key});
 
   final BestsellerController bestsellerController = Get.put(BestsellerController());
 
@@ -63,7 +63,7 @@ class BestSeller extends StatelessWidget {
                 itemBuilder: (context, index) {
 
                   final product = bestsellerController.bestsellerList[index];
-                  return BestSellerTile(
+                  return HomeBestSellerTile(
                     name: product.productName,
                     imgUrl: product.productImagePath,
                     price: product.productPrice,

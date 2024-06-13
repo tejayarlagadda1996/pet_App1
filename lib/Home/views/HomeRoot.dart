@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/Utils/Consultation/BehaviourConsultation.dart';
-import 'package:pet_app/Home/views/BestSeller.dart';
+import 'package:pet_app/Home/views/HomeBestSeller.dart';
 import 'package:pet_app/Utils/Consultation/ConditionConsultation.dart';
-import 'package:pet_app/Home/views/GroomingPackage.dart';
-import 'package:pet_app/Home/views/LabTest.dart';
+import 'package:pet_app/Home/views/HomeGroomingPackage.dart';
+import 'package:pet_app/Home/views/HomeLabTest.dart';
 import 'package:pet_app/Utils/BannerImage.dart';
 import 'package:pet_app/Utils/DoctorCardList/DoctorConsultation.dart';
 import 'package:pet_app/Utils/Searchbar.dart';
@@ -66,15 +66,15 @@ class _HomeRootState extends State<HomeRoot> {
             // supposed to be an ad?
             Searchbar(searchbarHintText: 'Search for toys, grooming ...'),
             SelectAService(),
-            BestSeller(),
+            HomeBestSeller(),
             DoctorConsultation(),
 
             BannerImage(imgUrl: "assets/onboarding_image_2.png"),
             ConditionConsultation(),
-            GroomingPackage(),
+            HomeGroomingPackage(),
             SymptomConsultation(),
             BannerImage(imgUrl: "assets/onboarding_image_3.png"),
-            LabTest(),
+            HomeLabTest(),
 
             BehaviourConsultation(),
             BannerImage(imgUrl: "assets/onboarding_image_4.png"),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/Home/views/RectButton.dart';
 
-class GroomingTile extends StatelessWidget {
+class HomeGroomingTile extends StatelessWidget {
   final String serviceName;
   final int discount;
   final double rating;
@@ -10,7 +10,7 @@ class GroomingTile extends StatelessWidget {
   final List<String> services;
   final int price;
 
-  const GroomingTile({
+  const HomeGroomingTile({
     super.key,
     required this.serviceName,
     required this.discount,

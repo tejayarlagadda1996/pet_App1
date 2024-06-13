@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/Home/controllers/grooming_package_controller.dart';
 import 'package:pet_app/Utils/Consultation/ConsultationHeader.dart';
-import 'package:pet_app/Home/views/GroomingTile.dart';
+import 'package:pet_app/Home/views/HomeGroomingTile.dart';
 
-class GroomingPackage extends StatelessWidget {
-  GroomingPackage({super.key});
+class HomeGroomingPackage extends StatelessWidget {
+  HomeGroomingPackage({super.key});
 
   final GroomingPackageController groomingPackageController = Get.put(GroomingPackageController());
 
@@ -38,7 +38,7 @@ class GroomingPackage extends StatelessWidget {
                   itemCount: groomingPackageController.groomingPackageList.length,
                   itemBuilder: (context, index) {
                     final package = groomingPackageController.groomingPackageList[index];
-                    return GroomingTile(
+                    return HomeGroomingTile(
                       serviceName: package.packageName,
                       discount: package.packageDiscount,
                       rating: package.packageRating,
