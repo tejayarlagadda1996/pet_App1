@@ -1,8 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-import 'package:pet_app/Summery/Payment.dart';
 import 'package:pet_app/Utils/Round_button.dart';
 
 class Bottombbuttons extends StatelessWidget {
@@ -33,7 +31,7 @@ class Bottombbuttons extends StatelessWidget {
             height: MediaQuery.of(context).size.height*0.125,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 16),
-              child: RoundButton(roundButtonText: 'Procced to Pay', onPressed: (){Get.to(const Payment());}),
+              child: RoundButton(roundButtonText: 'Procced to Pay', onPressed: (){}),
             ),
           )
         ],

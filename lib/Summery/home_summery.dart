@@ -4,7 +4,7 @@ import 'package:pet_app/Summery/Cartitems.dart';
 import 'package:pet_app/Summery/DeliveryAddress.dart';
 import 'package:pet_app/Summery/Offerforyou.dart';
 import 'package:pet_app/Summery/Price_details.dart';
-import 'package:pet_app/Utils/display_image.dart';
+import 'package:pet_app/Utils/BannerImage.dart';
 
 class Summery extends StatefulWidget {
   const Summery({super.key});
@@ -57,7 +57,7 @@ class _SummeryState extends State<Summery> {
                   ),
                 ),
                 const Pricedetails(),
-                const DisplayImage(imgUrl: "assets/petshop_image_1.png"),
+                const BannerImage(imgUrl: "assets/petshop_image_1.png")
               ],
             ),
           ),
