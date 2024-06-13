@@ -10,7 +10,7 @@ class Packages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: packagelist.map((data){
-        return BestSeller(packagename: data.packagename, ratings: data.ratings, reviews: data.reviews, duration: data.duration, packageservices: data.packageservices, packageprice: data.packageprice);
+        return BestSeller(packagename: data.packagename, ratings: data.ratings, reviews: data.reviews, duration: data.duration, packageservices: data.packageservices, packageprice: data.packageprice,showIconButton: true,isselected: false,);
       }
     ).toList(),
   );

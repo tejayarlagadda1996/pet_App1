@@ -11,11 +11,11 @@ class ServiceTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double width = constraints.maxWidth * 0.7;
-        double height = width;
+        double width = constraints.maxWidth;
+        double height = width*0.8;
 
         return GestureDetector(
-          onTap: () {}, // add functionality
+          onTap: () {},
           child: Card(
             shadowColor: Colors.transparent,
             color: Colors.transparent,
@@ -42,7 +42,7 @@ class ServiceTile extends StatelessWidget {
                 ),
                 Container(
                   height: height * 0.5,
-                  width: width,
+                  width: width*0.8,
                   decoration: const BoxDecoration(
                     color: Color.fromRGBO(252, 213, 208, 1),
                     borderRadius: BorderRadius.only(

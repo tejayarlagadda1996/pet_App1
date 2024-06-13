@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/global_widgets/display_image.dart';
-import 'package:pet_app/global_widgets/searchbar.dart';
+import 'package:pet_app/Utils/display_image.dart';
+import 'package:pet_app/Utils/searchbar.dart';
 import 'package:pet_app/treatment/views/symptoms.dart';
 import 'package:pet_app/treatment/views/treatment_doctor_list.dart';
 

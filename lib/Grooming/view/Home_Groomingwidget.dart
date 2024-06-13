@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:pet_app/Grooming/Packagemodel/Package.dart';
 import 'package:pet_app/Grooming/view/Packages.dart';
 import 'package:pet_app/Grooming/view/service_tile.dart';
@@ -23,8 +24,6 @@ class _GromingwidgetState extends State<Gromingwidget> {
       'Hair cut',
       'Ear/eyes cleaning',
       'Dog Spa',
-      'Something',
-      'Something'
     ];
     List serviceimages = [
       'assets/Grooming1.png',
@@ -34,8 +33,6 @@ class _GromingwidgetState extends State<Gromingwidget> {
       'assets/Grooming5.png',
       'assets/Grooming6.png',
       'assets/Grooming7.png',
-      'assets/Grooming8.png',
-      'assets/Grooming9.png'
     ];
 
     return Scaffold(
@@ -53,7 +50,7 @@ class _GromingwidgetState extends State<Gromingwidget> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -70,55 +67,16 @@ class _GromingwidgetState extends State<Gromingwidget> {
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                 child: Image.asset('assets/Groomingbanner.png'),
               ),
-              Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                      child: ServiceTile(
-                          name: services[0], imgUrl: serviceimages[0])),
-                  Expanded(
-                      child: ServiceTile(
-                          name: services[1], imgUrl: serviceimages[1])),
-                  Expanded(
-                      child: ServiceTile(
-                          name: services[2], imgUrl: serviceimages[2])),
-                ],
+              StaggeredGrid.count(
+                crossAxisCount: 3,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+                axisDirection: AxisDirection.down,
+                children: List.generate(services.length, (index) {
+                  return ServiceTile(name: services[index], imgUrl: serviceimages[index]);
+                },),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                      child: ServiceTile(
-                          name: services[3], imgUrl: serviceimages[3])),
-                  Expanded(
-                      child: ServiceTile(
-                          name: services[4], imgUrl: serviceimages[4])),
-                  Expanded(
-                      child: ServiceTile(
-                          name: services[5], imgUrl: serviceimages[5]))
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                      child: ServiceTile(
-                          name: services[6], imgUrl: serviceimages[6])),
-                  Expanded(
-                      child: ServiceTile(
-                          name: services[7], imgUrl: serviceimages[7])),
-                  Expanded(
-                      child: ServiceTile(
-                          name: services[8], imgUrl: serviceimages[8]))
-                ],
-              ),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 20),
               const Text('BestSeller Packages',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
               Packages(packagelist:packagecardlist),
             ],

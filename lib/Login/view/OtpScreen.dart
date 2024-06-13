@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/PetRegistration/view/view/PetRegistration.dart';
-import 'package:pet_app/global_widgets/Round_button.dart';
+import 'package:pet_app/PetRegistration/view/PetRegistration.dart';
+import 'package:pet_app/Utils/Round_button.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
