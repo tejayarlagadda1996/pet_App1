@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/symptom_treatment/views/home_symptop_treatment.dart';
+import 'package:pet_app/SymptomTreatment/views/SymptomTreatmentRoot.dart';
 
 class Symptoms extends StatelessWidget {
   final List<String> labels;
@@ -62,7 +62,7 @@ class Symptoms extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        SymptomTreatment(selectedLabels: selectedLabels),
+                        SymptomTreatmentRoot(selectedLabels: selectedLabels),
                   ),
                 );
               }
