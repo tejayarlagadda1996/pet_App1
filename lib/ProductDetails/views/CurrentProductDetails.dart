@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_app/Utils/StarBuilder.dart';
 
 class CurrentProductDetails extends StatelessWidget {
   final String name;
@@ -17,50 +18,16 @@ class CurrentProductDetails extends StatelessWidget {
     required this.price,
   });
 
-  // to display no. of stars needed in the UI
-  Widget buildStars(double rating) {
-    int fullStars = rating.floor();
-    bool hasHalfStar = (rating - fullStars) >= 0.5;
-    int emptyStars = (5 - fullStars - (hasHalfStar ? 1 : 0)).floor();
-
-    List<Widget> stars = [];
-
-    for (int i = 0; i < fullStars; i++) {
-      stars.add(const Icon(
-        Icons.star,
-        color: Color.fromRGBO(237, 109, 78, 1),
-        size: 14,
-      ));
-    }
-
-    if (hasHalfStar) {
-      stars.add(const Icon(
-        Icons.star_half,
-        color: Color.fromRGBO(237, 109, 78, 1),
-        size: 14,
-      ));
-    }
-
-    for (int i = 0; i < emptyStars; i++) {
-      stars.add(const Icon(
-        Icons.star_border,
-        color: Color.fromRGBO(237, 109, 78, 1),
-        size: 14,
-      ));
-    }
-    return Row(children: stars);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 12,
-        // vertical: 4,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 6),
           // Item Name
           Text(
             name,
@@ -79,11 +46,11 @@ class CurrentProductDetails extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 10),
           Row(
             children: [
               // Dynamic Star Rating
-              buildStars(rating),
+              StarBuilder.buildStars(rating),
               const SizedBox(width: 4), // Spacing between stars and text
               Text(
                 "$rating/5",
@@ -122,7 +89,7 @@ class CurrentProductDetails extends StatelessWidget {
             child: Center(
               child: Divider(
                 color: Color.fromRGBO(178, 178, 178, 0.3),
-                thickness: 1,
+                thickness: 2,
               ),
             ),
           ),

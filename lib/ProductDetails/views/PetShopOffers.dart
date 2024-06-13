@@ -35,8 +35,8 @@ class PetShopOffers extends StatelessWidget {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(
-                        left: 12,
-                        right: 18,
+                        left: 8,
+                        right: 22,
                         top: 8,
                         bottom: 8,
                       ),

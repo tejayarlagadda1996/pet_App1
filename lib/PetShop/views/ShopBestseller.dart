@@ -6,16 +6,16 @@ class ShopBestseller extends StatelessWidget {
 
   final List<Map<String, dynamic>> shopBestsellers = [
     {
-      'imgUrl': 'assets/best_seller_product.jpg',
+      'imgUrl': 'assets/best_seller_product.png',
       'itemName': 'Drools',
       'itemDescription': '1.2kg egg & chicken 3kg dry adult food',
       'price': 180,
-      'rating': 4.5,
+      'rating': 3.5,
       'reviewCount': 67,
       'highlights': ["Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1"]
     },
     {
-      'imgUrl': 'assets/best_seller_product.jpg',
+      'imgUrl': 'assets/best_seller_product.png',
       'itemName': 'Drools',
       'itemDescription': '1.2kg egg & chicken 3kg dry adult food. 3kg dry adult food.',
       'price': 180,
@@ -24,7 +24,7 @@ class ShopBestseller extends StatelessWidget {
       'highlights': ["Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1"]
     },
     {
-      'imgUrl': 'assets/best_seller_product.jpg',
+      'imgUrl': 'assets/best_seller_product.png',
       'itemName': 'Drools',
       'itemDescription': '1.2kg egg & chicken 3kg dry adult food. Good for pets who are habituated to being lazy.',
       'price': 180,
@@ -33,7 +33,7 @@ class ShopBestseller extends StatelessWidget {
       'highlights': ["Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1"]
     },
     {
-      'imgUrl': 'assets/best_seller_product.jpg',
+      'imgUrl': 'assets/best_seller_product.png',
       'itemName': 'Drools',
       'itemDescription': '1.2kg egg & chicken 3kg dry adult food',
       'price': 180,

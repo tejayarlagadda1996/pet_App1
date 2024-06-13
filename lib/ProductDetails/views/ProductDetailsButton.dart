@@ -12,7 +12,7 @@ class ProductDetailsButton extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 12,
-            vertical: 0,
+            vertical: 10,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

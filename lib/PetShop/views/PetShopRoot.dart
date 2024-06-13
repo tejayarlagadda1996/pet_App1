@@ -33,7 +33,7 @@ class _PetShopRootState extends State<PetShopRoot> {
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
                 onPressed: () {
-                  Get.to(() => const Summery());
+                  // Get.to(() => const Summery());
                 },
                 icon: const Icon(Icons.shopping_cart_outlined),
               ),

@@ -29,17 +29,17 @@ class ShopBestsellerTile extends StatelessWidget {
       padding: const EdgeInsets.only(left: 12, right: 12),
       child: GestureDetector(
         onTap: () {
-          Get.to(
-            ProductDetailsRoot(
-              prodImgUrl: imgUrl,
-              prodName: itemName,
-              prodDesc: itemDescription,
-              prodRating: rating,
-              prodReviews: reviewCount,
-              prodPrice: price,
-              prodHighlights: highlights,
-            ),
-          );
+          Get.to( () => 
+                ProductDetailsRoot(
+                  prodImgUrl: imgUrl,
+                  prodName: itemName,
+                  prodDesc: itemDescription,
+                  prodRating: rating,
+                  prodReviews: reviewCount,
+                  prodPrice: price,
+                  prodHighlights: highlights,
+                ),
+              );
         },
         child: Container(
           width: MediaQuery.of(context).size.width,

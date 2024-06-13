@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pet_app/Treatment/views/SymptomsList.dart';
 import 'package:pet_app/Treatment/views/TreatmentDoctorList.dart';
 import 'package:pet_app/Treatment/views/TreatmentSlidingImages.dart';
-import 'package:pet_app/Treatment/views/symptoms.dart';
 import 'package:pet_app/Utils/BannerImage.dart';
 import 'package:pet_app/Utils/Searchbar.dart';
 
@@ -102,7 +102,7 @@ class _TreatmentRootState extends State<TreatmentRoot> {
               const Searchbar(
                 searchbarHintText: "Search with Symptoms ...",
               ),
-              Symptoms(
+              SymptomsList(
                 labels: _labels,
                 selectedLabels: _selectedLabels,
                 onToggleLabel: _toggleLabel,

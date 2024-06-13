@@ -4,6 +4,8 @@ import 'package:pet_app/ProductDetails/views/CurrentProductDetails.dart';
 import 'package:pet_app/ProductDetails/views/DeliveryLocation.dart';
 import 'package:pet_app/ProductDetails/views/Highlights.dart';
 import 'package:pet_app/ProductDetails/views/PetShopOffersList.dart';
+import 'package:pet_app/ProductDetails/views/ProductDetailComments.dart';
+import 'package:pet_app/ProductDetails/views/ProductImageDisplay.dart';
 import 'package:pet_app/ProductDetails/views/ProductPolicy.dart';
 import 'package:pet_app/ProductDetails/views/ProductDetailsButton.dart';
 import 'package:pet_app/ProductDetails/views/RatingReview.dart';
@@ -66,7 +68,7 @@ class _ProductDetailsRootState extends State<ProductDetailsRoot> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ProductImageDisplay(),
+            ProductImageDisplay(),
             CurrentProductDetails(
               name: widget.prodName,
               description: widget.prodDesc,
@@ -84,7 +86,7 @@ class _ProductDetailsRootState extends State<ProductDetailsRoot> {
               rating: widget.prodRating,
               reviews: widget.prodReviews,
             ),
-            // Comments(),
+            ProductDetailComments(),
           ],
         ),
       ),

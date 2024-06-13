@@ -96,7 +96,7 @@ class _WelcomeRootState extends State<WelcomeRoot> {
                       RoundButton(
                         roundButtonText: "Log In / Sign Up",
                         onPressed: () {
-                          Get.to(const Login(showSignIn: true));
+                          // Get.to(() => const Login(showSignIn: true));
                           // showModalBottomSheet(
                           //   context: context,
                           //   builder: (context) =>
@@ -109,11 +109,11 @@ class _WelcomeRootState extends State<WelcomeRoot> {
                       // Guest Explore
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Login(showSignIn: true,),
-                              ));
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //       builder: (context) => const Login(showSignIn: true,),
+                          //     ));
                         }, // add functionality
                         child: const Text(
                           "Explore as a Guest",

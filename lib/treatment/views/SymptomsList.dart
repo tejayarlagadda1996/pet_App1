@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/SymptomTreatment/views/SymptomTreatmentRoot.dart';
 
-class Symptoms extends StatelessWidget {
+class SymptomsList extends StatelessWidget {
   final List<String> labels;
   final List<String> selectedLabels;
   final Function(String) onToggleLabel;
 
-  const Symptoms({
+  const SymptomsList({
     super.key,
     required this.labels,
     required this.selectedLabels,
