@@ -18,7 +18,7 @@ class Highlights extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Highlights",
+            "Features",
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,
