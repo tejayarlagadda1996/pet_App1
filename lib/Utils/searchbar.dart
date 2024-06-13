@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class PetSearchbar extends StatefulWidget {
+class Searchbar extends StatefulWidget {
   final String searchbarHintText;
-  const PetSearchbar({super.key, required this.searchbarHintText});
+  const Searchbar({super.key, required this.searchbarHintText});
 
   @override
-  State<PetSearchbar> createState() => _PetSearchbarState();
+  State<Searchbar> createState() => _SearchbarState();
 }
 
-class _PetSearchbarState extends State<PetSearchbar> {
+class _SearchbarState extends State<Searchbar> {
   final TextEditingController _searchController = TextEditingController();
 
   @override

@@ -27,7 +27,7 @@ void packageDetails(BuildContext context) {
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.blueAccent
                       ),
-                      child: Image.asset(packagedetails.),
+                      // child: Image.asset(),
                     ),
                     subtitle: const Text('Each Service detail about how its done, What products we use, and time that is suppose to take, we can get the detail from the agency and keep the content here.'),
                   ),
