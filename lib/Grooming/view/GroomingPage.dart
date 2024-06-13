@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:pet_app/Grooming/Packagemodel/Package.dart';
+import 'package:pet_app/Grooming/model/PackageModel.dart';
 import 'package:pet_app/Grooming/view/Packages.dart';
 import 'package:pet_app/Grooming/view/service_tile.dart';
 
-class Gromingwidget extends StatefulWidget {
+class GroomingPage extends StatefulWidget {
 
-  const Gromingwidget({super.key});
+  const GroomingPage({super.key});
 
   @override
-  State<Gromingwidget> createState() => _GromingwidgetState();
+  State<GroomingPage> createState() => _GroomingPageState();
 }
 
-class _GromingwidgetState extends State<Gromingwidget> {
+class _GroomingPageState extends State<GroomingPage> {
   
   @override
   Widget build(BuildContext context) {

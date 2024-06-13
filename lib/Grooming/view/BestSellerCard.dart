@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/Grooming/view/Counter.dart';
 import 'package:pet_app/Grooming/view/Package_detail.dart';
 
-class BestSeller extends StatelessWidget {
+class BestSellercard extends StatelessWidget {
   final String packagename;
   final String ratings;
   final String reviews;
@@ -12,18 +12,9 @@ class BestSeller extends StatelessWidget {
   final bool showIconButton;
   final  bool isselected;
 
-  const BestSeller({
-    super.key,
-    required this.packagename, 
-    required this.ratings, 
-    required this.reviews, 
-    required this.duration, 
-    required this.packageservices, 
-    required this.packageprice, 
-    required this.showIconButton,
-    required this.isselected});
-
-  void showCustomBottomSheet(BuildContext context) {
+  const BestSellercard({super.key, required this.packagename, required this.ratings, required this.reviews, required this.duration, required this.packageservices, required this.packageprice, required this.showIconButton, required this.isselected});
+  
+  void giftBottomSheet(BuildContext context) {
     showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -37,7 +28,7 @@ class BestSeller extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset('assets/giftimage.png', height: 200, fit: BoxFit.fitWidth),
-                BestSeller(
+                BestSellercard(
                   packagename: packagename,
                   ratings: ratings,
                   reviews: reviews,
@@ -56,7 +47,6 @@ class BestSeller extends StatelessWidget {
       },
     );
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +67,7 @@ class BestSeller extends StatelessWidget {
               ),
               if(showIconButton)
               IconButton(
-                onPressed: (){showCustomBottomSheet(context);},icon: Image.asset('assets/gifticon.png'))
+                onPressed: (){giftBottomSheet(context);},icon: Image.asset('assets/gifticon.png'))
             ],
           ),
           Text(packagename,style:const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
@@ -105,7 +95,7 @@ class BestSeller extends StatelessWidget {
 
               TextButton(
                 onPressed: () {
-                showDraggableBottomSheet(context);
+                packageDetails(context);
                 },
                 child: const Text('View'))
             ],

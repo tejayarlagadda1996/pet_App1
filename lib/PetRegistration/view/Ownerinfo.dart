@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
 import 'package:pet_app/Login/view/DynamicTextfield.dart';
 import 'package:pet_app/Utils/Round_button.dart';
-import 'package:pet_app/Home/views/HomeRoot.dart';
 class Ownerinfo extends StatefulWidget {
   const Ownerinfo({super.key});
 
@@ -108,7 +107,7 @@ class _OwnerinfoState extends State<Ownerinfo> {
                 padding:  const EdgeInsets.all(20),
                 child: RoundButton(
                   onPressed: (){
-                    Get.offAll(const HomeRoot());
+                    // Get.offAll(const HomeRoot());
                 },roundButtonText: 'Submit',)
               )
             ],

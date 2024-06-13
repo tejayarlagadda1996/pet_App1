@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/Grooming/view/FAqList.dart';
 
-void showDraggableBottomSheet(BuildContext context) {
+void packageDetails(BuildContext context) {
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -26,7 +27,7 @@ void showDraggableBottomSheet(BuildContext context) {
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.blueAccent
                       ),
-                      // child: Image.asset(''),
+                      child: Image.asset(packagedetails.),
                     ),
                     subtitle: const Text('Each Service detail about how its done, What products we use, and time that is suppose to take, we can get the detail from the agency and keep the content here.'),
                   ),

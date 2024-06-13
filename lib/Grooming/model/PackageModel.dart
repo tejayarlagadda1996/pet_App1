@@ -12,9 +12,14 @@ class Package{
   required this.reviews,
   required this.duration, 
   required this.packageservices,
-  required this.packageprice
-});
+  required this.packageprice});
 
+}
+class PackageDetails{
+  final String image;
+  final String description;
+
+  PackageDetails({required this.image,required this.description});
 }
 
 List<Package> packagecardlist=[
@@ -24,7 +29,7 @@ List<Package> packagecardlist=[
     reviews: '12 reviews',
     duration: '1 hours 45 mins',
     packageservices:['Body Spray','Medicated Bath','Teeth Brushing'],
-    packageprice: 1129
+    packageprice: 1129,
   ),
   const Package(
     packagename: 'Spa Package',
@@ -32,7 +37,7 @@ List<Package> packagecardlist=[
     reviews: '14 reviews',
     duration: '1 hour 45 mins',
     packageservices:['Body Spray','Medicated Bath','Teeth Brushing','Massages','Haircut','Nail Clipping'],
-    packageprice: 1029
+    packageprice: 1029,
   ),
   const Package(
     packagename: 'Eye/Ear Cleaning',
@@ -40,6 +45,6 @@ List<Package> packagecardlist=[
     reviews: '17 reviews',
     duration: '1 hour 30 mins',
     packageservices:['Body Spray','Medicated Bath','Teeth Brushing','Massages','Haircut'],
-    packageprice: 929
+    packageprice: 929,
   ),
 ];

@@ -4,6 +4,7 @@ import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
 import 'package:pet_app/Login/view/DynamicTextfield.dart';
 import 'package:pet_app/Utils/Round_button.dart';
 import 'package:pet_app/Login/Controller/SignInController.dart';
+import 'OtpScreen.dart';
 
 class SignInWidget extends StatefulWidget {
   const SignInWidget({super.key});
@@ -58,12 +59,10 @@ class _SignInWidgetState extends State<SignInWidget> {
             ),
             const SizedBox(height: 8),
             RoundButton(
-                roundButtonText: 'Sign in',
-                onPressed: () {
-                  controller.signIn();
-                  print(controller.emailOrNumber);
-                  print(controller.password);
-                })
+              roundButtonText: 'Sign in',
+              onPressed: (){
+                Get.to(const OtpScreen());
+            })
           ],
         ),
       ),
