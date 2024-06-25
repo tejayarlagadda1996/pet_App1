@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
 import 'package:pet_app/Login/view/DynamicTextfield.dart';
 import 'package:pet_app/PetRegistration/view/Ownerinfo.dart';
-import 'package:pet_app/Utils/Round_button.dart';
+import 'package:pet_app/Utils/RoundButton.dart';
 
 class PetRegistrationScreen extends StatefulWidget {
   const PetRegistrationScreen({super.key});
