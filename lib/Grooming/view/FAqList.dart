@@ -12,7 +12,7 @@ class Faqlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: faqs.map((faq)=>FaqWidget(faq: faq)).toList(),
+      children:faqs.map((faq)=>FaqWidget(faq: faq)).toList(),
     );
   }
 }

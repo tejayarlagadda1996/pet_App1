@@ -13,7 +13,6 @@ class FaqWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("FAQ's"),
             ExpansionTile(
               title: Text(faq.question),
               children: [

@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:pet_app/Grooming/model/PackageModel.dart';
+import 'package:pet_app/Grooming/model/Package.dart';
 import 'package:pet_app/Grooming/view/Packages.dart';
 import 'package:pet_app/Grooming/view/service_tile.dart';
 
-class GroomingPage extends StatefulWidget {
-
+class GroomingPage extends StatelessWidget {
   const GroomingPage({super.key});
 
-  @override
-  State<GroomingPage> createState() => _GroomingPageState();
-}
-
-class _GroomingPageState extends State<GroomingPage> {
-  
   @override
   Widget build(BuildContext context) {
     List services = [
@@ -36,6 +29,7 @@ class _GroomingPageState extends State<GroomingPage> {
     ];
 
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(255, 249, 246, 1),
       appBar: AppBar(
         title: const Text(
           'Grooming',
@@ -49,41 +43,63 @@ class _GroomingPageState extends State<GroomingPage> {
         shadowColor: Colors.grey,
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Here is how we groom your pet',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              color: Colors.white,
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(12),
+                    child: Text(
+                      'Here is how we groom your pet',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(12),
+                    child: Text(
+                      'We Provide same love & care as you do',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Container(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                      child: Image.asset('assets/Groomingbanner.png'),
+                    ),
+                  ),
+                  StaggeredGrid.count(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    axisDirection: AxisDirection.down,
+                    children: List.generate(
+                      services.length,
+                      (index) {
+                        return ServiceTile(
+                            name: services[index],
+                            imgUrl: serviceimages[index]);
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 20)
+                ],
               ),
-              const Text(
-                'We Provide same love & care as you do',
-                style: TextStyle(fontSize: 12),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                child: Image.asset('assets/Groomingbanner.png'),
-              ),
-              StaggeredGrid.count(
-                crossAxisCount: 3,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
-                axisDirection: AxisDirection.down,
-                children: List.generate(services.length, (index) {
-                  return ServiceTile(name: services[index], imgUrl: serviceimages[index]);
-                },),
-              ),
-              const SizedBox(height: 20),
-              const Text('BestSeller Packages',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-              Packages(packagelist:packagecardlist),
-            ],
-          ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'BestSeller Packages',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            Packages(packagelist: packagecardlist),
+          ],
         ),
       ),
-      
     );
   }
 }
