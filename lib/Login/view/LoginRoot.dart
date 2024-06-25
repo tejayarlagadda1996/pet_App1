@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/Login/view/SignInWidget.dart';
 import 'package:pet_app/Login/view/Signupwidget.dart';
 
-class LoginHomePage extends StatefulWidget {
+class LoginRoot extends StatefulWidget {
   final bool showSignIn;
-  const LoginHomePage({super.key, required this.showSignIn});
+  const LoginRoot({super.key, required this.showSignIn});
 
   @override
-  State<LoginHomePage> createState() => _LoginHomePageState();
+  State<LoginRoot> createState() => _LoginRootState();
 }
  
 
-class _LoginHomePageState extends State<LoginHomePage> {
+class _LoginRootState extends State<LoginRoot> {
   late bool showSignIn;
 
   @override

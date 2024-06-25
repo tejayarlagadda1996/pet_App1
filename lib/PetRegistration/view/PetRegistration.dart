@@ -61,7 +61,7 @@ class _PetRegistrationScreenState extends State<PetRegistrationScreen> {
   void handleAction(DynamicTextfieldActionType actionType) {
   }
 
-  void handleDataFilled(List<RxString> filledData) {
+  void handleDataFilled(List<String> filledData) {
   }
 
   @override

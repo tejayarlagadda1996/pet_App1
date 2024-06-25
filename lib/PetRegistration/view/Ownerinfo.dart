@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_app/Home/views/HomeRoot.dart';
 import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
 import 'package:pet_app/Login/view/DynamicTextfield.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
@@ -39,7 +40,7 @@ class _OwnerinfoState extends State<Ownerinfo> {
     // Handle field-specific actions here if needed
   }
 
-  void handleDataFilled(List<RxString> filledData) {
+  void handleDataFilled(List<String> filledData) {
   }
 
   @override
@@ -108,7 +109,7 @@ class _OwnerinfoState extends State<Ownerinfo> {
                 padding:  const EdgeInsets.all(20),
                 child: RoundButton(
                   onPressed: (){
-                    // Get.offAll(const HomeRoot());
+                    Get.offAll(const HomeRoot());
                 },roundButtonText: 'Submit',)
               )
             ],

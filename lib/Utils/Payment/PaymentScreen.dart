@@ -44,7 +44,7 @@ class PaymentScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: paymentConfirmed
                     ? const Color.fromRGBO(11, 83, 81, 1)
-                    : const Color.fromARGB(255, 104, 1, 1)
+                    : Color.fromARGB(255, 104, 1, 1)
               ),
             ),
             const SizedBox(height: 6),

@@ -4,8 +4,8 @@ import 'package:pet_app/Grooming/model/Package.dart';
 import 'package:pet_app/Grooming/view/Packages.dart';
 import 'package:pet_app/Grooming/view/service_tile.dart';
 
-class GroomingPage extends StatelessWidget {
-  const GroomingPage({super.key});
+class GroomingRoot extends StatelessWidget {
+  const GroomingRoot({super.key});
 
   @override
   Widget build(BuildContext context) {

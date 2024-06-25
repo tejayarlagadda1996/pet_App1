@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Grooming/view/GroomingPage.dart';
+import 'package:pet_app/Welcome/views/WelcomeRoot.dart';
 // import 'Login/view/LoginHomePage.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       title: 'Pet App',
       debugShowCheckedModeBanner: false,
-      home: GroomingPage(),
+      home: WelcomeRoot(),
     );
   }
 }

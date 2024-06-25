@@ -59,18 +59,15 @@ class _SignInWidgetState extends State<SignInWidget> {
             ),
             const SizedBox(height: 8),
             RoundButton(
-              roundButtonText: 'Sign in',
-              onPressed: (){
-                Get.to(const OtpScreen());
-            })
+                roundButtonText: 'Sign in',
+                onPressed: () {
+                  Get.to(const OtpScreen());
+                })
           ],
         ),
       ),
     );
   }
 
-  void handleFormFilledData(List<RxString> filledData) {
-    controller.emailOrNumber = filledData[0];
-    controller.password = filledData[1];
-  }
+  void handleFormFilledData(List<String> filledData) {}
 }

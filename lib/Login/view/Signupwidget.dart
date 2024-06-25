@@ -33,7 +33,7 @@ class _SignupwidgetState extends State<Signupwidget> {
       ),
       DynamicTextFieldModel(
         obscureText: false,
-        placeholderText: 'Mobile',
+        placeholderText: 'Mobile number',
         actionType: DynamicTextfieldActionType.number,
         enabledBorder: borderLine,
       ),
@@ -97,7 +97,7 @@ class _SignupwidgetState extends State<Signupwidget> {
     );
   }
 
-  void handleFormFilledData(List<RxString> filledData) {
+  void handleFormFilledData(List<String> filledData) {
     
     
   }
