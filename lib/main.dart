@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/PetShop/views/PetShopRoot.dart';
-import 'package:pet_app/Welcome/views/WelcomeRoot.dart';
 
 void main() {
   runApp(const MyApp());
