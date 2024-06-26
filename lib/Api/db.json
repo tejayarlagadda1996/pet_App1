@@ -1,0 +1,202 @@
+{
+    "users":[
+      {
+      "username":"i.tejaa@gmail.com",
+      "password":"Pandugadu@1443"
+      },
+      {
+      "username":"manjarikakarla@gmail.com",
+      "password":"M@njari*99"
+      } 
+    ],
+
+    "products": [
+      {
+        "productId": "1",
+        "productName": "RC Kitten",
+        "productPrice": 120.99,
+        "productImagePath": "assets/best_seller_1.png",
+        "productRating": 4.5,
+        "productReviews": 120,
+        "productHighlights": [
+          "High quality",
+          "Popular"
+        ]
+      },
+      {
+        "productId": "2",
+        "productName": "Cat Fish Food",
+        "productPrice": 18.99,
+        "productImagePath": "assets/best_seller_2.png",
+        "productRating": 4.0,
+        "productReviews": 80,
+        "productHighlights": [
+          "Nutritious",
+          "Affordable"
+        ]
+      },
+      {
+        "productId": "3",
+        "productName": "RC Kitten",
+        "productPrice": 120.99,
+        "productImagePath": "assets/best_seller_1.png",
+        "productRating": 4.5,
+        "productReviews": 120,
+        "productHighlights": [
+          "High quality",
+          "Popular"
+        ]
+      },
+      {
+        "productId": "4",
+        "productName": "Cat Fish Food",
+        "productPrice": 18.99,
+        "productImagePath": "assets/best_seller_2.png",
+        "productRating": 4.0,
+        "productReviews": 80,
+        "productHighlights": [
+          "Nutritious",
+          "Affordable"
+        ]
+      }
+    ],
+  
+  
+    "doctors": [
+      {
+        "doctorId": "1",
+        "doctorImagePath": "assets/doctor_1.jpg",
+        "doctorName": "Dr. Shruti Kedia",
+        "doctorClinic": "Pet101 Clinic, Hyderabad",
+        "doctorExperience": 5,
+        "doctorRating": 4.5,
+        "doctorPatients": 20,
+        "doctorAvailability": "10:00 AM tomorrow"
+      },
+      {
+        "doctorId": "2",
+        "doctorImagePath": "assets/doctor_2.png",
+        "doctorName": "Dr. Rakesh Singh",
+        "doctorClinic": "Paws and Claws Veterinary Clinic",
+        "doctorExperience": 8,
+        "doctorRating": 4.7,
+        "doctorPatients": 15,
+        "doctorAvailability": "7:30 PM today"
+      },
+      {
+        "doctorId": "3",
+        "doctorImagePath": "assets/doctor_3.png",
+        "doctorName": "Dr. Priya Patel",
+        "doctorClinic": "Pet Care Hospital",
+        "doctorExperience": 6,
+        "doctorRating": 4.7,
+        "doctorPatients": 15,
+        "doctorAvailability": "9:30 AM tomorrow"
+      },
+      {
+        "doctorId": "4",
+        "doctorImagePath": "assets/doctor_4.png",
+        "doctorName": "Dr. Anil Gupta",
+        "doctorClinic": "Animal Health Clinic",
+        "doctorExperience": 6,
+        "doctorRating": 4.7,
+        "doctorPatients": 15,
+        "doctorAvailability": "11:30 AM tomorrow"
+      }
+    ],
+  
+  
+    "groomingPackages": [
+      {
+        "packageId": "1",
+        "packageName": "Spa Service",
+        "packageDiscount": 5,
+        "packageRating": 4.5,
+        "packageReviews": 20,
+        "packageTime": "1hr 45mins",
+        "packageDetails": [
+          "Body Spray",
+          "Medicated Bath",
+          "Teeth Brushing",
+          "Shampoo Bath",
+          "Exercises"
+        ],
+        "packagePrice": 1120
+      },
+      {
+        "packageId": "2",
+        "packageName": "Shampoo Service",
+        "packageDiscount": 5,
+        "packageRating": 4.8,
+        "packageReviews": 220,
+        "packageTime": "1hr 45mins",
+        "packageDetails": [
+          "Body Spray",
+          "Medicated Bath",
+          "Teeth Brushing"
+        ],
+        "packagePrice": 820
+      },
+      {
+        "packageId": "3",
+        "packageName": "Spa Service",
+        "packageDiscount": 5,
+        "packageRating": 4.5,
+        "packageReviews": 20,
+        "packageTime": "1hr 45mins",
+        "packageDetails": [
+          "Body Spray",
+          "Medicated Bath",
+          "Teeth Brushing",
+          "Shampoo Bath",
+          "Exercises"
+        ],
+        "packagePrice": 1120
+      },
+      {
+        "packageId": "4",
+        "packageName": "Shampoo Service",
+        "packageDiscount": 5,
+        "packageRating": 4.5,
+        "packageReviews": 20,
+        "packageTime": "1hr 45mins",
+        "packageDetails": [
+          "Body Spray",
+          "Medicated Bath",
+          "Teeth Brushing"
+        ],
+        "packagePrice": 1120
+      }
+    ],
+  
+    "labTests": [
+      {
+        "labTestName": "Pup 101",
+        "labTestDescription": "A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet.",
+        "labTestParameters": 5,
+        "labTestOriginalPrice": 1120,
+        "labTestDiscountedPrice": 280
+      },
+      {
+        "labTestName": "Pup 102",
+        "labTestDescription": "Quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet. A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet.",
+        "labTestParameters": 7,
+        "labTestOriginalPrice": 1080,
+        "labTestDiscountedPrice": 380
+      },
+      {
+        "labTestName": "Pup 103",
+        "labTestDescription": "The CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood.",
+        "labTestParameters": 3,
+        "originalPrice": 1120,
+        "labTestDiscountedPrice": 220
+      },
+      {
+        "labTestName": "Pup 104",
+        "labTestDescription": "A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet.",
+        "labTestParameters": 4,
+        "labTestOriginalPrice": 1080,
+        "labTestDiscountedPrice": 380
+      }
+    ]
+  }

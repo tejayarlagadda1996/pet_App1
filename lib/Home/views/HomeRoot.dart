@@ -1,7 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:pet_app/Auth/AuthStream.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/Home/controllers/Authcontroller.dart';
 import 'package:pet_app/Utils/Consultation/BehaviourConsultation.dart';
 import 'package:pet_app/Home/views/HomeBestSeller.dart';
 import 'package:pet_app/Utils/Consultation/ConditionConsultation.dart';
@@ -21,6 +20,8 @@ class HomeRoot extends StatefulWidget {
 }
 
 class _HomeRootState extends State<HomeRoot> {
+
+
   String fullAddress =
       "24, Indra Nagar, Gachibowli Circle, Hyderabad, Telangana, India";
   int _selectedIndex = 0;
@@ -30,19 +31,17 @@ class _HomeRootState extends State<HomeRoot> {
       _selectedIndex = index;
     });
   }
-
-  late StreamSubscription<bool> authsubscription;
-  bool _isloggedin = false;
+  final Authcontroller authcontroller  = Get.put(Authcontroller());
 
   @override
   void initState() {
-    authsubscription = authstream.isloggedinstream.listen((isloggedin){
-      setState(() {
-        _isloggedin=isloggedin;
-      });
-    });
     super.initState();
   }
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,14 +73,14 @@ class _HomeRootState extends State<HomeRoot> {
       ),
 
       body: SingleChildScrollView(
-        child: Column(
+        child: Obx(() => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BannerImage(imgUrl: "assets/onboarding_image_1.png"),
             // supposed to be an ad?
             Searchbar(searchbarHintText: 'Search for toys, grooming ...'),
             SelectAService(),
-            HomeBestSeller(),
+            HomeBestSeller(loginstatus:authcontroller.isLoggedIn.value),
             DoctorConsultation(),
 
             BannerImage(imgUrl: "assets/onboarding_image_2.png"),
@@ -95,7 +94,13 @@ class _HomeRootState extends State<HomeRoot> {
             BannerImage(imgUrl: "assets/onboarding_image_4.png"),
             BannerImage(imgUrl: "assets/onboarding_image_5.png"),
           ],
-        ),
+        ),) 
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          authcontroller.changeloginstatus();
+        },
+        child:const Icon(Icons.login),
       ),
 
       // Bottom Navigation Bar

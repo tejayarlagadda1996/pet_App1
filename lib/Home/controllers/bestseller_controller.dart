@@ -5,6 +5,7 @@ import 'dart:convert';
 
 class BestsellerController extends GetxController {
   var isLoading = true.obs;
+  
   var bestsellerList = <Product>[].obs;
 
   @override
@@ -31,3 +32,5 @@ class BestsellerController extends GetxController {
     }
   }
 }
+
+

@@ -1,15 +1,20 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/Login/view/LoginRoot.dart';
 
 class HomeBestSellerTile extends StatelessWidget {
   final String imgUrl;
   final String name;
   final double price;
-  const HomeBestSellerTile(
-      {super.key,
-      required this.imgUrl,
-      required this.name,
-      required this.price});
+  final bool isLoggedIn;
+  const HomeBestSellerTile({
+    super.key,
+    required this.imgUrl,
+    required this.name,
+    required this.price,
+    required this.isLoggedIn,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +78,11 @@ class HomeBestSellerTile extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {}, // add functionality
-
+                  onPressed: isLoggedIn
+                      ? () {print(isLoggedIn);} 
+                      : () {
+                          Get.to(() => const LoginRoot(showSignIn: true));
+                        }, 
                   style: ElevatedButton.styleFrom(
                     shape: const CircleBorder(),
                     backgroundColor: Colors.transparent,

@@ -40,12 +40,7 @@ class SelectAService extends StatelessWidget {
                 name: "Pet Shop",
                 imgUrl: "assets/pet_shop_icon.png",
                 onTileTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const PetShopRoot(),
-                    ),
-                  );
+                  Get.to(() => const PetShopRoot());
                 },
               ),
             ),
@@ -59,12 +54,7 @@ class SelectAService extends StatelessWidget {
                 name: "Treatment",
                 imgUrl: "assets/treatment_icon.png",
                 onTileTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const TreatmentRoot(),
-                    ),
-                  );
+                  Get.to(() => const TreatmentRoot());
                 },
               ),
             ),
@@ -72,15 +62,7 @@ class SelectAService extends StatelessWidget {
               child: HomeServiceTile(
                 name: "Lab Test",
                 imgUrl: "assets/lab_test_icon.png",
-                onTileTap: () {}, // remove this and enable below
-                // onTileTap: () {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => const LabTest(),
-                //     ),
-                //   );
-                // },
+                onTileTap: () {},
               ),
             ),
           ],

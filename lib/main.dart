@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/Welcome/views/WelcomeRoot.dart';
-// import 'Login/view/LoginHomePage.dart';
 
 void main() {
+  
   runApp(const MyApp());
 }
 
