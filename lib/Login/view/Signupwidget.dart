@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
-import 'package:pet_app/Login/view/DynamicTextfield.dart';
 import 'package:get/get.dart';
+import 'package:pet_app/Login/Controller/SignUPController.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
+import 'package:pet_app/Utils/Textfieldwidget.dart';
 
 class Signupwidget extends StatefulWidget {
   const Signupwidget({super.key});
@@ -12,39 +12,10 @@ class Signupwidget extends StatefulWidget {
 }
 
 class _SignupwidgetState extends State<Signupwidget> {
+  final SignUpcontroller signupController = SignUpcontroller(); 
   bool isAgreed = false;
   @override
   Widget build(BuildContext context) {
-    const borderLine = UnderlineInputBorder(
-      borderSide: BorderSide(width: 1, color: Colors.blue),
-    );
-
-    final dynamicFormData = [
-      DynamicTextFieldModel(
-          obscureText: false,
-          placeholderText: 'First Name',
-          actionType: DynamicTextfieldActionType.text,
-          enabledBorder: borderLine),
-      DynamicTextFieldModel(
-        obscureText: false,
-        placeholderText: 'Email',
-        actionType: DynamicTextfieldActionType.text,
-        enabledBorder: borderLine,
-      ),
-      DynamicTextFieldModel(
-        obscureText: false,
-        placeholderText: 'Mobile number',
-        actionType: DynamicTextfieldActionType.number,
-        enabledBorder: borderLine,
-      ),
-      DynamicTextFieldModel(
-        obscureText: true,
-        placeholderText: 'Password',
-        actionType: DynamicTextfieldActionType.number,
-        enabledBorder: borderLine,
-      ),
-    ];
-
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -55,13 +26,26 @@ class _SignupwidgetState extends State<Signupwidget> {
             const SizedBox(
               height: 20,
             ),
-            DynamicTextField(
-              dynamicModel: dynamicFormData,
-              length: dynamicFormData.length,
-              onAction: (DynamicTextfieldActionType result) {
-                result == DynamicTextfieldActionType.dropdown ? null : null;
-              },
-              onDataFilled: handleFormFilledData,
+            Textfieldwidget(
+              controller: signupController.signupdetails[0],
+              placeholderText: 'First Name',
+              obscureText: false,
+            ),
+            Textfieldwidget(
+              controller: signupController.signupdetails[1],
+              placeholderText: 'Email',
+              obscureText: false,
+            ),
+            Textfieldwidget(
+              controller: signupController.signupdetails[2],
+              placeholderText: 'Mobile number',
+              obscureText: false,
+            ),
+            Textfieldwidget(
+              controller: signupController.signupdetails[3],
+              placeholderText: 'Password',
+              obscureText: true,
+              icon: Icons.visibility,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

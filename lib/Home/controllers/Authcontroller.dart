@@ -1,12 +1,15 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
 import 'package:pet_app/Auth/Authencation.dart';
 
 class Authcontroller extends GetxController{
   final AuthStream authStream = AuthStream();
+  late StreamSubscription authsubscription;
   var isLoggedIn = false.obs;
 
   Authcontroller(){
-    authStream.loginStatus.listen((status){
+    authsubscription=authStream.loginStatus.listen((status){
       isLoggedIn.value= status;
     });
   }
@@ -17,7 +20,7 @@ class Authcontroller extends GetxController{
 
   @override
   void onClose(){
-    authStream.dispose();
+    authsubscription.cancel();
     super.onClose();
   }
 }

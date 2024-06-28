@@ -1,44 +1,20 @@
-import 'dart:convert';
 
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
-import 'package:pet_app/Login/view/OtpScreen.dart';
 
 class SignInController extends GetxController{
-  RxString emailOrNumber = ''.obs;
-  RxString password = ''.obs;
 
+ final List<TextEditingController> signdetails = List.generate(2, (index) {
+   return TextEditingController();
+ });
 
-  void updateEmailOrNumber(String value) {
-    emailOrNumber.value = value;
+ @override
+  void onClose() {
+    for(int i=0;i<2; i++){
+      signdetails[i].dispose();
+    }
+    super.onClose();
   }
-
-  void updatePassword(String value) {
-    password.value = value;
-  }
-
-  Future<void> signIn() async{
-    const url = 'http://localhost:3000/users';
-    final response = await http.get(Uri.parse(url) 
-    );
-    if (response.statusCode == 200) {
-        final users = jsonDecode(response.body) as List;
-
-        final user = users.firstWhere(
-          (user) =>
-              user['emailOrNumber'] == emailOrNumber.value &&
-              user['password'] == password.value,
-          orElse: () => null,
-        );
-
-        if (user != null) {
-          Get.to(const OtpScreen());
-        } else {
-          Get.snackbar('Error', 'Invalid email/number or password');
-        }
-      } else {
-        Get.snackbar('Error', 'Failed to connect to server');
-      }
-
-  }
+  
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Home/controllers/Authcontroller.dart';
 import 'package:pet_app/Home/views/HomeRoot.dart';
-import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
-import 'package:pet_app/Login/view/DynamicTextfield.dart';
+import 'package:pet_app/PetRegistration/Controller/PetinfoController.dart';
+import 'package:pet_app/Utils/Dropdownwidget.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
+import 'package:pet_app/Utils/Textfieldwidget.dart';
 
 class Ownerinfo extends StatefulWidget {
   const Ownerinfo({super.key});
@@ -14,37 +14,12 @@ class Ownerinfo extends StatefulWidget {
 }
 
 class _OwnerinfoState extends State<Ownerinfo> {
+  final PetinfoController petinfoController = PetinfoController();
 
-  final List<DynamicTextFieldModel> dynamicFields = [
-      DynamicTextFieldModel(
-        placeholderText: 'Owner name',
-        obscureText: false,
-        actionType: DynamicTextfieldActionType.text,
-      ),
-      DynamicTextFieldModel(
-        placeholderText: 'Gender',
-        obscureText: false,
-        actionType: DynamicTextfieldActionType.dropdown,
-        dropdownItems: [
-          'male',
-          'Female',
-        ],
-      ),
-      DynamicTextFieldModel(
-        placeholderText: 'Email',
-        obscureText: false,
-        actionType: DynamicTextfieldActionType.text,
-      ),
-    ];
-  
-  void handleAction(DynamicTextfieldActionType actionType) {
-    // Handle field-specific actions here if needed
+
+  void handleSubmit() {
+    Get.offAll(const HomeRoot());
   }
-
-  void handleDataFilled(List<String> filledData) {
-  }
-
-  final Authcontroller authcontroller = Get.put(Authcontroller());
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +28,7 @@ class _OwnerinfoState extends State<Ownerinfo> {
         title: const Text(
           'Owner Information',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.end,
+          textAlign: TextAlign.center,
         ),
         centerTitle: true,
       ),
@@ -74,20 +49,31 @@ class _OwnerinfoState extends State<Ownerinfo> {
                 width: MediaQuery.of(context).size.width * 0.3,
                 height: MediaQuery.of(context).size.height * 0.3,
               ),
-              DynamicTextField(
-                  length: dynamicFields.length,
-                  onAction: handleAction,
-                  dynamicModel: dynamicFields,
-                  onDataFilled: handleDataFilled
+              Textfieldwidget(
+                controller: petinfoController.textControllers[1],
+                placeholderText: 'Owner name',
+              ),
+              Dropdownwidget(
+                selectedValue: petinfoController.dropdownControllers[6],
+                items: ['Male', 'Female'],
+                placeholderText: 'Gender',
+              ),
+              Textfieldwidget(
+                controller: petinfoController.textControllers[2],
+                placeholderText: 'Email',
+              ),
+              Textfieldwidget(
+                controller: petinfoController.textControllers[3],
+                placeholderText: 'Mobile number'
               ),
               Padding(
                 padding: const EdgeInsets.all(12),
                 child: Container(
                   decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12))
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
                   child: TextFormField(
-                    controller: TextEditingController(),
+                controller: petinfoController.textControllers[4],
                     maxLength: 150,
                     maxLines: 5,
                     decoration: const InputDecoration(
@@ -97,25 +83,26 @@ class _OwnerinfoState extends State<Ownerinfo> {
                       labelStyle: TextStyle(color: Colors.grey),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Color.fromRGBO(237, 109, 78, 1))
+                        borderSide: BorderSide(
+                          color: Color.fromRGBO(237, 109, 78, 1),
+                        ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Colors.blue)
-                      )
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
                     ),
                     keyboardType: TextInputType.text,
                   ),
                 ),
               ),
               Padding(
-                padding:  const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: RoundButton(
-                  onPressed: (){
-                    authcontroller.changeloginstatus();
-                    Get.offAll(const HomeRoot());
-                },roundButtonText: 'Submit',)
-              )
+                  onPressed: handleSubmit,
+                  roundButtonText: 'Submit',
+                ),
+              ),
             ],
           ),
         ),

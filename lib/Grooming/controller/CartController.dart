@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:pet_app/Grooming/model/Package.dart';
-import 'package:pet_app/Grooming/model/ReceiverInfo.dart';
+import 'package:pet_app/Grooming/view/ReceiverInfo.dart';
 
 class Cartcontroller extends GetxController{
   var cartitems=<Package>[].obs;

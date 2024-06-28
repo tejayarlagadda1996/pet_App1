@@ -93,9 +93,10 @@ class GroomingRoot extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              'BestSeller Packages',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              '   BestSeller Packages',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 10,),
             Packages(packagelist: packagecardlist),
           ],
         ),

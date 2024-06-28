@@ -1,34 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
-import 'package:pet_app/Login/view/DynamicTextfield.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
 import 'package:pet_app/Login/Controller/SignInController.dart';
+import 'package:pet_app/Utils/Textfieldwidget.dart';
 import 'OtpScreen.dart';
 
-class SignInWidget extends StatefulWidget {
-  const SignInWidget({super.key});
+class SignInWidget extends StatelessWidget {
+  SignInWidget({super.key});
 
-  @override
-  State<SignInWidget> createState() => _SignInWidgetState();
-}
-
-class _SignInWidgetState extends State<SignInWidget> {
-  final SignInController controller = Get.put(SignInController());
-
-  final dynamicFormData = [
-    DynamicTextFieldModel(
-      placeholderText: 'Email/Number',
-      obscureText: false,
-      actionType: DynamicTextfieldActionType.text,
-    ),
-    DynamicTextFieldModel(
-      obscureText: true,
-      placeholderText: 'Password',
-      actionType: DynamicTextfieldActionType.text,
-      icon: Icons.visibility,
-    ),
-  ];
+  final SignInController signcontroller = Get.put(SignInController());
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +22,16 @@ class _SignInWidgetState extends State<SignInWidget> {
             const Text('Sign In',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             const SizedBox(height: 40),
-            DynamicTextField(
-              dynamicModel: dynamicFormData,
-              length: dynamicFormData.length,
-              onAction: (DynamicTextfieldActionType result) {
-                result == DynamicTextfieldActionType.dropdown ? null : null;
-              },
-              onDataFilled: handleFormFilledData,
+            Textfieldwidget(
+              controller: signcontroller.signdetails[0],
+              placeholderText: 'Email/Number',
+              obscureText: false,
+            ),
+            Textfieldwidget(
+              controller: signcontroller.signdetails[1],
+              placeholderText: 'Password',
+              obscureText: true,
+              icon: Icons.visibility,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -61,6 +44,7 @@ class _SignInWidgetState extends State<SignInWidget> {
             RoundButton(
                 roundButtonText: 'Sign in',
                 onPressed: () {
+                  print('data is ${signcontroller.signdetails[0].text}');
                   Get.to(const OtpScreen());
                 })
           ],
@@ -68,6 +52,4 @@ class _SignInWidgetState extends State<SignInWidget> {
       ),
     );
   }
-
-  void handleFormFilledData(List<String> filledData) {}
 }
