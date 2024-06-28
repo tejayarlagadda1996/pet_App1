@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_app/Home/controllers/Authcontroller.dart';
 import 'package:pet_app/Home/views/HomeRoot.dart';
 import 'package:pet_app/Login/model/DynamicTextFieldModel.dart';
 import 'package:pet_app/Login/view/DynamicTextfield.dart';
@@ -42,6 +43,8 @@ class _OwnerinfoState extends State<Ownerinfo> {
 
   void handleDataFilled(List<String> filledData) {
   }
+
+  final Authcontroller authcontroller = Get.put(Authcontroller());
 
   @override
   Widget build(BuildContext context) {
@@ -109,6 +112,7 @@ class _OwnerinfoState extends State<Ownerinfo> {
                 padding:  const EdgeInsets.all(20),
                 child: RoundButton(
                   onPressed: (){
+                    authcontroller.changeloginstatus();
                     Get.offAll(const HomeRoot());
                 },roundButtonText: 'Submit',)
               )
