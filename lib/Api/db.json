@@ -2,11 +2,43 @@
     "users":[
       {
       "username":"i.tejaa@gmail.com",
-      "password":"Pandugadu@1443"
+      "password":"Pandugadu@1443",
+      "userdetails":{
+        "petdetils":{
+          "Petname":"",
+          "Pettype":"",
+          "Petage":"",
+          "Petbreed":"",
+          "Petgender":"",
+          "behaviours":["",""],
+          "conditions":["",""]
+        },
+        "ownerdetails":{
+          "ownername":"",
+          "ownergender":"",
+          "ownermobile":""
+        }
+        }
       },
       {
       "username":"manjarikakarla@gmail.com",
-      "password":"M@njari*99"
+      "password":"M@njari*99",
+      "userdetails":{
+        "petdetils":{
+          "Petname":"",
+          "Pettype":"",
+          "Petage":"",
+          "Petbreed":"",
+          "Petgender":"",
+          "behaviours":["",""],
+          "conditions":["",""]
+        },
+        "ownerdetails":{
+          "ownername":"",
+          "ownergender":"",
+          "ownermobile":""
+        }
+        }
       } 
     ],
 
@@ -182,21 +214,21 @@
         "labTestDescription": "Quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet. A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet.",
         "labTestParameters": 7,
         "labTestOriginalPrice": 1080,
-        "labTestDiscountedPrice": 380
+        "labTestDiscountedPrice": 980
       },
       {
         "labTestName": "Pup 103",
         "labTestDescription": "The CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood.",
         "labTestParameters": 3,
         "originalPrice": 1120,
-        "labTestDiscountedPrice": 220
+        "labTestDiscountedPrice": 720
       },
       {
         "labTestName": "Pup 104",
         "labTestDescription": "A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet.",
         "labTestParameters": 4,
         "labTestOriginalPrice": 1080,
-        "labTestDiscountedPrice": 380
+        "labTestDiscountedPrice": 680
       }
     ]
   }

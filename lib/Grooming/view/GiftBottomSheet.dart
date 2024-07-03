@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Grooming/controller/CartController.dart';
 import 'package:pet_app/Grooming/view/BestSellerPackage.dart';
+import 'package:pet_app/Grooming/view/RecieverBottomsheet.dart';
 
 class GiftBottomSheet extends StatelessWidget {
   final String packagename;
@@ -10,8 +10,6 @@ class GiftBottomSheet extends StatelessWidget {
   final String duration;
   final List<String> packageservices;
   final double packageprice;
-
-  final Cartcontroller cartcontroller=Get.put(Cartcontroller());
 
   GiftBottomSheet(
       {super.key,
@@ -48,7 +46,8 @@ class GiftBottomSheet extends StatelessWidget {
                     packageprice: packageprice,
                     showgiftIconButton: false,
                     onclicked: (){
-                      cartcontroller.fetchreceiverDetails;
+                      Get.back();
+                      receiverBottomsheet(context);
                     },
                   ),
                 ],

@@ -1,10 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
 
-class Bottombbuttons extends StatelessWidget {
-  const Bottombbuttons({super.key});
+class Bottombuttons extends StatelessWidget {
+  const Bottombuttons({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +20,8 @@ class Bottombbuttons extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AutoSizeText('You Pay'),
-                  AutoSizeText('Rs. 1338',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                  Text('You Pay'),
+                  Text('Rs. 1338',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
                 ],
               ),
             ),

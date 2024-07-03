@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class RoundButton extends StatelessWidget {
   final String roundButtonText;
-  final VoidCallback onPressed;
-  const RoundButton({
-    super.key,
+  final void Function()? onPressed;
+  bool? cart;
+
+  RoundButton({super.key,
     required this.roundButtonText,
     required this.onPressed,
+    this.cart,
   });
 
   @override

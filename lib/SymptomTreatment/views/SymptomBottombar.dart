@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/Cart/PaymentMode.dart';
 
 class SymptomBottombar extends StatelessWidget {
   const SymptomBottombar({super.key});
@@ -40,7 +42,9 @@ class SymptomBottombar extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               child: ElevatedButton(
-                onPressed: () {}, // add functionality
+                onPressed: () {
+                  Get.to(const Paymentmode());
+                }, // add functionality
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(237, 109, 78, 1),
                   shape: RoundedRectangleBorder(

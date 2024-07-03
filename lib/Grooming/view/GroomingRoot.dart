@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:pet_app/Grooming/model/Package.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/Cart/CartRoot.dart';
 import 'package:pet_app/Grooming/view/Packages.dart';
 import 'package:pet_app/Grooming/view/service_tile.dart';
+import 'package:pet_app/Home/controllers/grooming_package_controller.dart';
 
 class GroomingRoot extends StatelessWidget {
-  const GroomingRoot({super.key});
+  GroomingRoot({super.key});
+  final GroomingPackageController groomingPackageController = Get.put(GroomingPackageController());
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ class GroomingRoot extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
+          IconButton(onPressed: () {Get.to(const CartRoot());}, icon: const Icon(Icons.shopping_cart))
         ],
         elevation: 2,
         shadowColor: Colors.grey,
@@ -92,12 +95,9 @@ class GroomingRoot extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              '   BestSeller Packages',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
+            const Text('   BestSeller Packages', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10,),
-            Packages(packagelist: packagecardlist),
+            Packages(packagelist: groomingPackageController.groomingPackageList),
           ],
         ),
       ),

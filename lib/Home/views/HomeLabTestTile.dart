@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/Home/views/RectButton.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:pet_app/Models/lab_test.dart';
 
 class HomeLabTestTile extends StatelessWidget {
-  final String testName;
-  final String description;
-  final int parameters;
-  final int originalPrice;
-  final int discountedPrice;
+  final LabTest labtest;
 
   const HomeLabTestTile({
     super.key,
-    required this.testName,
-    required this.description,
-    required this.parameters,
-    required this.originalPrice,
-    required this.discountedPrice,
+    required this.labtest
   });
 
   @override
@@ -43,7 +36,7 @@ class HomeLabTestTile extends StatelessWidget {
             children: [
               // Test Name
               Text(
-                testName,
+                labtest.labTestName,
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -55,7 +48,7 @@ class HomeLabTestTile extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: AutoSizeText(
-                  description,
+                  labtest.labTestDescription,
                   style: TextStyle(
                     fontSize: 11,
                     color: Colors.grey[500],
@@ -77,7 +70,7 @@ class HomeLabTestTile extends StatelessWidget {
                     size: 14,
                   ),
                   Text(
-                    " $parameters Parameters",
+                    " ${labtest.labTestParameters} Parameters",
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.grey[500],
@@ -94,7 +87,7 @@ class HomeLabTestTile extends StatelessWidget {
                     children: [
                       // Original Price
                       Text(
-                        "\$$originalPrice",
+                        "\u20B9 ${labtest.labTestOriginalPrice}",
                         style: TextStyle(
                           decoration: TextDecoration.lineThrough,
                           fontSize: 16,
@@ -104,7 +97,7 @@ class HomeLabTestTile extends StatelessWidget {
                       ),
                       // Discounted Price
                       Text(
-                        "\$$discountedPrice",
+                        "\\u20B9 ${labtest.labTestDiscountedPrice}",
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,

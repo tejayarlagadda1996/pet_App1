@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Grooming/controller/CartController.dart';
+import 'package:pet_app/Cart/controller/cartcontroller.dart';
+import 'package:pet_app/Cart/model/Cartmodel.dart';
 import 'package:pet_app/Grooming/view/BestSellerPackage.dart';
-import 'package:pet_app/Grooming/model/Package.dart';
+import 'package:pet_app/Models/GroomingPackage.dart';
 
 class Packages extends StatelessWidget {
-  final List<Package> packagelist;
+  final List<GroomingPackage> packagelist;
   Packages({super.key, required this.packagelist});
-  final Cartcontroller cartController = Get.put(Cartcontroller());
+  final Cartcontroller cartcontroller = Get.put(Cartcontroller());
+  
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +19,17 @@ class Packages extends StatelessWidget {
       itemCount: packagelist.length,
       itemBuilder: (context, index) {
           return BestSellerPackage(
-            packagename: packagelist[index].packagename,
-            ratings: packagelist[index].ratings,
-            reviews: packagelist[index].reviews,
-            duration: packagelist[index].duration,
-            packageservices: packagelist[index].packageservices,
-            packageprice: packagelist[index].packageprice,
+            packagename: packagelist[index].packageName,
+            ratings: packagelist[index].packageRating.toString(),
+            reviews: packagelist[index].packageReviews.toString(),
+            duration: packagelist[index].packageTime,
+            packageservices: packagelist[index].packageDetails,
+            packageprice: packagelist[index].packagePrice.toDouble(),
             showgiftIconButton: true,
-            onclicked: (){},
+            onclicked: (){
+              cartcontroller.additemtoCart(Producttype.packages,packagelist[index]);
+              print(cartcontroller.cartitems.length);
+            },
           );
         },
     );

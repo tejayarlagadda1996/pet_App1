@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_app/Cart/controller/cartcontroller.dart';
 import 'package:pet_app/Home/controllers/Authcontroller.dart';
 import 'package:pet_app/Utils/Consultation/BehaviourConsultation.dart';
 import 'package:pet_app/Home/views/HomeBestSeller.dart';
@@ -32,14 +33,17 @@ class _HomeRootState extends State<HomeRoot> {
     });
   }
   final Authcontroller authcontroller  = Get.put(Authcontroller());
+  final Cartcontroller cartcontroller = Get.put(Cartcontroller());
 
   @override
   void initState() {
+    authcontroller.authsubscription.resume();
     super.initState();
   }
   @override
   void dispose() {
     super.dispose();
+    authcontroller.authsubscription.pause();
   }
 
   @override
@@ -97,11 +101,12 @@ class _HomeRootState extends State<HomeRoot> {
         ),) 
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          authcontroller.changeloginstatus();
-        },
-        child:const Icon(Icons.login),
+            onPressed: (){
+              authcontroller.changeloginstatus();
+            },
+            child:const Icon(Icons.login),
       ),
+      
 
       // Bottom Navigation Bar
       bottomNavigationBar: Container(

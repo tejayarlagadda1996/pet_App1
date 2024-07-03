@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Grooming/controller/CartController.dart';
 import 'package:pet_app/Grooming/view/GiftBottomSheet.dart';
 import 'package:pet_app/Grooming/view/PackageDetails.dart';
+import 'package:pet_app/Grooming/view/RecieverBottomsheet.dart';
 
 class BestSellerPackage extends StatelessWidget {
   final String packagename;
@@ -14,18 +14,21 @@ class BestSellerPackage extends StatelessWidget {
   final bool showgiftIconButton;
   final VoidCallback onclicked;
 
-  final Cartcontroller cartcontroller =Get.put(Cartcontroller());
+  BestSellerPackage(
+      {super.key,
+      required this.packagename,
+      required this.ratings,
+      required this.reviews,
+      required this.duration,
+      required this.packageservices,
+      required this.packageprice,
+      required this.showgiftIconButton,
+      required this.onclicked});
 
-  BestSellerPackage({super.key,
-    required this.packagename, 
-    required this.ratings, 
-    required this.reviews, 
-    required this.duration, 
-    required this.packageservices, 
-    required this.packageprice,
-    required this.showgiftIconButton,
-    required this.onclicked
-  });
+  void handleGiftButton(BuildContext context) {
+    Get.back();
+    receiverBottomsheet(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +47,24 @@ class BestSellerPackage extends StatelessWidget {
                   Row(
                     children: [
                       Image.asset('assets/packageimage.png'),
-                      const Text('Package',style: TextStyle(color: Colors.orangeAccent)),
+                      const Text('Package',
+                          style: TextStyle(color: Colors.orangeAccent)),
                     ],
                   ),
-                  if(showgiftIconButton)
-                  GiftBottomSheet(duration: duration,packagename: packagename,packageprice: packageprice,packageservices: packageservices,ratings: ratings,reviews: reviews)
+                  if (showgiftIconButton)
+                    GiftBottomSheet(
+                      duration: duration,
+                      packagename: packagename,
+                      packageprice: packageprice,
+                      packageservices: packageservices,
+                      ratings: ratings,
+                      reviews: reviews,
+                    )
                 ],
               ),
-              Text(packagename,style:const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              Text(packagename,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,18 +74,14 @@ class BestSellerPackage extends StatelessWidget {
                     color: Color.fromRGBO(239, 109, 78, 1),
                     size: 12,
                   ),
-        
-                  Text(ratings,style: const TextStyle(fontSize: 12)),
-        
+                  Text(ratings, style: const TextStyle(fontSize: 12)),
                   const SizedBox(width: 10),
-        
-                  const Icon(Icons.reviews,size: 12,color: Color.fromRGBO(239, 109, 78, 1)),
-        
-                  Text(reviews,style: const TextStyle(fontSize: 12)),
-        
-                  const Icon(Icons.alarm,size: 12,color: Color.fromRGBO(239, 109, 78, 1)),
-        
-                  Text(duration,style: const TextStyle(fontSize: 12)),
+                  const Icon(Icons.reviews,
+                      size: 12, color: Color.fromRGBO(239, 109, 78, 1)),
+                  Text(reviews, style: const TextStyle(fontSize: 12)),
+                  const Icon(Icons.alarm,
+                      size: 12, color: Color.fromRGBO(239, 109, 78, 1)),
+                  Text(duration, style: const TextStyle(fontSize: 12)),
                   const PackageDetails(),
                 ],
               ),
@@ -82,8 +91,12 @@ class BestSellerPackage extends StatelessWidget {
               Wrap(
                   spacing: 4,
                   runSpacing: 2,
-                  children: List.generate(packageservices.length,(index) {
-                      return Text('\u2022 ${packageservices[index]}',style: const TextStyle(color: Colors.grey),
+                  children: List.generate(
+                    packageservices.length,
+                    (index) {
+                      return Text(
+                        '\u2022 ${packageservices[index]}',
+                        style: const TextStyle(color: Colors.grey),
                       );
                     },
                   )),
@@ -93,11 +106,16 @@ class BestSellerPackage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('\u20B9 ${packageprice.toString()}',style:const TextStyle(color: Color.fromRGBO(237, 109, 78, 1),fontWeight: FontWeight.w600),),
+                  Text(
+                    '\u20B9 ${packageprice.toString()}',
+                    style: const TextStyle(
+                        color: Color.fromRGBO(237, 109, 78, 1),
+                        fontWeight: FontWeight.w600),
+                  ),
                   ElevatedButton(
                       onPressed: onclicked,
-                      child:showgiftIconButton?const Text('Add to cart'):const Text('Gift Now'),
-                    )  
+                      child:
+                          Text(showgiftIconButton ? 'Add to cart' : 'Gift Now'))
                 ],
               ),
             ],

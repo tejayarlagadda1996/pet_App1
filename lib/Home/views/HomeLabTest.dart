@@ -38,11 +38,7 @@ class HomeLabTest extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final labTest = labTestController.labTestList[index];
                     return HomeLabTestTile(
-                      testName: labTest.labTestName,
-                      description: labTest.labTestDescription,
-                      parameters: labTest.labTestParameters,
-                      originalPrice: labTest.labTestOriginalPrice,
-                      discountedPrice: labTest.labTestDiscountedPrice,
+                      labtest: labTest,
                     );
                   },
                 ),

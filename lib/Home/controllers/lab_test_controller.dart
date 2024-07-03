@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:pet_app/Home/models/lab_test.dart';
+import 'package:pet_app/Models/lab_test.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 

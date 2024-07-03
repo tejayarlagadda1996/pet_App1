@@ -1,24 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:pet_app/Cart/controller/cartcontroller.dart';
+import 'package:pet_app/Cart/model/Cartmodel.dart';
 import 'package:pet_app/Home/views/RectButton.dart';
+import 'package:pet_app/Models/GroomingPackage.dart';
 
 class HomeGroomingTile extends StatelessWidget {
-  final String serviceName;
-  final int discount;
-  final double rating;
-  final int reviews;
-  final String duration;
-  final List<String> services;
-  final int price;
+  
+  final GroomingPackage package;
 
   const HomeGroomingTile({
     super.key,
-    required this.serviceName,
-    required this.discount,
-    required this.rating,
-    required this.reviews,
-    required this.duration,
-    required this.services,
-    required this.price,
+    required this.package
   });
 
   @override
@@ -54,7 +46,7 @@ class HomeGroomingTile extends StatelessWidget {
                           children: [
                             // Service Name
                             Text(
-                              serviceName,
+                              package.packageName,
                               style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
@@ -79,7 +71,7 @@ class HomeGroomingTile extends StatelessWidget {
                         const SizedBox(height: 2),
                         // Discount offered
                         Text(
-                          "Get $discount% Instant off on this package",
+                          "Get ${package.packageDiscount}% Instant off on this package",
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[500],
@@ -95,7 +87,7 @@ class HomeGroomingTile extends StatelessWidget {
                               size: 14,
                             ),
                             Text(
-                              "$rating",
+                              "${package.packageRating}",
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey[500],
@@ -110,7 +102,7 @@ class HomeGroomingTile extends StatelessWidget {
                               size: 14,
                             ),
                             Text(
-                              " $reviews Reviews",
+                              " ${package.packageReviews} Reviews",
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey[500],
@@ -125,7 +117,7 @@ class HomeGroomingTile extends StatelessWidget {
                               size: 14,
                             ),
                             Text(
-                              " $duration",
+                              " ${package.packageTime}",
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey[500],
@@ -148,10 +140,10 @@ class HomeGroomingTile extends StatelessWidget {
 
               // Services
               Wrap(
-                children: services.asMap().entries.map((entry) {
+                children: package.packageDetails.asMap().entries.map((entry) {
                   final index = entry.key;
                   final service = entry.value;
-                  final isLast = index == services.length - 1;
+                  final isLast = index == package.packageDetails.length - 1;
                   return Text(
                     isLast ? " $service" : " $service •",
                     style: TextStyle(
@@ -169,7 +161,7 @@ class HomeGroomingTile extends StatelessWidget {
                   children: [
                     // price
                     Text(
-                      "\$$price",
+                      "\$${package.packagePrice}",
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
@@ -180,7 +172,9 @@ class HomeGroomingTile extends StatelessWidget {
                     Expanded(child: Container()),
                     RectButton(
                       RectButtonText: "Book Now",
-                      onPressed: () {}, // add functionality
+                      onPressed: () {
+                        Cartcontroller().additemtoCart(Producttype.packages,package);
+                      }, // add functionality
                     ),
                   ],
                 ),

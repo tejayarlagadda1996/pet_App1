@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pet_app/PetShop/views/ShopBestseller.dart';
 import 'package:pet_app/PetShop/views/ShopByCategory.dart';
-import 'package:pet_app/Summery/home_summery.dart';
 import 'package:pet_app/Utils/Searchbar.dart';
 
 class PetShopRoot extends StatefulWidget {
@@ -34,7 +32,6 @@ class _PetShopRootState extends State<PetShopRoot> {
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
                 onPressed: () {
-                  Get.to(() => const Summery());
                 },
                 icon: const Icon(Icons.shopping_cart_outlined),
               ),

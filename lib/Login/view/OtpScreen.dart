@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/PetRegistration/view/PetRegistration.dart';
+import 'package:pet_app/PetRegistration/view/RegistrationRoot.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -93,7 +93,7 @@ class _OtpScreenState extends State<OtpScreen> {
               child: RoundButton(
                   roundButtonText: 'Submit OTP',
                   onPressed: () {
-                    Get.to(const PetRegistrationScreen());
+                    Get.to(Registrationroot());
                   }),
             )
           ],

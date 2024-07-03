@@ -26,11 +26,15 @@ class Textfieldwidget extends StatelessWidget {
           labelText: placeholderText,
           labelStyle: const TextStyle(color: Colors.grey),
           enabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
+            borderSide: BorderSide(color: Colors.blue),
           ),
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Color.fromRGBO(237, 109, 78, 1)),
           ),
+          errorBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
+          ),
+          
           filled: true,
           fillColor: Colors.grey.withOpacity(0.1),
           contentPadding:

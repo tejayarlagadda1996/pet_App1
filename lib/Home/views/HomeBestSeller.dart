@@ -6,6 +6,7 @@ import 'package:pet_app/Home/views/HomeBestSellerTile.dart';
 // ignore: must_be_immutable
 class HomeBestSeller extends StatelessWidget {
   HomeBestSeller({super.key,required this.loginstatus});
+
   final bool loginstatus;
 
   final BestsellerController bestsellerController = Get.put(BestsellerController());
@@ -41,7 +42,6 @@ class HomeBestSeller extends StatelessWidget {
             ],
           ),
         ),
-
         // Bestseller Item Display
         Obx(() {
           if (bestsellerController.isLoading.value) {
@@ -59,9 +59,7 @@ class HomeBestSeller extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final product = bestsellerController.bestsellerList[index];
                   return HomeBestSellerTile(
-                    name: product.productName,
-                    imgUrl: product.productImagePath,
-                    price: product.productPrice,
+                    product: product,
                     isLoggedIn: loginstatus,
                   );
                 },

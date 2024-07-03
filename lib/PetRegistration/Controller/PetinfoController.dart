@@ -16,6 +16,21 @@ class PetinfoController extends GetxController {
         },
       );
 
+
+  var stepperindex= 0.obs;
+
+  void nextstep() {
+    if (stepperindex.value < 1) {
+      stepperindex.value++;
+    }
+  }
+
+  void previoussStep() {
+    if (stepperindex.value > 0) {
+      stepperindex.value--;
+    }
+  }
+
   @override
   void onClose() {
     for (int i = 0; i < 2; i++) {

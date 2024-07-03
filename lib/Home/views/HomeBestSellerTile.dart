@@ -1,19 +1,24 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_app/Cart/controller/cartcontroller.dart';
+import 'package:pet_app/Cart/model/Cartmodel.dart';
 import 'package:pet_app/Login/view/LoginRoot.dart';
+import 'package:pet_app/Models/product.dart';
 
 class HomeBestSellerTile extends StatelessWidget {
-  final String imgUrl;
-  final String name;
-  final double price;
+
+  final Cartcontroller cartcontroller = Get.put(Cartcontroller());
+
+  final Product product;
+
   final bool isLoggedIn;
-  const HomeBestSellerTile({
+
+
+  HomeBestSellerTile({
     super.key,
-    required this.imgUrl,
-    required this.name,
-    required this.price,
-    required this.isLoggedIn,
+    required this.product,
+    required this.isLoggedIn
   });
 
   @override
@@ -39,7 +44,7 @@ class HomeBestSellerTile extends StatelessWidget {
             child: SizedBox(
               width: 80,
               height: 100,
-              child: Image.asset(imgUrl, fit: BoxFit.cover),
+              child: Image.asset(product.productImagePath, fit: BoxFit.cover),
             ),
           ),
           Expanded(
@@ -54,7 +59,7 @@ class HomeBestSellerTile extends StatelessWidget {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.2,
                         child: AutoSizeText(
-                          name, // product name
+                          product.productName, // product name
                           style: const TextStyle(fontWeight: FontWeight.w400),
                           maxFontSize: 12,
                           minFontSize: 12,
@@ -65,7 +70,7 @@ class HomeBestSellerTile extends StatelessWidget {
                       SizedBox(
                         width: 65,
                         child: AutoSizeText(
-                          "\$$price", // product price
+                          "\$${product.productPrice}", // product price
                           style: const TextStyle(
                             fontWeight: FontWeight.w700,
                           ),
@@ -79,7 +84,11 @@ class HomeBestSellerTile extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: isLoggedIn
-                      ? () {print(isLoggedIn);} 
+                      ? () {
+                        print(isLoggedIn);
+                        cartcontroller.additemtoCart(Producttype.products,product);
+                        print(cartcontroller.cartitems.length);
+                        } 
                       : () {
                           Get.to(() => const LoginRoot(showSignIn: true));
                         }, 
@@ -102,8 +111,6 @@ class HomeBestSellerTile extends StatelessWidget {
                     ),
                   ),
                 )
-
-                // Button
               ],
             ),
           ),

@@ -39,13 +39,7 @@ class HomeGroomingPackage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final package = groomingPackageController.groomingPackageList[index];
                     return HomeGroomingTile(
-                      serviceName: package.packageName,
-                      discount: package.packageDiscount,
-                      rating: package.packageRating,
-                      reviews: package.packagePrice,
-                      duration: package.packageTime,
-                      services: package.packageDetails,
-                      price: package.packagePrice,
+                      package: package,
                     );
                   },
                 ),

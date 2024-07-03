@@ -31,7 +31,7 @@ class SelectAService extends StatelessWidget {
                 name: "Grooming",
                 imgUrl: "assets/grooming_icon.png",
                 onTileTap: () {
-                  Get.to(() => const GroomingRoot());
+                  Get.to(() => GroomingRoot());
                 },
               ),
             ),

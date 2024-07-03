@@ -7,7 +7,7 @@ class Deliveryaddress extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(20),
         child: Row(
           children: [
             Padding(
@@ -21,13 +21,22 @@ class Deliveryaddress extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Delivery to 500082',style: TextStyle(fontWeight: FontWeight.bold),),
-                      TextButton(onPressed: (){}, child: const Text('Change',style: TextStyle(color: Color.fromRGBO(237, 109, 78, 1)),))
+                      const Text(
+                        'Delivery to 500082',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Change',
+                            style:
+                                TextStyle(color: Color.fromRGBO(237, 109, 78, 1)),
+                          ))
                     ],
                   ),
                   const Text('26/A shree rama residency, Whitefeilds, Hyderabad, Telangana ')
                 ],
-              )
+              ),
             )
           ],
         ),
