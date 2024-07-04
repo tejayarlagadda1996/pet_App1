@@ -220,7 +220,7 @@
         "labTestName": "Pup 103",
         "labTestDescription": "The CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood.",
         "labTestParameters": 3,
-        "originalPrice": 1120,
+        "labTestOriginalPrice": 102,
         "labTestDiscountedPrice": 720
       },
       {

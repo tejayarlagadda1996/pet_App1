@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/Cart/controller/cartcontroller.dart';
 import 'package:pet_app/Home/controllers/Authcontroller.dart';
+import 'package:pet_app/Home/controllers/HomeRootController.dart';
 import 'package:pet_app/Utils/Consultation/BehaviourConsultation.dart';
 import 'package:pet_app/Home/views/HomeBestSeller.dart';
 import 'package:pet_app/Utils/Consultation/ConditionConsultation.dart';
-import 'package:pet_app/Home/views/HomeGroomingPackage.dart';
+import 'package:pet_app/Home/views/GroomingPackageCard.dart';
 import 'package:pet_app/Home/views/HomeLabTest.dart';
 import 'package:pet_app/Utils/BannerImage.dart';
 import 'package:pet_app/Utils/DoctorCardList/DoctorConsultation.dart';
@@ -34,6 +35,7 @@ class _HomeRootState extends State<HomeRoot> {
   }
   final Authcontroller authcontroller  = Get.put(Authcontroller());
   final Cartcontroller cartcontroller = Get.put(Cartcontroller());
+  final Homerootcontroller homerootcontroller = Get.put(Homerootcontroller());
 
   @override
   void initState() {
@@ -80,20 +82,21 @@ class _HomeRootState extends State<HomeRoot> {
         child: Obx(() => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BannerImage(imgUrl: "assets/onboarding_image_1.png"),
+            const BannerImage(imgUrl: "assets/onboarding_image_1.png"),
             // supposed to be an ad?
-            Searchbar(searchbarHintText: 'Search for toys, grooming ...'),
-            SelectAService(),
-            HomeBestSeller(loginstatus:authcontroller.isLoggedIn.value),
-            DoctorConsultation(),
-
-            BannerImage(imgUrl: "assets/onboarding_image_2.png"),
+            const Searchbar(searchbarHintText: 'Search for toys, grooming ...'),
+            const SelectAService(),
+            HomeBestSeller(
+              loginstatus:authcontroller.isLoggedIn.value,
+              products: homerootcontroller.products
+            ),
+            DoctorConsultation(doctorslist: homerootcontroller.doctorsList),
+            const BannerImage(imgUrl: "assets/onboarding_image_2.png"),
             ConditionConsultation(),
-            HomeGroomingPackage(),
+            GroomingPackageCard(packageslist:homerootcontroller.packages),
             SymptomConsultation(),
-            BannerImage(imgUrl: "assets/onboarding_image_3.png"),
-            HomeLabTest(),
-
+            const BannerImage(imgUrl: "assets/onboarding_image_3.png"),
+            HomeLabTest(labtests:homerootcontroller.labtests),
             BehaviourConsultation(),
             BannerImage(imgUrl: "assets/onboarding_image_4.png"),
             BannerImage(imgUrl: "assets/onboarding_image_5.png"),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/Home/controllers/HomeRootController.dart';
 import 'package:pet_app/SymptomTreatment/views/DataPrivacy.dart';
 import 'package:pet_app/SymptomTreatment/views/SelectedSymptoms.dart';
 import 'package:pet_app/SymptomTreatment/views/SymptomBottombar.dart';
@@ -12,7 +14,9 @@ import 'package:pet_app/Utils/DoctorCardList/DoctorConsultation.dart';
 class SymptomTreatmentRoot extends StatelessWidget {
   final List<String> selectedLabels;
 
-  const SymptomTreatmentRoot({super.key, required this.selectedLabels});
+  SymptomTreatmentRoot({super.key, required this.selectedLabels});
+
+  final Homerootcontroller homerootcontroller = Get.put(Homerootcontroller());
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +54,7 @@ class SymptomTreatmentRoot extends StatelessWidget {
             const SizedBox(height: 10),
             SelectedSymptoms(selectedLabels: selectedLabels),
             const SizedBox(height: 10),
-            DoctorConsultation(showViewAll: false),
+            DoctorConsultation(showViewAll: false,doctorslist:homerootcontroller.doctorsList),
             const SizedBox(height: 10),
             ConditionConsultation(showViewAll: false),
             const SizedBox(height: 10),

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/Models/lab_test.dart';
+import 'package:pet_app/Models/GroomingPackage.dart';
 import 'package:pet_app/Utils/Consultation/ConsultationHeader.dart';
-import 'package:pet_app/Home/views/HomeLabTestTile.dart';
+import 'package:pet_app/Home/views/HomeGroomingTile.dart';
 
-class HomeLabTest extends StatelessWidget {
-  const HomeLabTest({super.key, required this.labtests});
-  final List<LabTest> labtests;
+class GroomingPackageCard extends StatelessWidget {
+  const GroomingPackageCard({super.key, required this.packageslist});
+
+  final List<GroomingPackage> packageslist;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ConsultationHeader(
-          title: "Get Your First Lab Test Done",
+          title: "Popular Grooming Package",
           subtitle: "Get up to 15% off on your first grooming",
           onPressed: () {},
           showViewAllButton: true,
@@ -20,18 +21,15 @@ class HomeLabTest extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Container(
-            height: MediaQuery.of(context).size.width * 0.6,
-            constraints: const BoxConstraints(
-              maxHeight: 220,
-              minHeight: 210,
-            ),
+            height: MediaQuery.of(context).size.width * 0.75,
+            constraints: const BoxConstraints(maxHeight: 270, minHeight: 250),
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount:labtests.length,
+              itemCount:packageslist.length,
               itemBuilder: (context, index) {
-                final labTest = labtests[index];
-                return HomeLabTestTile(
-                  labtest: labTest,
+                final package = packageslist[index];
+                return HomeGroomingTile(
+                  package: package,
                 );
               },
             ),

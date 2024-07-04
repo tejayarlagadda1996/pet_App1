@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import 'package:pet_app/Cart/CartRoot.dart';
 import 'package:pet_app/Grooming/view/Packages.dart';
 import 'package:pet_app/Grooming/view/service_tile.dart';
-import 'package:pet_app/Home/controllers/grooming_package_controller.dart';
+import 'package:pet_app/Home/controllers/HomeRootController.dart';
 
 class GroomingRoot extends StatelessWidget {
   GroomingRoot({super.key});
-  final GroomingPackageController groomingPackageController = Get.put(GroomingPackageController());
+  final Homerootcontroller homerootcontroller = Get.put(Homerootcontroller());
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ class GroomingRoot extends StatelessWidget {
             const SizedBox(height: 20),
             const Text('   BestSeller Packages', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10,),
-            Packages(packagelist: groomingPackageController.groomingPackageList),
+            Packages(packagelist: homerootcontroller.packages),
           ],
         ),
       ),

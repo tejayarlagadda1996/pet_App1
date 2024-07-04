@@ -97,7 +97,7 @@ class HomeLabTestTile extends StatelessWidget {
                       ),
                       // Discounted Price
                       Text(
-                        "\\u20B9 ${labtest.labTestDiscountedPrice}",
+                        "\u20B9 ${labtest.labTestDiscountedPrice}",
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
