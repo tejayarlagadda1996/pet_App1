@@ -6,8 +6,8 @@ class CurrentProductDetails extends StatelessWidget {
   final String name;
   final String description;
   final double rating;
-  final int reviews;
-  final int price;
+  final double reviews;
+  final double price;
 
   const CurrentProductDetails({
     super.key,

@@ -1,34 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:pet_app/Models/product.dart';
 import 'package:pet_app/PetShop/views/PetShopBottomButtons.dart';
 import 'package:pet_app/ProductDetails/views/CurrentProductDetails.dart';
 import 'package:pet_app/ProductDetails/views/DeliveryLocation.dart';
 import 'package:pet_app/ProductDetails/views/Highlights.dart';
 import 'package:pet_app/ProductDetails/views/PetShopOffersList.dart';
 import 'package:pet_app/ProductDetails/views/ProductDetailComments.dart';
-import 'package:pet_app/ProductDetails/views/ProductImageDisplay.dart';
 import 'package:pet_app/ProductDetails/views/ProductPolicy.dart';
 import 'package:pet_app/ProductDetails/views/ProductDetailsButton.dart';
 import 'package:pet_app/ProductDetails/views/RatingReview.dart';
 import 'package:pet_app/ProductDetails/views/SizeSelector.dart';
 
 class ProductDetailsRoot extends StatefulWidget {
-  final String prodImgUrl;
-  final String prodName;
-  final String prodDesc;
-  final double prodRating;
-  final int prodReviews;
-  final int prodPrice;
-  final List<String> prodHighlights;
+  final Product product;
 
   const ProductDetailsRoot({
     super.key,
-    required this.prodImgUrl,
-    required this.prodName,
-    required this.prodDesc,
-    required this.prodRating,
-    required this.prodReviews,
-    required this.prodPrice,
-    required this.prodHighlights,
+    required this.product
   });
 
   @override
@@ -36,12 +24,7 @@ class ProductDetailsRoot extends StatefulWidget {
 }
 
 class _ProductDetailsRootState extends State<ProductDetailsRoot> {
-  final List<String> productSizes = [
-    "1.5 kg",
-    "3 kg"
-  ]; // fetch according to product through API
-
-  @override
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -68,23 +51,23 @@ class _ProductDetailsRootState extends State<ProductDetailsRoot> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProductImageDisplay(),
+            Center(child: Image.asset(widget.product.productImagePath)),
             CurrentProductDetails(
-              name: widget.prodName,
-              description: widget.prodDesc,
-              rating: widget.prodRating,
-              reviews: widget.prodReviews,
-              price: widget.prodPrice,
+              name: widget.product.productName,
+              description: widget.product.productDescription,
+              rating: widget.product.productRating,
+              reviews: widget.product.productReviews.toDouble(),
+              price: widget.product.productPrice,
             ),
-            SizeSelector(productSizes: productSizes),
+            SizeSelector(productSizes: widget.product.productsize),
             const ProductPolicy(),
             const PetShopOffersList(),
             const DeliveryLocation(),
-            Highlights(highlights: widget.prodHighlights),
+            Highlights(highlights: widget.product.productHighlights),
             const ProductDetailsButton(),
             RatingReview(
-              rating: widget.prodRating,
-              reviews: widget.prodReviews,
+              rating: widget.product.productRating,
+              reviews: widget.product.productReviews,
             ),
             ProductDetailComments(),
           ],

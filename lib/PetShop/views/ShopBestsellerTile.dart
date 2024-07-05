@@ -1,26 +1,18 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_app/Cart/controller/cartcontroller.dart';
+import 'package:pet_app/Cart/model/Cartmodel.dart';
+import 'package:pet_app/Models/product.dart';
 import 'package:pet_app/ProductDetails/views/ProductDetailsRoot.dart';
 
 class ShopBestsellerTile extends StatelessWidget {
-  final String imgUrl;
-  final String itemName;
-  final String itemDescription;
-  final int price;
-  final double rating;
-  final int reviewCount;
-  final List<String> highlights;
+  final Product product;
+  final Cartcontroller cartcontroller = Get.put(Cartcontroller());
 
-  const ShopBestsellerTile({
+  ShopBestsellerTile({
     super.key,
-    required this.imgUrl,
-    required this.itemName,
-    required this.itemDescription,
-    required this.price,
-    required this.rating,
-    required this.reviewCount,
-    required this.highlights,
+    required this.product
   });
 
   @override
@@ -29,17 +21,7 @@ class ShopBestsellerTile extends StatelessWidget {
       padding: const EdgeInsets.only(left: 12, right: 12),
       child: GestureDetector(
         onTap: () {
-          Get.to( () => 
-                ProductDetailsRoot(
-                  prodImgUrl: imgUrl,
-                  prodName: itemName,
-                  prodDesc: itemDescription,
-                  prodRating: rating,
-                  prodReviews: reviewCount,
-                  prodPrice: price,
-                  prodHighlights: highlights,
-                ),
-              );
+          Get.to(() => ProductDetailsRoot(product: product));
         },
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -55,7 +37,7 @@ class ShopBestsellerTile extends StatelessWidget {
                 SizedBox(
                   height: 120,
                   width: 90,
-                  child: Image.asset(imgUrl, fit: BoxFit.cover),
+                  child: Image.asset(product.productImagePath, fit: BoxFit.cover),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -64,7 +46,7 @@ class ShopBestsellerTile extends StatelessWidget {
                     children: [
                       // Item Name
                       Text(
-                        itemName,
+                        product.productName,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -72,7 +54,7 @@ class ShopBestsellerTile extends StatelessWidget {
                       ),
                       // Item Description
                       AutoSizeText(
-                        itemDescription,
+                        product.productDescription,
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.grey[700],
@@ -91,7 +73,7 @@ class ShopBestsellerTile extends StatelessWidget {
                             size: 14,
                           ),
                           Text(
-                            "$rating/5",
+                            "${product.productRating}/5",
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey[700],
@@ -99,7 +81,7 @@ class ShopBestsellerTile extends StatelessWidget {
                           ),
                           // Reviews
                           Text(
-                            " ($reviewCount)",
+                            " (${product.productReviews})",
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey[500],
@@ -113,7 +95,7 @@ class ShopBestsellerTile extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            "\$$price",
+                            "\$${product.productPrice}",
                             style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
@@ -125,7 +107,7 @@ class ShopBestsellerTile extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: ElevatedButton(
-                              onPressed: () {}, // add functionality
+                              onPressed: () {cartcontroller.additemtoCart(Producttype.products, product);}, // add functionality
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.transparent,
                                 shadowColor: Colors.transparent,

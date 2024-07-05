@@ -10,6 +10,10 @@ class Cartcontroller extends GetxController{
     if(currenttype == null||type == currenttype){
       cartitems.add(item);
       currenttype = type;
+    }else{
+      clearCart();
+      cartitems.add(item);
+      currenttype=type;
     }
   }
 

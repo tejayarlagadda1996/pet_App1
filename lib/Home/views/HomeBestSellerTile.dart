@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/Cart/controller/cartcontroller.dart';
-import 'package:pet_app/Cart/model/Cartmodel.dart';
 import 'package:pet_app/Login/view/LoginRoot.dart';
 import 'package:pet_app/Models/product.dart';
 
@@ -14,11 +13,14 @@ class HomeBestSellerTile extends StatelessWidget {
 
   final bool isLoggedIn;
 
+  final VoidCallback onclicked;
+
 
   HomeBestSellerTile({
     super.key,
     required this.product,
-    required this.isLoggedIn
+    required this.isLoggedIn,
+    required this.onclicked
   });
 
   @override
@@ -84,11 +86,7 @@ class HomeBestSellerTile extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: isLoggedIn
-                      ? () {
-                        print(isLoggedIn);
-                        cartcontroller.additemtoCart(Producttype.products,product);
-                        print(cartcontroller.cartitems.length);
-                        } 
+                      ? onclicked
                       : () {
                           Get.to(() => const LoginRoot(showSignIn: true));
                         }, 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_app/Cart/CartRoot.dart';
 import 'package:pet_app/Cart/controller/cartcontroller.dart';
 import 'package:pet_app/Home/controllers/Authcontroller.dart';
 import 'package:pet_app/Home/controllers/HomeRootController.dart';
@@ -32,6 +33,9 @@ class _HomeRootState extends State<HomeRoot> {
     setState(() {
       _selectedIndex = index;
     });
+    if(_selectedIndex==2){
+      Get.to(const CartRoot());
+    }
   }
   final Authcontroller authcontroller  = Get.put(Authcontroller());
   final Cartcontroller cartcontroller = Get.put(Cartcontroller());
@@ -134,20 +138,21 @@ class _HomeRootState extends State<HomeRoot> {
           ),
           child: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
+               BottomNavigationBarItem(
                 backgroundColor: Colors.transparent,
                 icon: Icon(Icons.home),
                 label: 'Home',
               ),
-              BottomNavigationBarItem(
+               BottomNavigationBarItem(
                 icon: Icon(Icons.access_time),
                 label: 'Orders',
                 backgroundColor: Colors.transparent,
               ),
               BottomNavigationBarItem(
                 backgroundColor: Colors.transparent,
-                icon: Icon(Icons.shopping_bag),
+                icon:Icon(Icons.shopping_bag),
                 label: 'Cart',
+                
               ),
               BottomNavigationBarItem(
                 backgroundColor: Colors.transparent,
@@ -160,8 +165,7 @@ class _HomeRootState extends State<HomeRoot> {
             selectedItemColor: const Color.fromRGBO(237, 109, 78, 1),
             unselectedItemColor: const Color.fromRGBO(179, 177, 176, 1),
             onTap: _onItemTapped,
-            backgroundColor:
-                Colors.transparent, // Ensure background is transparent
+            backgroundColor:Colors.transparent, // Ensure background is transparent
             elevation: 0,
           ),
         ),

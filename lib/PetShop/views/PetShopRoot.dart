@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/Cart/CartRoot.dart';
 import 'package:pet_app/PetShop/views/ShopBestseller.dart';
 import 'package:pet_app/PetShop/views/ShopByCategory.dart';
 import 'package:pet_app/Utils/Searchbar.dart';
@@ -15,7 +17,7 @@ class _PetShopRootState extends State<PetShopRoot> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: const Color.fromRGBO(255, 249, 246, 1),
           shadowColor: Colors.white,
           surfaceTintColor: Colors.white,
           elevation: 5,
@@ -32,6 +34,7 @@ class _PetShopRootState extends State<PetShopRoot> {
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
                 onPressed: () {
+                  Get.to(const CartRoot());
                 },
                 icon: const Icon(Icons.shopping_cart_outlined),
               ),
@@ -41,21 +44,16 @@ class _PetShopRootState extends State<PetShopRoot> {
 
         // DISPLAY SCREEN
         body: SingleChildScrollView(
-          child: Container(
-            color: Colors.white,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset("assets/petshop_image_1.png"),
-                const SizedBox(height: 10),
-                const Searchbar(
-                  searchbarHintText: "ex : toys, grooming, medicine",
-                ),
-                const ShopByCategory(),
-                const SizedBox(height: 20),
-                ShopBestseller(),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset("assets/petshop_image_1.png"),
+              const SizedBox(height: 10),
+              const Searchbar(searchbarHintText: "ex : toys, grooming, medicine"),
+              const ShopByCategory(),
+              const SizedBox(height: 20),
+              ShopBestseller(),
+            ],
           ),
         ));
   }

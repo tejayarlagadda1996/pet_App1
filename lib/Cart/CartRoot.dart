@@ -18,14 +18,19 @@ class CartRoot extends StatefulWidget {
 class _CartRootState extends State<CartRoot> {
 
   final Cartcontroller cartcontroller = Get.put(Cartcontroller());
-
+  double cost = 0;
   bool ifyes = false;
 
-  void toggleSign(bool value) {
-    setState(() {
-      ifyes = value;
-    });
+  void definecartitem(){
+    
   }
+
+  // void cartTotal() {
+  //   for(int i=0; i<cartcontroller.cartitems.length; i++)
+  //   {
+  //     cost += cartcontroller.cartitems.productPrice[i];
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +47,19 @@ class _CartRootState extends State<CartRoot> {
                 const Deliveryaddress(),
                 Obx(() => Cartitems(itemsincart: cartcontroller.cartitems.toList())),
                 Offerforyou(),
-                Pricedetails(),
-                BannerImage(imgUrl: '')
+                Obx(() => Pricedetails(itemsincart:cartcontroller.cartitems.toList())),
+                
+                const BannerImage(imgUrl:'"assets/petshop_image_1.png"')
                 
               ],
             ),
           ),
         ),
-        bottomNavigationBar: const Bottombuttons()
+        bottomNavigationBar: const Bottombuttons(),
+        floatingActionButton: FloatingActionButton(onPressed: (){
+          print(cartcontroller.cartitems);
+          cartcontroller.clearCart();
+        }),
       );
   }
 }

@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/Cart/controller/cartcontroller.dart';
+import 'package:pet_app/Cart/model/Cartmodel.dart';
 import 'package:pet_app/Home/views/HomeBestSellerTile.dart';
 import 'package:pet_app/Models/product.dart';
 
 // ignore: must_be_immutable
 class HomeBestSeller extends StatelessWidget {
-  const HomeBestSeller(
-      {super.key, required this.loginstatus, required this.products});
+  HomeBestSeller({super.key, required this.loginstatus, required this.products});
 
   final bool loginstatus;
 
   final List<Product> products;
+
+  final Cartcontroller cartcontroller = Get.put(Cartcontroller());
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +58,10 @@ class HomeBestSeller extends StatelessWidget {
               return HomeBestSellerTile(
                 product: product,
                 isLoggedIn: loginstatus,
+                onclicked: () {
+                        cartcontroller.additemtoCart(Producttype.products,product);
+                        print(cartcontroller.cartitems.length);
+                },
               );
             },
           ),

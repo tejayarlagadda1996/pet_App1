@@ -3,6 +3,7 @@ class Product {
   final String productName;
   final double productPrice;
   final String productImagePath;
+  final List<String> productsize;
   final double productRating;
   final int productReviews;
   final String productDescription;
@@ -12,6 +13,7 @@ class Product {
     required this.productId,
     required this.productName,
     required this.productPrice,
+    required this.productsize,
     required this.productImagePath,
     required this.productRating,
     required this.productReviews,
@@ -25,6 +27,9 @@ class Product {
         productId: json['productId'] as String? ?? '',
         productName: json['productName'] as String? ?? '',
         productPrice: (json['productPrice'] as num?)?.toDouble() ?? 0.0,
+        productsize: json['productsize'] !=null
+            ? List<String>.from(json['productsize'])
+            :[],
         productImagePath: json['productImagePath'] as String? ?? '',
         productRating: (json['productRating'] as num?)?.toDouble() ?? 0.0,
         productReviews: json['productReviews'] as int? ?? 0,

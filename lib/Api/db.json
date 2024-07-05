@@ -47,6 +47,7 @@
         "productId": "1",
         "productName": "RC Kitten",
         "productPrice": 120.99,
+        "productsize":["1.5","2.0"],
         "productImagePath": "assets/best_seller_1.png",
         "productRating": 4.5,
         "productReviews": 120,
@@ -59,6 +60,7 @@
         "productId": "2",
         "productName": "Cat Fish Food",
         "productPrice": 18.99,
+        "productsize":["1.5","2.0"],
         "productImagePath": "assets/best_seller_2.png",
         "productRating": 4.0,
         "productReviews": 80,
@@ -71,6 +73,7 @@
         "productId": "3",
         "productName": "RC Kitten",
         "productPrice": 120.99,
+        "productsize":["1.5","2.0"],
         "productImagePath": "assets/best_seller_1.png",
         "productRating": 4.5,
         "productReviews": 120,
@@ -83,9 +86,23 @@
         "productId": "4",
         "productName": "Cat Fish Food",
         "productPrice": 18.99,
+        "productsize":["1.5","2.0"],
         "productImagePath": "assets/best_seller_2.png",
         "productRating": 4.0,
         "productReviews": 80,
+        "productHighlights": [
+          "Nutritious",
+          "Affordable"
+        ]
+      },
+      { 
+        "productId": "5",
+        "productName": "Drools",
+        "productPrice": 180,
+        "productsize":["1.5","2.0"],
+        "productImagePath": "assets/best_seller_product.jpg",
+        "productRating": 3.5,
+        "productReviews": 67,
         "productHighlights": [
           "Nutritious",
           "Affordable"
