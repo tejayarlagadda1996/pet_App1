@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
 import 'package:pet_app/Login/Controller/SignInController.dart';
 import 'package:pet_app/Utils/Textfieldwidget.dart';
-import 'OtpScreen.dart';
 
 class SignInWidget extends StatelessWidget {
   SignInWidget({super.key});
@@ -41,12 +40,27 @@ class SignInWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8),
-            RoundButton(
-                roundButtonText: 'Sign in',
-                onPressed: () {
-                  print('data is ${signcontroller.signdetails[0].text}');
-                  Get.to(const OtpScreen());
-                })
+            Obx(() {
+              return signcontroller.isLoading.value
+                  ? const Center(child: CircularProgressIndicator())
+                  : RoundButton(
+                      roundButtonText: 'Sign in',
+                      onPressed: () {
+                        signcontroller.signIn();
+                      },
+                    );
+            }),
+            Obx(() {
+              return signcontroller.errorMessage.isNotEmpty
+                  ? Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text(
+                        signcontroller.errorMessage.value,
+                        style:const TextStyle(color: Colors.red),
+                      ),
+                    )
+                  : Container();
+            }),
           ],
         ),
       ),

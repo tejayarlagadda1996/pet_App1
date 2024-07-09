@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Welcome/views/WelcomeRoot.dart';
-
+import 'package:pet_app/Spalshscreen/splashscreen.dart';
 void main() {
-  
   runApp(const MyApp());
 }
 
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       title: 'Pet App',
       debugShowCheckedModeBanner: false,
-      home: WelcomeRoot(),
+      home: Splashscreen(),
     );
   }
 }

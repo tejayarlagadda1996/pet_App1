@@ -18,13 +18,6 @@ class CartRoot extends StatefulWidget {
 class _CartRootState extends State<CartRoot> {
 
   final Cartcontroller cartcontroller = Get.put(Cartcontroller());
-  double cost = 0;
-  bool ifyes = false;
-
-  void definecartitem(){
-    
-  }
-
   // void cartTotal() {
   //   for(int i=0; i<cartcontroller.cartitems.length; i++)
   //   {
@@ -41,7 +34,7 @@ class _CartRootState extends State<CartRoot> {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(8),
             child: Column(
               children: [
                 const Deliveryaddress(),
@@ -49,7 +42,7 @@ class _CartRootState extends State<CartRoot> {
                 Offerforyou(),
                 Obx(() => Pricedetails(itemsincart:cartcontroller.cartitems.toList())),
                 
-                const BannerImage(imgUrl:'"assets/petshop_image_1.png"')
+                const BannerImage(imgUrl:"assets/petshop_image_1.png")
                 
               ],
             ),

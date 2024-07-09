@@ -1,14 +1,14 @@
 
-class Petinfomodel{
+class PetDetails{
   final String petname;
   final double petage;
   final String pettype;
   final String petbreed;
   final String petgender;
-  final String symptoms;
-  final String behaviour;
+  final List<String> symptoms;
+  final List<String> behaviour;
 
-  const Petinfomodel({
+  const PetDetails({
     required this.pettype,
     required this.petbreed,
     required this.petgender,
@@ -19,7 +19,7 @@ class Petinfomodel{
   });
 
 
-  factory Petinfomodel.fromJson(Map<String,dynamic>json)=>Petinfomodel(
+  factory PetDetails.fromJson(Map<String,dynamic>json)=>PetDetails(
     pettype: json['pettype'],
     petbreed: json['petbreed'],
     petgender: json['petgender'],

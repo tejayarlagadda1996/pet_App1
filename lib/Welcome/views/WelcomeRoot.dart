@@ -98,7 +98,7 @@ class _WelcomeRootState extends State<WelcomeRoot> {
                         RoundButton(
                           roundButtonText: "Log In / Sign Up",
                           onPressed: () {
-                            Get.to(() => const LoginRoot(showSignIn: true));
+                            Get.to(()=>const LoginRoot(showSignIn: true));
                             // showModalBottomSheet(
                             //   context: context,
                             //   builder: (context) =>
@@ -125,6 +125,7 @@ class _WelcomeRootState extends State<WelcomeRoot> {
                             ),
                           ),
                         ),
+                        const SizedBox(height: 20)
                       ],
                     ),
                   ),

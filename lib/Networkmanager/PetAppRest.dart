@@ -14,7 +14,7 @@ class Petapprest<T> {
     var response = await http.get(url);
     setStatusCode(response.statusCode);
     if (response.statusCode == 200 || response.statusCode == 201) {
-      var data = jsonDecode(response.body);
+      var data = jsonDecode(response.body) as List;
       return fromJson(data);
     } else {
       print('Request failed with status: ${response.statusCode}.');
