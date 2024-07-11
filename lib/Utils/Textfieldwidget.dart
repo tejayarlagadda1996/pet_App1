@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 
-class Textfieldwidget extends StatelessWidget {
+class TextfieldWidget extends StatelessWidget {
   final TextEditingController controller;
   final String placeholderText;
   final bool obscureText;
   final IconData? icon;
+  final VoidCallback? onIconTap;
+  final TextInputType inputType;
 
-  const Textfieldwidget({
+  const TextfieldWidget({
     super.key,
     required this.controller,
     required this.placeholderText,
     this.obscureText = false,
     this.icon,
+    this.onIconTap,
+    required this.inputType,
   });
 
   @override
@@ -21,33 +25,34 @@ class Textfieldwidget extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         obscureText: obscureText,
+        keyboardType: inputType,
         style: const TextStyle(color: Colors.black),
         decoration: InputDecoration(
           labelText: placeholderText,
           labelStyle: const TextStyle(color: Colors.grey),
-          enabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.blue),
+          floatingLabelStyle: const TextStyle(
+            color: Color.fromRGBO(69, 82, 203, 1),
           ),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
           focusedBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Color.fromRGBO(237, 109, 78, 1)),
+            borderSide: BorderSide(
+              width: 2,
+              color: Color.fromRGBO(69, 82, 203, 1),
+            ),
+          ),
+          enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent),
           ),
           errorBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
           ),
-          
           filled: true,
           fillColor: Colors.grey.withOpacity(0.1),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
           suffixIcon: icon != null
               ? IconButton(
-                  onPressed: () {
-                    controller.text = controller.text; // to toggle obscureText
-                  },
-                  icon: Icon(
-                    obscureText ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.grey,
-                  ),
+                  onPressed: onIconTap,
+                  icon: Icon(icon),
                 )
               : null,
         ),

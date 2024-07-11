@@ -23,30 +23,35 @@ void receiverBottomsheet(BuildContext context) {
                 children: [
                   const Text('Receiver information',
                       style: TextStyle(fontWeight: FontWeight.bold)),
-                  Textfieldwidget(
+                  TextfieldWidget(
                     controller: receivercontroller.receiverdata[0],
                     placeholderText: 'Receiver Name',
                     obscureText: false,
+                    inputType: TextInputType.name,
                   ),
-                  Textfieldwidget(
+                  TextfieldWidget(
                     controller: receivercontroller.receiverdata[1],
                     placeholderText: 'Address Line 1',
                     obscureText: false,
+                    inputType: TextInputType.streetAddress,
                   ),
-                  Textfieldwidget(
+                  TextfieldWidget(
                     controller: receivercontroller.receiverdata[2],
                     placeholderText: 'Address Line 2',
                     obscureText: false,
+                    inputType: TextInputType.streetAddress,
                   ),
-                  Textfieldwidget(
+                  TextfieldWidget(
                     controller: receivercontroller.receiverdata[3],
                     placeholderText: 'Pincode',
                     obscureText: false,
+                    inputType: TextInputType.number,                    
                   ),
-                  Textfieldwidget(
+                  TextfieldWidget(
                     controller: receivercontroller.receiverdata[4],
                     placeholderText: 'Receiver Number',
                     obscureText: false,
+                    inputType: TextInputType.number,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 20),

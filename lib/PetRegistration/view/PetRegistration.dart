@@ -26,37 +26,38 @@ class Petinfo extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.3,
               height: MediaQuery.of(context).size.height * 0.3,
             ),
-            Textfieldwidget(
+            TextfieldWidget(
               controller: petinfoController.textControllers[0],
               placeholderText: 'Enter pet name',
+              inputType: TextInputType.name,
             ),
             Dropdownwidget(
               selectedValue: petinfoController.dropdownControllers[0],
               items: const ['Dog', 'Cat', 'Bird', 'Other'],
               placeholderText: 'Select pet type',
             ),
-            Dropdownwidget(
-              items: const ['1', '2', '3'],
-              placeholderText: 'Enter Pet Age',
-              selectedValue: petinfoController.dropdownControllers[1],
+            TextfieldWidget(
+              controller: petinfoController.textControllers[1],
+              placeholderText: 'Pet weight',
+              inputType: TextInputType.number,
             ),
             Dropdownwidget(
-              selectedValue: petinfoController.dropdownControllers[2],
+              selectedValue: petinfoController.dropdownControllers[1],
               items: const ['Labrador', 'Pug', 'German Shepherd'],
               placeholderText: 'Enter pet breed',
             ),
             Dropdownwidget(
-              selectedValue: petinfoController.dropdownControllers[3],
+              selectedValue: petinfoController.dropdownControllers[2],
               items: const ['Male', 'Female'],
               placeholderText: 'Select gender',
             ),
             Dropdownwidget(
-              selectedValue: petinfoController.dropdownControllers[4],
+              selectedValue: petinfoController.dropdownControllers[3],
               items: const ['Symptom A', 'Symptom B', 'Symptom C'],
               placeholderText: 'Symptoms',
             ),
             Dropdownwidget(
-              selectedValue: petinfoController.dropdownControllers[5],
+              selectedValue: petinfoController.dropdownControllers[4],
               items: const ['Behavior A', 'Behavior B', 'Behavior C'],
               placeholderText: 'Behavior',
             ),

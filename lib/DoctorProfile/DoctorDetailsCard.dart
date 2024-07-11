@@ -1,19 +1,14 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pet_app/DoctorProfile/DoctorProfileRoot.dart';
 
-class TreatmentDoctorTile extends StatelessWidget {
-  final String docImgPath;
+class DoctorDetailsCard extends StatelessWidget {
   final String docName;
   final int experience;
   final double rating;
   final int review;
   final double distance;
 
-  const TreatmentDoctorTile({
+  const DoctorDetailsCard({
     super.key,
-    required this.docImgPath,
     required this.docName,
     required this.experience,
     required this.rating,
@@ -23,18 +18,28 @@ class TreatmentDoctorTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 12, bottom: 10, top: 4),
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.9,
-        decoration: const BoxDecoration(color: Colors.white),
+    return Container(
+        height: 100,
+      //  width: MediaQuery.of(context).size.width * 0.5,
+        // constraints: BoxConstraints(
+        //   maxWidth: MediaQuery.of(context).size.width * 0.5,
+        // ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: const[
+            BoxShadow(
+              color: Color.fromARGB(255, 221, 221, 221),
+              blurRadius: 15,
+              spreadRadius: 5,
+              offset: Offset(0, 3),
+            ),
+          ],
+          borderRadius: BorderRadius.circular(12)
+        ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Row(
             children: [
-              // Doctor Photo
-              Image.asset(docImgPath, fit: BoxFit.cover),
-              const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,32 +50,27 @@ class TreatmentDoctorTile extends StatelessWidget {
                         // Doctor Name
                         Flexible(
                           fit: FlexFit.loose,
-                          child: AutoSizeText(
+                          child: Text(
                             docName,
                             style: const TextStyle(
                               fontWeight: FontWeight.w500,
+                              fontSize: 18,
                             ),
-                            maxFontSize: 14,
-                            minFontSize: 14,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 60,
-                          child: TextButton(
-                            onPressed: () {
-                              Get.to(()=>const DoctorProfileRoot());
-                            },
-                            child: const Text(
-                              "View",
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Color.fromRGBO(237, 109, 78, 1),
-                              ),
+                          child: Text(
+                            "500/-",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              color: Color.fromRGBO(237, 109, 78, 1),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
 
@@ -78,7 +78,7 @@ class TreatmentDoctorTile extends StatelessWidget {
                     Text(
                       "$experience Years Experience",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 13,
                         color: Colors.grey[500],
                       ),
                     ),
@@ -89,12 +89,12 @@ class TreatmentDoctorTile extends StatelessWidget {
                         const Icon(
                           Icons.star,
                           color: Color.fromRGBO(237, 109, 78, 1),
-                          size: 14,
+                          size: 16,
                         ),
                         Text(
-                          "$rating",
+                          " $rating",
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 13,
                             color: Colors.grey[500],
                           ),
                         ),
@@ -104,12 +104,12 @@ class TreatmentDoctorTile extends StatelessWidget {
                         const Icon(
                           Icons.circle,
                           color: Color.fromRGBO(237, 109, 78, 1),
-                          size: 10,
+                          size: 12,
                         ),
                         Text(
                           " $review Reviews",
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 13,
                             color: Colors.grey[500],
                           ),
                         ),
@@ -124,7 +124,7 @@ class TreatmentDoctorTile extends StatelessWidget {
                         Text(
                           "$distance km",
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 13,
                             color: Colors.grey[500],
                           ),
                         ),
@@ -136,7 +136,6 @@ class TreatmentDoctorTile extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

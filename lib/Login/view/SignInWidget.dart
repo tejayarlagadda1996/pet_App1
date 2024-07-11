@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_app/Login/view/ForgetPasswordBottomSheet.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
 import 'package:pet_app/Login/Controller/SignInController.dart';
 import 'package:pet_app/Utils/Textfieldwidget.dart';
@@ -7,7 +8,8 @@ import 'package:pet_app/Utils/Textfieldwidget.dart';
 class SignInWidget extends StatelessWidget {
   SignInWidget({super.key});
 
-  final SignInController signcontroller = Get.put(SignInController());
+  final SignInController signIncontroller = Get.put(SignInController());
+  final RxBool _isPasswordVisible = false.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -21,41 +23,56 @@ class SignInWidget extends StatelessWidget {
             const Text('Sign In',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             const SizedBox(height: 40),
-            Textfieldwidget(
-              controller: signcontroller.signdetails[0],
+            TextfieldWidget(
+              controller: signIncontroller.signInDetails[0],
               placeholderText: 'Email/Number',
               obscureText: false,
+              inputType: TextInputType.emailAddress,
             ),
-            Textfieldwidget(
-              controller: signcontroller.signdetails[1],
-              placeholderText: 'Password',
-              obscureText: true,
-              icon: Icons.visibility,
-            ),
-            Row(
+            Obx(() {
+              return TextfieldWidget(
+                controller: signIncontroller.signInDetails[1],
+                placeholderText: 'Password',
+                obscureText: !_isPasswordVisible.value,
+                inputType: TextInputType.text,
+                icon: _isPasswordVisible.value ? Icons.visibility_off : Icons.visibility,
+                onIconTap: () {
+                  _isPasswordVisible.value = !_isPasswordVisible.value;
+                },
+              );
+            }),
+           Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                    onPressed: () {}, child: const Text('Forgot Password'))
+                  onPressed: (){
+                    Get.bottomSheet(
+                      backgroundColor: Colors.white,
+                      Forgotpasswordbottomsheet()
+                    );
+                  },
+                  child:const Text('Forgot Password')
+                )
+                
               ],
             ),
             const SizedBox(height: 8),
             Obx(() {
-              return signcontroller.isLoading.value
+              return signIncontroller.isLoading.value
                   ? const Center(child: CircularProgressIndicator())
                   : RoundButton(
                       roundButtonText: 'Sign in',
                       onPressed: () {
-                        signcontroller.signIn();
+                        signIncontroller.signIn();
                       },
                     );
             }),
             Obx(() {
-              return signcontroller.errorMessage.isNotEmpty
+              return signIncontroller.errorMessage.isNotEmpty
                   ? Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Text(
-                        signcontroller.errorMessage.value,
+                        signIncontroller.errorMessage.value,
                         style:const TextStyle(color: Colors.red),
                       ),
                     )

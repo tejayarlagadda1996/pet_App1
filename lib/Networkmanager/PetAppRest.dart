@@ -14,7 +14,7 @@ class Petapprest<T> {
     var response = await http.get(url);
     setStatusCode(response.statusCode);
     if (response.statusCode == 200 || response.statusCode == 201) {
-      var data = jsonDecode(response.body) as List;
+      var data = jsonDecode(response.body) ;
       return fromJson(data);
     } else {
       print('Request failed with status: ${response.statusCode}.');
@@ -36,7 +36,7 @@ class Petapprest<T> {
   }
 
   Future<T?> post(String endpoint, Map<String, dynamic> body, T Function(dynamic) fromJson, Authentication? auth, Function(int) setStatusCode) async {
-    var basicAuth = auth != null ? 'Basic ${base64Encode(utf8.encode('rzp_test_4wZO5YRyjtACT2:nvGyVuemI5s643oUVGyzpsex'))}' : '' ;
+    var basicAuth = auth != null ? 'Basic ${base64Encode(utf8.encode('psmobilebasicauth@petsaviour.com:3PS-VSP-V20?ITR'))}' : '' ;
     var url = Uri.parse('$baseUrl$endpoint');
     var headers = auth != null ? {'Content-Type': 'application/json','Authorization': basicAuth} : {'Content-Type': 'application/json', 'accept': 'application/json'};
     var jsonBody = jsonEncode(body);
@@ -47,7 +47,7 @@ class Petapprest<T> {
       setStatusCode(response.statusCode);
       return fromJson(data);
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      print('Request failed with status: ${response.statusCode}. ');
       return null;
     }
   }

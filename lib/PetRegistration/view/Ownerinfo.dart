@@ -27,22 +27,26 @@ class Ownerinfo extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.3,
               height: MediaQuery.of(context).size.height * 0.3,
             ),
-            Textfieldwidget(
-              controller: petinfoController.textControllers[1],
+            TextfieldWidget(
+              controller: petinfoController.textControllers[2],
               placeholderText: 'Owner name',
+              inputType: TextInputType.name,
             ),
             Dropdownwidget(
-              selectedValue: petinfoController.dropdownControllers[6],
+              selectedValue: petinfoController.dropdownControllers[5],
               items: ['Male', 'Female'],
               placeholderText: 'Gender',
             ),
-            Textfieldwidget(
-              controller: petinfoController.textControllers[2],
+            TextfieldWidget(
+              controller: petinfoController.textControllers[3],
               placeholderText: 'Email',
+              inputType: TextInputType.emailAddress,
             ),
-            Textfieldwidget(
-                controller: petinfoController.textControllers[3],
-                placeholderText: 'Mobile number'),
+            TextfieldWidget(
+                controller: petinfoController.textControllers[4],
+                inputType: TextInputType.number,
+                placeholderText: 'Mobile number'
+            ),
             Padding(
               padding: const EdgeInsets.all(12),
               child: Container(
@@ -50,7 +54,7 @@ class Ownerinfo extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(12)),
                 ),
                 child: TextFormField(
-                  controller: petinfoController.textControllers[4],
+                  controller: petinfoController.textControllers[5],
                   maxLength: 150,
                   maxLines: 5,
                   decoration: const InputDecoration(

@@ -11,6 +11,14 @@ class Registrationroot extends StatelessWidget {
   final PetinfoController petinfoController = Get.put(PetinfoController());
   Registrationroot({super.key});
 
+  onpressingback(){
+    if(petinfoController.stepperindex==0.obs){
+      Get.offAll(const LoginRoot(showSignIn: true));
+    }else if(petinfoController.stepperindex==1.obs){
+      petinfoController.previoussStep();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,10 +32,10 @@ class Registrationroot extends StatelessWidget {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  RoundButton(roundButtonText: 'Back', onPressed:onpressingback),
+                  const SizedBox(width: 20),
                   if(petinfoController.stepperindex==0.obs)
                   RoundButton(roundButtonText: 'Next', onPressed: details.onStepContinue),
-                  const SizedBox(width: 20),
-                  RoundButton(roundButtonText: 'Back', onPressed:(){Get.offAll(const LoginRoot(showSignIn: true));}),
                   const SizedBox(width: 20),
                   if(petinfoController.stepperindex.value==1)
                   RoundButton(roundButtonText: 'Submit', onPressed: (){Get.offAll(const HomeRoot());})

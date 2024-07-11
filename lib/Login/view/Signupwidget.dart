@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pet_app/Login/Controller/SignUPController.dart';
+import 'package:pet_app/Utils/Dropdownwidget.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
 import 'package:pet_app/Utils/Textfieldwidget.dart';
 
@@ -26,26 +26,28 @@ class _SignupwidgetState extends State<Signupwidget> {
             const SizedBox(
               height: 20,
             ),
-            Textfieldwidget(
-              controller: signupController.signupdetails[0],
-              placeholderText: 'First Name',
+            TextfieldWidget(
+              controller: signupController.signUpdetails[0],
+              placeholderText: 'Parent Name',
               obscureText: false,
+              inputType: TextInputType.name,
             ),
-            Textfieldwidget(
-              controller: signupController.signupdetails[1],
+            TextfieldWidget(
+              controller: signupController.signUpdetails[1],
               placeholderText: 'Email',
               obscureText: false,
+              inputType: TextInputType.emailAddress,
             ),
-            Textfieldwidget(
-              controller: signupController.signupdetails[2],
+            TextfieldWidget(
+              controller: signupController.signUpdetails[2],
               placeholderText: 'Mobile number',
               obscureText: false,
+              inputType: TextInputType.number,
             ),
-            Textfieldwidget(
-              controller: signupController.signupdetails[3],
-              placeholderText: 'Password',
-              obscureText: true,
-              icon: Icons.visibility,
+            Dropdownwidget(
+              placeholderText: 'City',
+              selectedValue: signupController.city,
+              items: const['Hyderabad','Vijayawada','Banglore','Chennai'],
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -70,8 +72,9 @@ class _SignupwidgetState extends State<Signupwidget> {
               child: RoundButton(
                 roundButtonText: 'Sign Up',
                 onPressed: (){
-                  Get.back();
-                  Get.snackbar('Succesful', 'please login to your account',backgroundColor: Colors.green);
+                  signupController.signUp();
+                  // Get.back();
+                  // Get.snackbar('Succesful', 'please login to your account',backgroundColor: Colors.green);
                 }
               )
             )
