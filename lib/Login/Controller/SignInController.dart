@@ -38,6 +38,7 @@ class SignInController extends GetxController {
       },
     );
     print(result);
+    print(result?.password);
     isLoading(false);
   }
 
