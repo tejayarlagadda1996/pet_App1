@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Login/model/SignUp.dart';
-import 'package:pet_app/Login/view/LoginRoot.dart';
-import 'package:pet_app/Networkmanager/PetAppRest.dart';
-import 'package:pet_app/PetRegistration/Models/PetinfoModel.dart';
-import 'package:pet_app/Utils/globals.dart';
+// import 'package:pet_app/Login/model/SignUp.dart';
+// import 'package:pet_app/Login/view/LoginRoot.dart';
+// import 'package:pet_app/Networkmanager/PetAppRest.dart';
+// import 'package:pet_app/PetRegistration/Models/PetinfoModel.dart';
+// import 'package:pet_app/Utils/globals.dart';
 
 class PetinfoController extends GetxController {
   final List<TextEditingController> textControllers = List.generate(
