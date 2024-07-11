@@ -27,7 +27,7 @@ class SignInController extends GetxController {
       (data) => SignIn.fromJson(data),
       Authentication.basicAuth,
       (statusCode) {
-        if (statusCode == 200){
+        if (statusCode == 200) {
           // storeUserData(result., userUUID);
           Get.offAll(() => Registrationroot());
           print(statusCode);
@@ -37,10 +37,11 @@ class SignInController extends GetxController {
         }
       },
     );
+    print(result);
+    print(result?.password);
     isLoading(false);
-    
-     
   }
+
   Future<void> storeUserData(String token, String userUUID) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('token', token);
