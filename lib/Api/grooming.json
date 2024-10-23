@@ -1,0 +1,132 @@
+{
+    "grooming": {
+      "petGroomingServices": [
+        {
+          "serviceName": "Best Seller",
+          "serviceType": "Best Seller",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/best_seller.png"
+        },
+        {
+          "serviceName": "Make your package",
+          "serviceType": "Own Package",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/package.png"
+        },
+        {
+          "serviceName": "Pet Bathing",
+          "serviceType": "Spa",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/pet_bathing.png"
+        },
+        {
+          "serviceName": "Nail Clipping",
+          "serviceType": "Grooming",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/nail_clipping.png"
+        },
+        {
+          "serviceName": "Hair Cut",
+          "serviceType": "Grooming",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/haircut.png"
+        },
+        {
+          "serviceName": "Ear & Eye Cleaning",
+          "serviceType": "Grooming",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/eye_ear_cleaning.png"
+        },
+        {
+          "serviceName": "Pet Spa",
+          "serviceType": "Spa",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/spa.png"
+        },
+        {
+          "serviceName": "Medicated Bath",
+          "serviceType": "Spa",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/medicated_bath.png"
+        },
+        {
+          "serviceName": "Blow Dry",
+          "serviceType": "Grooming",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/blow_dry.png"
+        },
+        {
+          "serviceName": "Combing & Teeth Brushing",
+          "serviceType": "Grooming",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/haircut.png"
+        },
+        {
+          "serviceName": "Mouth Spray",
+          "serviceType": "Grooming",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/haircut.png"
+        },
+        {
+          "serviceName": "Paw Massage",
+          "serviceType": "Grooming",
+          "serviceImage": "http://192.168.1.203:8080/petsaviour-static/petsaviour_grooming_images/paw_massage.png"
+        }
+      ],
+      "petGroomingPackages": [
+        {
+          "packageName": "Sanitize & Shower",
+          "petsaviourServiceId": 3,
+          "packageImage": "http://192.168.1.203:8080/resources/images/pet-grooming.jpg",
+          "elapsedTime": "45 min",
+          "packageUUID": "EG8n9GcS",
+          "aboutPackage": "Sanitize & Shower package for your pets",
+          "packageServices": [
+            "Pet Bathing",
+            "Nail Clipping",
+            "Ear & Eye Cleaning",
+            "Blow Dry",
+            "Combing & Teeth Brushing"
+          ],
+          "grossPrice": 0,
+          "netPrice": 0,
+          "discount": null
+        },
+        {
+          "packageName": "Hair & Body Care",
+          "petsaviourServiceId": 3,
+          "packageImage": "http://192.168.1.203:8080/resources/images/pet-grooming.jpg",
+          "elapsedTime": "1 hr",
+          "packageUUID": "70glXIhU",
+          "aboutPackage": "Pet Hair & Body care service",
+          "packageServices": [
+            "Pet Bathing",
+            "Nail Clipping",
+            "Hair Cut",
+            "Ear & Eye Cleaning",
+            "Blow Dry",
+            "Combing & Teeth Brushing",
+            "Mouth Spray",
+            "Paw Massage"
+          ],
+          "grossPrice": 0,
+          "netPrice": 0,
+          "discount": null
+        },
+        {
+          "packageName": "Pet Full Care",
+          "petsaviourServiceId": 3,
+          "packageImage": "http://192.168.1.203:8080/resources/images/pet-grooming.jpg",
+          "elapsedTime": "1:30 hr",
+          "packageUUID": "XEWh5KGX",
+          "aboutPackage": "Pet full care package",
+          "packageServices": [
+            "Pet Bathing",
+            "Nail Clipping",
+            "Hair Cut",
+            "Ear & Eye Cleaning",
+            "Pet Spa",
+            "Medicated Bath",
+            "Blow Dry",
+            "Combing & Teeth Brushing",
+            "Mouth Spray",
+            "Paw Massage"
+          ],
+          "grossPrice": 0,
+          "netPrice": 0,
+          "discount": null
+        }
+      ]
+    },
+    "status": 1,
+    "message": "Operation executed successfully"
+  }

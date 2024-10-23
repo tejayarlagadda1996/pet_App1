@@ -1,0 +1,96 @@
+{
+    "customerRegisteredPets": [
+      {
+        "petType": "Dog",
+        "petName": "Jolly",
+        "age": "10 years",
+        "gender": "Male",
+        "breed": "Golden Retriever",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/Ellipse1726063164031.png",
+        "petUUID": "tGdrCSLB"
+      },
+      {
+        "petType": "Dog",
+        "petName": "Kelsy",
+        "age": "2",
+        "gender": "Male",
+        "breed": "Beagle",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/dog1726150920955.jpg",
+        "petUUID": "K4jxfUX4"
+      },
+      {
+        "petType": "Dog",
+        "petName": "Puppi",
+        "age": "3",
+        "gender": "Male",
+        "breed": "Shih Tzu",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/dog1726206766838.jpg",
+        "petUUID": "tmbAwMKS"
+      },
+      {
+        "petType": "Dog",
+        "petName": "Puppy",
+        "age": "6 years",
+        "gender": "Male",
+        "breed": "Golden Retriever",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/10001726511726467992967.jpg",
+        "petUUID": "8UpBDjD2"
+      },
+      {
+        "petType": "Cat",
+        "petName": "ginger",
+        "age": "10",
+        "gender": "Male",
+        "breed": "Pug",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/10001688851726468648073.jpg",
+        "petUUID": "lsTY7vA2"
+      },
+      {
+        "petType": "Cat",
+        "petName": "ginger",
+        "age": "10",
+        "gender": "Male",
+        "breed": "Pug",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/10001738421726468892823.jpg",
+        "petUUID": "bVf7s7Mi"
+      },
+      {
+        "petType": "Cat",
+        "petName": "ginger",
+        "age": "10",
+        "gender": "Male",
+        "breed": "Pug",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/10001745971726469222111.jpg",
+        "petUUID": "rGCOEtDd"
+      },
+      {
+        "petType": "Cat",
+        "petName": "ginger",
+        "age": "10",
+        "gender": "Male",
+        "breed": "Pug",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/10001710821726469341051.jpg",
+        "petUUID": "bDFXa7q9"
+      },
+      {
+        "petType": "Dog",
+        "petName": "Doggy",
+        "age": "10 years",
+        "gender": "Male",
+        "breed": "Pug",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/10001735491726470151732.jpg",
+        "petUUID": "o1UMDnwc"
+      },
+      {
+        "petType": "Dog",
+        "petName": "haha",
+        "age": "5",
+        "gender": "Male",
+        "breed": "Shih Tzu",
+        "image": "http://192.168.1.19:8080/petsaviour-static/customer_pet_images/c487548c-e13b-489c-badf-ee16a611a19a35781467429955775751726469399617.jpg",
+        "petUUID": "R4ufPLbf"
+      }
+    ],
+    "status": 1,
+    "message": "Operation executed successfully"
+  }

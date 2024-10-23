@@ -1,0 +1,500 @@
+{
+  "homeScreen": {
+    "labTestServices": {
+      "labelName": "Popular Health Tests",
+      "labelShortDescription": "Get up to 10% off on all health tests",
+      "labTests": [
+        {
+          "labTestName": "Complete Blood Picture",
+          "labTestUUID": "hsQnLaZG",
+          "description": "Complete blood picture test",
+          "grossPrice": 0,
+          "netPrice": 0,
+          "discount": "0%"
+        },
+        {
+          "labTestName": "Lipid Profile",
+          "labTestUUID": "JpcsldOg",
+          "description": "Lipid profile test",
+          "grossPrice": 0,
+          "netPrice": 0,
+          "discount": "0%"
+        }
+      ]
+    },
+    "petSymptoms": {
+      "labelName": "Consultation Based On Symptoms",
+      "labelShortDescription": "Get up to 5% off on consultations. Browse among various pet symptoms",
+      "symptoms": [
+        {
+          "symptomId": 2,
+          "symptomName": "Abdomen - Swollen",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "symptomId": 3,
+          "symptomName": "Anorexia",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "symptomId": 4,
+          "symptomName": "Bad Breath",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "symptomId": 6,
+          "symptomName": "Bleeding From Ear",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "symptomId": 18,
+          "symptomName": "Dandruff",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "symptomId": 19,
+          "symptomName": "Deafness",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "symptomId": 28,
+          "symptomName": "Ears Discharge",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "symptomId": 29,
+          "symptomName": "Ears Foul Odor",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "symptomId": 31,
+          "symptomName": "Ears - Rubbing",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "symptomId": 37,
+          "symptomName": "Weight Loss",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        }
+      ]
+    },
+    "petBehaviors": {
+      "labelName": "Consultation Based On Behaviors",
+      "labelShortDescription": "Get up to 5% off on consultations. Browse among various pet behaviors",
+      "behaviours": [
+        {
+          "behaviorId": 1,
+          "behaviorName": "Aggression",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "behaviorId": 4,
+          "behaviorName": "Barking - Hoarsely",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "behaviorId": 6,
+          "behaviorName": "Begging at the Table",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "behaviorId": 7,
+          "behaviorName": "Biting - Puppy",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "behaviorId": 11,
+          "behaviorName": "Come Now",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "behaviorId": 13,
+          "behaviorName": "Compulsive Behavior",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "behaviorId": 14,
+          "behaviorName": "Counter conditioning",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "behaviorId": 16,
+          "behaviorName": "Digging",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "behaviorId": 18,
+          "behaviorName": "Dog Park Behavior",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "behaviorId": 20,
+          "behaviorName": "Drooling",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        }
+      ]
+    },
+    "banners": {
+      "labelName": "Banners",
+      "labelShortDescription": "",
+      "homeBanners": [
+        {
+          "serviceId": 1,
+          "serviceName": "Lab Tests",
+          "bannerImage": "http://192.168.1.203:8080/petsaviour-static/banner_images/banner1.png"
+        },
+        {
+          "serviceId": 4,
+          "serviceName": "Pet Accessories",
+          "bannerImage": "http://192.168.1.203:8080/petsaviour-static/banner_images/banner2.png"
+        },
+        {
+          "serviceId": 3,
+          "serviceName": "Pet Grooming",
+          "bannerImage": "http://192.168.1.203:8080/petsaviour-static/banner_images/banner3.png"
+        },
+        {
+          "serviceId": 4,
+          "serviceName": "Pet Accessories",
+          "bannerImage": "http://192.168.1.203:8080/petsaviour-static/banner_images/banner4.png"
+        },
+        {
+          "serviceId": 4,
+          "serviceName": "Pet Accessories",
+          "bannerImage": "http://192.168.1.203:8080/petsaviour-static/banner_images/banner5.png"
+        }
+      ]
+    },
+    "petFoodProducts": {
+      "labelName": "Explore products from variours brands",
+      "labelShortDescription": "Get up to 10% off on exclusive products",
+      "foodProducts": [
+        {
+          "productName": "Pedigree Chicken & Vegitables 3Kg",
+          "productImage": "http://192.168.1.203:8080/resources/images/food-1.jpeg",
+          "grossPrice": 430,
+          "netPrice": 344,
+          "discount": "20%",
+          "productUUID": "IjhYtg"
+        },
+        {
+          "productName": "Pedigree Chicken & Vegitables 3Kg",
+          "productImage": "http://192.168.1.203:8080/resources/images/food-1.jpeg",
+          "grossPrice": 430,
+          "netPrice": 344,
+          "discount": "20%",
+          "productUUID": "IjhYtg"
+        }
+      ]
+    },
+    "petConditions": {
+      "labelName": "Consultation Based On Conditions",
+      "labelShortDescription": "Get up to 5% off on consultations. Browse among various pet conditions",
+      "conditions": [
+        {
+          "conditionId": 1,
+          "conditionName": "Allergies - Flea",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "conditionId": 5,
+          "conditionName": "Arthritis",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "conditionId": 8,
+          "conditionName": "Bladder Stones",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "conditionId": 9,
+          "conditionName": "Bloat",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "conditionId": 12,
+          "conditionName": "Bronchitis",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "conditionId": 15,
+          "conditionName": "Canine Influenza Virus",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "conditionId": 27,
+          "conditionName": "Ear Conditions",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "conditionId": 30,
+          "conditionName": "Ear Infection - Middle",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "conditionId": 31,
+          "conditionName": "Ear Mites",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        },
+        {
+          "conditionId": 33,
+          "conditionName": "Elbow Dysplasia",
+          "petType": "Dog",
+          "petCode": "PETDOG"
+        }
+      ]
+    },
+    "petMedicines": {
+      "labelName": "Products help in treating wide range of problems",
+      "labelShortDescription": "Get up to 10% off on exclusive products",
+      "medicines": [
+        {
+          "medicineName": "Anti tick powder",
+          "medicineImage": "http://192.168.1.203:8080/resources/images/med-1.jpg",
+          "grossPrice": 430,
+          "netPrice": 344,
+          "discount": "20%",
+          "medicineUUID": "hyUjop"
+        },
+        {
+          "medicineName": "Anti tick powder",
+          "medicineImage": "http://192.168.1.203:8080/resources/images/med-1.jpg",
+          "grossPrice": 430,
+          "netPrice": 344,
+          "discount": "20%",
+          "medicineUUID": "hyUjop"
+        }
+      ]
+    },
+    "groomingServices": {
+      "labelName": "Popular Grooming Packages",
+      "labelShortDescription": "Explore our different Spa & Grooming services to make your pet overload with cuteness",
+      "grooming": [
+        {
+          "packageName": "Sanitize & Shower",
+          "petsaviourServiceId": 3,
+          "packageImage": "http://192.168.1.203:8080/resources/images/pet-grooming.jpg",
+          "elapsedTime": "45 min",
+          "packageUUID": "EG8n9GcS",
+          "aboutPackage": "Sanitize & Shower package for your pets",
+          "packageServices": [
+            "Pet Bathing",
+            "Nail Clipping",
+            "Ear & Eye Cleaning",
+            "Blow Dry",
+            "Combing & Teeth Brushing"
+          ],
+          "grossPrice": 0,
+          "netPrice": 0,
+          "discount": "0%"
+        },
+        {
+          "packageName": "Hair & Body Care",
+          "petsaviourServiceId": 3,
+          "packageImage": "http://192.168.1.203:8080/resources/images/pet-grooming.jpg",
+          "elapsedTime": "1 hr",
+          "packageUUID": "70glXIhU",
+          "aboutPackage": "Pet Hair & Body care service",
+          "packageServices": [
+            "Pet Bathing",
+            "Nail Clipping",
+            "Hair Cut",
+            "Ear & Eye Cleaning",
+            "Blow Dry",
+            "Combing & Teeth Brushing",
+            "Mouth Spray",
+            "Paw Massage"
+          ],
+          "grossPrice": 0,
+          "netPrice": 0,
+          "discount": "0%"
+        },
+        {
+          "packageName": "Pet Full Care",
+          "petsaviourServiceId": 3,
+          "packageImage": "http://192.168.1.203:8080/resources/images/pet-grooming.jpg",
+          "elapsedTime": "1:30 hr",
+          "packageUUID": "XEWh5KGX",
+          "aboutPackage": "Pet full care package",
+          "packageServices": [
+            "Pet Bathing",
+            "Nail Clipping",
+            "Hair Cut",
+            "Ear & Eye Cleaning",
+            "Pet Spa",
+            "Medicated Bath",
+            "Blow Dry",
+            "Combing & Teeth Brushing",
+            "Mouth Spray",
+            "Paw Massage"
+          ],
+          "grossPrice": 0,
+          "netPrice": 0,
+          "discount": "0%"
+        }
+      ]
+    },
+    "petAccessories": {
+      "labelName": "Explore toys for your beloved pets",
+      "labelShortDescription": "Get up to 10% off on exclusive products",
+      "accessories": [
+        {
+          "accessoriesName": "Elephant Cuddle Toy",
+          "accessoriesImage": "http://192.168.1.203:8080/resources/images/toy-1.jpeg",
+          "grossPrice": 430,
+          "netPrice": 344,
+          "discount": "20%",
+          "accessoriesUUID": "jHtGrd"
+        },
+        {
+          "accessoriesName": "Elephant Cuddle Toy",
+          "accessoriesImage": "http://192.168.1.203:8080/resources/images/toy-1.jpeg",
+          "grossPrice": 430,
+          "netPrice": 344,
+          "discount": "20%",
+          "accessoriesUUID": "jHtGrd"
+        }
+      ]
+    },
+    "popularServices": {
+      "labelName": "Popular Services",
+      "labelShortDescription": "",
+      "services": [
+        {
+          "serviceId": 6,
+          "serviceName": "Treatment",
+          "mobileImageUrl": "http://192.168.1.203:8080/petsaviour-static/service_images/treatment.png",
+          "webImageUrl": "",
+          "serviceUUID": "PETTRT"
+        },
+        {
+          "serviceId": 2,
+          "serviceName": "X-ray & Scans",
+          "mobileImageUrl": "http://192.168.1.203:8080/petsaviour-static/service_images/pathology.png",
+          "webImageUrl": "",
+          "serviceUUID": "PETSCANS"
+        },
+        {
+          "serviceId": 1,
+          "serviceName": "Lab Tests",
+          "mobileImageUrl": "http://192.168.1.203:8080/petsaviour-static/service_images/labtest.png",
+          "webImageUrl": "",
+          "serviceUUID": "PETLABS"
+        },
+        {
+          "serviceId": 4,
+          "serviceName": "Pet Accessories",
+          "mobileImageUrl": "http://192.168.1.203:8080/petsaviour-static/service_images/petshop.png",
+          "webImageUrl": "",
+          "serviceUUID": "PETACCRS"
+        },
+        {
+          "serviceId": 3,
+          "serviceName": "Pet Grooming",
+          "mobileImageUrl": "http://192.168.1.203:8080/petsaviour-static/service_images/grooming.png",
+          "webImageUrl": "",
+          "serviceUUID": "PETGROOM"
+        },
+        {
+          "serviceId": 5,
+          "serviceName": "Medicines",
+          "mobileImageUrl": "http://192.168.1.203:8080/petsaviour-static/service_images/medicines.png",
+          "webImageUrl": "",
+          "serviceUUID": "PETMED"
+        }
+      ]
+    },
+    "atHomeDoctors": {
+      "labelName": "We Provode At Home Consultation",
+      "labelShortDescription": "Get up to 10% off on firt consultation",
+      "atHomeDoctors": [
+        {
+          "doctorName": "Dr. Shruthi Kedia",
+          "doctorImage": "http://192.168.1.203:8080/resources/images/default_doctor.png",
+          "clinic": "PetHealth Clinic, Hyderabad",
+          "experience": "8 years experience",
+          "rating": "4.5",
+          "patientStories": "20 patient stories",
+          "nextAvaliableSlot": "10 AM tomorrow"
+        },
+        {
+          "doctorName": "Dr. Shruthi Kedia",
+          "doctorImage": "http://192.168.1.203:8080/resources/images/default_doctor.png",
+          "clinic": "PetHealth Clinic, Hyderabad",
+          "experience": "8 years experience",
+          "rating": "4.5",
+          "patientStories": "20 patient stories",
+          "nextAvaliableSlot": "10 AM tomorrow"
+        }
+      ]
+    },
+    "petClinics": {
+      "labelName": "Book An Appointment At The Clinic",
+      "labelShortDescription": "Get up to 15% off on your first appointment",
+      "clinics": []
+    },
+    "petConsultationImage": {
+      "labelName": "Pet Consultation",
+      "labelShortDescription": "Pet Consultation Image",
+      "consultation": {
+        "imageType": "Consultation",
+        "imageUrl": "http://192.168.1.203:8080/petsaviour-static/other_images/pet_consultation_image.png"
+      }
+    },
+    "petDiagnosticsImage": {
+      "labelName": "Pet Diagnostics",
+      "labelShortDescription": "Pet Diagnostics Image",
+      "diagnostics": {
+        "imageType": "Diagnostics",
+        "imageUrl": "http://192.168.1.203:8080/petsaviour-static/other_images/pet_diagnostic_image.png"
+      }
+    },
+    "petFoodProductImage": {
+      "labelName": "Food Products",
+      "labelShortDescription": "Pet Food Products Image",
+      "foodProducts": {
+        "imageType": "Products",
+        "imageUrl": "http://192.168.1.203:8080/petsaviour-static/other_images/food_product_image.png"
+      }
+    },
+    "pampersImage": {
+      "labelName": "Pamper, Play, and Protect:",
+      "labelShortDescription": "Your One-Stop Pet Care Solution!",
+      "pampersImage": {
+        "imageType": "Pamper Image",
+        "imageUrl": "http://192.168.1.203:8080/petsaviour-static/other_images/pampers_cute_dog.png"
+      }
+    }
+  },
+  "status": 1,
+  "message": "Operation executed successfully"
+}

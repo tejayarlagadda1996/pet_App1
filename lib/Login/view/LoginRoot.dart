@@ -32,7 +32,6 @@ class _LoginRootState extends State<LoginRoot> {
               width: MediaQuery.of(context).size.width,
             ),
             showSignIn ? SignInWidget() : const Signupwidget(),
-            
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -52,7 +51,6 @@ class _LoginRootState extends State<LoginRoot> {
                 ],
               ),
             ),
-            
             const SizedBox(height: 20)
           ],
         ),

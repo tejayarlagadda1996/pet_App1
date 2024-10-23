@@ -27,7 +27,6 @@ class Registrationroot extends StatelessWidget {
             currentStep: petinfoController.stepperindex.value,
             onStepContinue: () => petinfoController.nextstep(),
             onStepCancel: () => petinfoController.previoussStep(),
-            
             controlsBuilder: (context,ControlsDetails details) {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,

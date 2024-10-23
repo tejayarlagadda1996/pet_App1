@@ -7,20 +7,38 @@ import 'package:pet_app/Networkmanager/PetAppRest.dart';
 import 'package:pet_app/Utils/globals.dart';
 
 class SignUpcontroller extends GetxController {
-  final List<TextEditingController> signUpdetails = List.generate(3, (index) {
-    return TextEditingController();
-  });
+  
+  final TextEditingController email = TextEditingController();
+  final TextEditingController mobile = TextEditingController();
+  final TextEditingController parentName = TextEditingController();
+  final TextEditingController placesSearch = TextEditingController();
 
+  var isagreed = false.obs;
+  var placeslist = [].obs;
+  final googleapikey = 'AIzaSyBz4GX04-KDeVRt0tf1gnauS_23k-9ze4U';
   var city = ''.obs;
   var isloading = false.obs;
+
+  getplaces(String query) async {
+    final petAppRest = Petapprest(placesapi);
+    final prediction = await petAppRest.get(
+        "/autocomplete/json?input=$query&key=$googleapikey",
+        (data) {
+          placeslist.value = data['predictions'];
+          print(placeslist.value);
+        },
+        (statusCode) {},
+        Authentication.basicAuth        
+    );
+  }
 
   Future<void> signUp() async {
     isloading(true);
     final petAppRest = Petapprest<SignUp>(baseUrl);
     final requestBody = {
-      "parentName": signUpdetails[0].text,
-      "email": signUpdetails[1].text,
-      "mobile": signUpdetails[2].text,
+      "parentName": parentName.text,
+      "email": email.text,
+      "mobile": mobile.text,
       "city": city.value
     };
 
@@ -30,7 +48,6 @@ class SignUpcontroller extends GetxController {
         (data) => SignUp.fromJson(data),
         Authentication.basicAuth,
         (statusCode) {
-          print(statusCode);
           if (statusCode == 200) {
             print(statusCode);
             Get.to(() => const LoginRoot(showSignIn: true));
@@ -46,9 +63,9 @@ class SignUpcontroller extends GetxController {
 
   @override
   void onClose() {
-    for (int i = 0; i < 4; i++) {
-      signUpdetails[i].dispose();
-    }
+    email.dispose();
+    parentName.dispose();
+    mobile.dispose();
     super.onClose();
   }
 }

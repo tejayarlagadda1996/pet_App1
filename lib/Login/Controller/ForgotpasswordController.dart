@@ -20,7 +20,8 @@ class Forgotpasswordcontroller extends GetxController{
         if(statusCode==200||statusCode==201){
           print(statusCode);
         }
-      }
+      },
+      Authentication.basicAuth
     );
     print(result!.responsedata);
     if(result.responsedata=="SUCCESS"){

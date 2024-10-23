@@ -1,30 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/Welcome/views/WelcomeRoot.dart';
+import 'package:pet_app/Spalshscreen/SplashScreenController.dart';
 
-class Splashscreen extends StatefulWidget {
-  const Splashscreen({super.key});
-
-  @override
-  State<Splashscreen> createState() => _SplashscreenState();
-}
-
-class _SplashscreenState extends State<Splashscreen> {
-  @override
-  void initState() {
-    super.initState();
-    navigateToWelcomeScreen();
-  }
-
-  navigateToWelcomeScreen() {
-    Future.delayed(const Duration(seconds: 3), () {
-      Get.offAll(
-        ()=>const WelcomeRoot(),
-        transition: Transition.fade,
-        duration: const Duration(seconds: 2),
-      );
-    });
-  }
+class Splashscreen extends StatelessWidget {
+  Splashscreen({super.key});
+  final SplashScreenController controller = Get.put(SplashScreenController());
 
   @override
   Widget build(BuildContext context) {

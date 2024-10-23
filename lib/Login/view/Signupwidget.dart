@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/Login/Controller/SignUPController.dart';
-import 'package:pet_app/Utils/Dropdownwidget.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
 import 'package:pet_app/Utils/Textfieldwidget.dart';
 
@@ -13,7 +12,6 @@ class Signupwidget extends StatefulWidget {
 
 class _SignupwidgetState extends State<Signupwidget> {
   final SignUpcontroller signupController = SignUpcontroller(); 
-  bool isAgreed = false;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -27,38 +25,48 @@ class _SignupwidgetState extends State<Signupwidget> {
               height: 20,
             ),
             TextfieldWidget(
-              controller: signupController.signUpdetails[0],
+              controller: signupController.parentName,
               placeholderText: 'Parent Name',
               obscureText: false,
               inputType: TextInputType.name,
             ),
             TextfieldWidget(
-              controller: signupController.signUpdetails[1],
+              controller: signupController.email,
               placeholderText: 'Email',
               obscureText: false,
               inputType: TextInputType.emailAddress,
             ),
             TextfieldWidget(
-              controller: signupController.signUpdetails[2],
+              controller: signupController.mobile,
               placeholderText: 'Mobile number',
               obscureText: false,
               inputType: TextInputType.number,
             ),
-            Dropdownwidget(
-              placeholderText: 'City',
-              selectedValue: signupController.city,
-              items: const['Hyderabad','Vijayawada','Banglore','Chennai'],
+            TextfieldWidget(
+              controller: signupController.placesSearch,
+              placeholderText: 'Enter your address',
+              inputType: TextInputType.streetAddress,
+              onChanged: (p0) {
+                signupController.getplaces(p0);
+              },
+            ),
+            ListView.builder(
+              itemCount: signupController.placeslist.length,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(signupController.placeslist[index]['description']),
+                );
+              },
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
                   Checkbox(
-                    value: isAgreed,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        isAgreed = value ?? false;
-                      });
+                    value: signupController.isagreed.value,
+                    onChanged: (bool? value) {                      
                     },
                   ),
                   const SizedBox(
@@ -82,10 +90,5 @@ class _SignupwidgetState extends State<Signupwidget> {
         ),
       ),
     );
-  }
-
-  void handleFormFilledData(List<String> filledData) {
-    
-    
   }
 }

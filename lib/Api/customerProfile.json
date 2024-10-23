@@ -1,0 +1,15 @@
+{
+    "customerProfile": {
+      "parentUserName": "BrahmaTeja",
+      "gender": "",
+      "email": "i.tejaa@gmail.com",
+      "mobile": "9182878224",
+      "image": "http://192.168.1.19:8080/petsaviour-static/customer_profile_images/mypic1726206833239.jpg",
+      "parentCustomerUUID": "oIsLK4P4",
+      "emailVerified": "Yes",
+      "mobileVerified": "No",
+      "city": "Vijayawada"
+    },
+    "status": 1,
+    "message": "Operation executed successfully"
+  }

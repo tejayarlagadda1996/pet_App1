@@ -7,6 +7,7 @@ class TextfieldWidget extends StatelessWidget {
   final IconData? icon;
   final VoidCallback? onIconTap;
   final TextInputType inputType;
+  final void Function(String)? onChanged;
 
   const TextfieldWidget({
     super.key,
@@ -16,6 +17,7 @@ class TextfieldWidget extends StatelessWidget {
     this.icon,
     this.onIconTap,
     required this.inputType,
+    this.onChanged,
   });
 
   @override
@@ -23,6 +25,7 @@ class TextfieldWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: TextFormField(
+        onChanged: onChanged,
         controller: controller,
         obscureText: obscureText,
         keyboardType: inputType,

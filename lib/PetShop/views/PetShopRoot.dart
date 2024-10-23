@@ -52,7 +52,7 @@ class _PetShopRootState extends State<PetShopRoot> {
               const Searchbar(searchbarHintText: "ex : toys, grooming, medicine"),
               const ShopByCategory(),
               const SizedBox(height: 20),
-              ShopBestseller(),
+              // ShopBestseller(),
             ],
           ),
         ));

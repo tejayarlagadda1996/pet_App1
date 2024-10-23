@@ -54,7 +54,7 @@ class SymptomTreatmentRoot extends StatelessWidget {
             const SizedBox(height: 10),
             SelectedSymptoms(selectedLabels: selectedLabels),
             const SizedBox(height: 10),
-            DoctorConsultation(showViewAll: false,doctorslist:homerootcontroller.doctorsList),
+            // DoctorConsultation(showViewAll: false,doctorslist:homerootcontroller.doctorsList),
             const SizedBox(height: 10),
             ConditionConsultation(showViewAll: false),
             const SizedBox(height: 10),

@@ -1,31 +1,74 @@
-class OwnerDetails {
-  final String ownername;
-  final String gender;
-  final String email;
-  final String aboutowner;
-  final String phonenumber;
+class OwnerInfoModel {
+  CustomerProfile? customerProfile;
+  int? status;
+  String? message;
 
-  const OwnerDetails({
-    required this.gender,
-    required this.email,
-    required this.ownername,
-    required this.aboutowner,
-    required this.phonenumber
-  });
+  OwnerInfoModel({this.customerProfile, this.status, this.message});
 
-  factory OwnerDetails.fromJson(Map<String, dynamic> json) => OwnerDetails(
-        gender: json['ownergender'],
-        email: json['email'],
-        ownername: json['ownername'],
-        aboutowner: json['aboutowner'],
-        phonenumber: json['ownermobile']
-      );
+  OwnerInfoModel.fromJson(Map<String, dynamic> json) {
+    customerProfile = json['customerProfile'] != null
+        ? CustomerProfile.fromJson(json['customerProfile'])
+        : null;
+    status = json['status'];
+    message = json['message'];
+  }
 
-  Map<String,dynamic> toJson()=>{
-    'ownergender':gender,
-    'email':email,
-    'ownername':ownername,
-    'aboutowner':aboutowner,
-    'ownermobile':phonenumber,
-  };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (customerProfile != null) {
+      data['customerProfile'] = customerProfile!.toJson();
+    }
+    data['status'] = status;
+    data['message'] = message;
+    return data;
+  }
+}
+
+class CustomerProfile {
+  String? parentUserName;
+  String? gender;
+  String? email;
+  String? mobile;
+  String? image;
+  String? parentCustomerUUID;
+  String? emailVerified;
+  String? mobileVerified;
+  String? city;
+
+  CustomerProfile(
+      {this.parentUserName,
+      this.gender,
+      this.email,
+      this.mobile,
+      this.image,
+      this.parentCustomerUUID,
+      this.emailVerified,
+      this.mobileVerified,
+      this.city});
+
+  CustomerProfile.fromJson(Map<String, dynamic> json) {
+    parentUserName = json['parentUserName'];
+    gender = json['gender'];
+    email = json['email'];
+    mobile = json['mobile'];
+    image = json['image'];
+    parentCustomerUUID = json['parentCustomerUUID'];
+    emailVerified = json['emailVerified'];
+    mobileVerified = json['mobileVerified'];
+    city = json['city'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['parentUserName'] = parentUserName;
+    data['gender'] = gender;
+    data['email'] = email;
+    data['mobile'] = mobile;
+    data['image'] = image;
+    data['parentCustomerUUID'] = parentCustomerUUID;
+    data['emailVerified'] = emailVerified;
+    data['mobileVerified'] = mobileVerified;
+    data['city'] = city;
+    return data;
+  }
 }

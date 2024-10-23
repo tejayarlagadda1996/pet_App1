@@ -33,14 +33,16 @@ class Forgotpasswordbottomsheet extends StatelessWidget {
                 placeholderText: 'Recovery Email',
                 inputType: TextInputType.emailAddress),
             const SizedBox(height: 20),
-            Obx(() => forgotpasswordcontroller.isLoading.value
-                ? CircularProgressIndicator()
-                : RoundButton(
-                    roundButtonText: 'Recover Password',
-                    onPressed: () {
-                      print(forgotpasswordcontroller.email.text);
-                      forgotpasswordcontroller.forgotPassword();
-                    })),
+            Obx(
+              () => forgotpasswordcontroller.isLoading.value
+                  ? const CircularProgressIndicator()
+                  : RoundButton(
+                      roundButtonText: 'Recover Password',
+                      onPressed: () {
+                        forgotpasswordcontroller.forgotPassword();
+                      },
+                    ),
+            ),
           ],
         ),
       ),

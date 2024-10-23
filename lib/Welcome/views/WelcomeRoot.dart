@@ -3,22 +3,15 @@ import 'package:get/get.dart';
 import 'package:pet_app/Login/view/LoginRoot.dart';
 import 'package:pet_app/Utils/RoundButton.dart';
 
-class WelcomeRoot extends StatefulWidget {
+class WelcomeRoot extends StatelessWidget {
   const WelcomeRoot({super.key});
 
-  @override
-  State<WelcomeRoot> createState() => _WelcomeRootState();
-}
-
-class _WelcomeRootState extends State<WelcomeRoot> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Stack(
-          // STACK to add background image
           children: [
             Positioned.fill(
               child: Image.asset(
@@ -26,12 +19,17 @@ class _WelcomeRootState extends State<WelcomeRoot> {
                 fit: BoxFit.cover,
               ),
             ),
-            Center(
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // Header Image
-                  Image.asset('assets/welcome_header.png'),
+                  Image.asset(
+                    'assets/welcome_header.png',
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.fitWidth,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(18),
                     child: Column(
@@ -72,7 +70,7 @@ class _WelcomeRootState extends State<WelcomeRoot> {
                         const SizedBox(
                           height: 10,
                         ),
-        
+
                         // Subtext
                         const Text(
                           "Discover all your pet's needs in one place! Our app connects pet owners with a range of essential services for their furry companions.",
@@ -88,8 +86,6 @@ class _WelcomeRootState extends State<WelcomeRoot> {
                     ),
                   ),
                   const SizedBox(height: 40),
-        
-                  // Login Buttons
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Column(
@@ -98,34 +94,15 @@ class _WelcomeRootState extends State<WelcomeRoot> {
                         RoundButton(
                           roundButtonText: "Log In / Sign Up",
                           onPressed: () {
-                            Get.to(()=>const LoginRoot(showSignIn: true),transition: Transition.downToUp);
-                            // showModalBottomSheet(
-                            //   context: context,
-                            //   builder: (context) =>
-                            //       const PetSelectionBottomsheet(),
-                            // );
+                            Get.to(
+                              () => const LoginRoot(showSignIn: true),
+                              transition: Transition.downToUp,
+                              curve: Curves.easeInOut,
+                              duration: const Duration(seconds: 1),
+                            );
                           },
                         ),
-                        const SizedBox(height: 25),
-        
-                        // Guest Explore
-                        TextButton(
-                          onPressed: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => const Login(showSignIn: true,),
-                            //     ));
-                          }, // add functionality
-                          child: const Text(
-                            "Explore as a Guest",
-                            style: TextStyle(
-                              color: Color.fromRGBO(237, 109, 78, 1),
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 20)
+                        const SizedBox(height: 80)
                       ],
                     ),
                   ),

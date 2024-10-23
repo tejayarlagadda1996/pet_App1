@@ -1,0 +1,21 @@
+{
+  "customerAddress": [
+    {
+      "addressName": "home",
+      "address": "10/219-A3, bypass road, financial District",
+      "location": "india, Telangana, Hyderabad - 500008",
+      "addressUUID": "mhiVQJ9Z",
+      "latitude": "17.4117",
+      "longitude": "78.3425"
+    },{
+      "addressName": "home",
+      "address": "10/219-A3, bypass road, financial District",
+      "location": "india, Telangana, Hyderabad - 500008",
+      "addressUUID": "mhiVQJ9Z",
+      "latitude": "17.4117",
+      "longitude": "78.3425"
+    }
+  ],
+  "status": 1,
+  "message": "Operation executed successfully"
+}

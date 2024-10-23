@@ -90,20 +90,20 @@ class _HomeRootState extends State<HomeRoot> {
             // supposed to be an ad?
             const Searchbar(searchbarHintText: 'Search for toys, grooming ...'),
             const SelectAService(),
-            HomeBestSeller(
-              loginstatus:authcontroller.isLoggedIn.value,
-              products: homerootcontroller.products
-            ),
-            DoctorConsultation(doctorslist: homerootcontroller.doctorsList),
-            const BannerImage(imgUrl: "assets/onboarding_image_2.png"),
-            ConditionConsultation(),
-            GroomingPackageCard(packageslist:homerootcontroller.packages),
-            SymptomConsultation(),
-            const BannerImage(imgUrl: "assets/onboarding_image_3.png"),
-            HomeLabTest(labtests:homerootcontroller.labtests),
+            // HomeBestSeller(
+            //   loginstatus:authcontroller.isLoggedIn.value,
+            //   products: homerootcontroller.products
+            // ),
+            // DoctorConsultation(doctorslist: homerootcontroller.doctorsList),
+            // const BannerImage(imgUrl: "assets/onboarding_image_2.png"),
+            // ConditionConsultation(),
+            // GroomingPackageCard(packageslist:homerootcontroller.packages),
+            // SymptomConsultation(),
+            // const BannerImage(imgUrl: "assets/onboarding_image_3.png"),
+            // HomeLabTest(labtests:homerootcontroller.labtests),
             BehaviourConsultation(),
-            BannerImage(imgUrl: "assets/onboarding_image_4.png"),
-            BannerImage(imgUrl: "assets/onboarding_image_5.png"),
+            const BannerImage(imgUrl: "assets/onboarding_image_4.png"),
+            const BannerImage(imgUrl: "assets/onboarding_image_5.png"),
           ],
         ),) 
       ),
