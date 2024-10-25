@@ -39,7 +39,7 @@ class HomeScreen {
   GroomingServices? groomingServices;
   PetAccessories? petAccessories;
   PopularServices? popularServices;
-  AtHomeDoctor? atHomeDoctors;
+  AtHomeDoctors? atHomeDoctors;
   PetClinics? petClinics;
   PetConsultationImage? petConsultationImage;
   PetDiagnosticsImage? petDiagnosticsImage;
@@ -96,7 +96,7 @@ class HomeScreen {
         ? PopularServices.fromJson(json['popularServices'])
         : null;
     atHomeDoctors = json['atHomeDoctors'] != null
-        ? AtHomeDoctor.fromJson(json['atHomeDoctors'])
+        ? AtHomeDoctors.fromJson(json['atHomeDoctors'])
         : null;
     petClinics = json['petClinics'] != null
         ? PetClinics.fromJson(json['petClinics'])

@@ -2,32 +2,28 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/Cart/controller/cartcontroller.dart';
-import 'package:pet_app/Login/view/LoginRoot.dart';
-import 'package:pet_app/Models/product.dart';
+import 'package:pet_app/Home/model/HomedataModel.dart';
+import 'package:pet_app/Utils/AppTheme.dart';
 
-class HomeBestSellerTile extends StatelessWidget {
-
+class ProductsTile extends StatelessWidget {
   final Cartcontroller cartcontroller = Get.put(Cartcontroller());
-
-  final Product product;
-
-  final bool isLoggedIn;
-
+  final dynamic product;
   final VoidCallback onclicked;
 
-
-  HomeBestSellerTile({
+  ProductsTile({
     super.key,
+    required this.onclicked,
     required this.product,
-    required this.isLoggedIn,
-    required this.onclicked
   });
 
   @override
   Widget build(BuildContext context) {
+      final productImage = getProductImage(product);
+    final productName = getProductName(product);
+    final productPrice = getProductPrice(product);
     return Container(
       margin: const EdgeInsets.all(8),
-      width: MediaQuery.of(context).size.width * 0.48,
+      width: MediaQuery.of(context).size.width * 0.5,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(4),
@@ -46,7 +42,10 @@ class HomeBestSellerTile extends StatelessWidget {
             child: SizedBox(
               width: 80,
               height: 100,
-              child: Image.asset(product.productImagePath, fit: BoxFit.cover),
+              child: Image.network(
+                productImage ?? '',
+                fit: BoxFit.fitWidth,
+              ),
             ),
           ),
           Expanded(
@@ -59,9 +58,9 @@ class HomeBestSellerTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.25,
                         child: AutoSizeText(
-                          product.productName, // product name
+                          productName ?? '',
                           style: const TextStyle(fontWeight: FontWeight.w400),
                           maxFontSize: 12,
                           minFontSize: 12,
@@ -72,7 +71,7 @@ class HomeBestSellerTile extends StatelessWidget {
                       SizedBox(
                         width: 65,
                         child: AutoSizeText(
-                          "\$${product.productPrice}", // product price
+                          "\$$productPrice", // product price
                           style: const TextStyle(
                             fontWeight: FontWeight.w700,
                           ),
@@ -85,11 +84,7 @@ class HomeBestSellerTile extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: isLoggedIn
-                      ? onclicked
-                      : () {
-                          Get.to(() => const LoginRoot(showSignIn: true));
-                        }, 
+                  onPressed: onclicked,
                   style: ElevatedButton.styleFrom(
                     shape: const CircleBorder(),
                     backgroundColor: Colors.transparent,
@@ -98,9 +93,9 @@ class HomeBestSellerTile extends StatelessWidget {
                   ),
                   child: Container(
                     padding: const EdgeInsets.all(4),
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Color.fromRGBO(237, 109, 78, 1),
+                      color: Apptheme.apptheme,
                     ),
                     child: const Icon(
                       Icons.add,
@@ -115,5 +110,25 @@ class HomeBestSellerTile extends StatelessWidget {
         ],
       ),
     );
+  }
+   String? getProductImage(dynamic product) {
+    if (product is Medicines) return product.medicineImage;
+    if (product is Accessories) return product.accessoriesImage;
+    if (product is FoodProducts) return product.productImage;
+    return null;
+  }
+
+  String? getProductName(dynamic product) {
+    if (product is Medicines) return product.medicineName;
+    if (product is Accessories) return product.accessoriesName;
+    if (product is FoodProducts) return product.productName;
+    return null;
+  }
+
+  int? getProductPrice(dynamic product) {
+    if (product is Medicines) return product.grossPrice;
+    if (product is Accessories) return product.grossPrice;
+    if (product is FoodProducts) return product.grossPrice;
+    return null;
   }
 }

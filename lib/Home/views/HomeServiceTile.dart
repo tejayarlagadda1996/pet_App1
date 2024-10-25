@@ -1,75 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
+import 'package:pet_app/Utils/AppTheme.dart';
 
 class HomeServiceTile extends StatelessWidget {
   final String name;
   final String imgUrl;
   final Callback onTileTap;
 
-  const HomeServiceTile(
-      {super.key,
-      required this.name,
-      required this.imgUrl,
-      required this.onTileTap});
+  const HomeServiceTile({
+    super.key,
+    required this.name,
+    required this.imgUrl,
+    required this.onTileTap,
+  });
+
+  
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        double width = constraints.maxWidth * 0.8;
-        double height = width * 0.55;
-
-        return GestureDetector(
-          onTap: onTileTap,
-          child: Card(
-            shadowColor: Colors.transparent,
-            color: Colors.transparent,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  height: height * 0.8,
-                  width: width,
-                  decoration: const BoxDecoration(
-                    color: Color.fromRGBO(255, 248, 247, 1),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12.0),
-                      topRight: Radius.circular(12.0),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Center(
-                      child: Image.asset(imgUrl,
-                          fit: BoxFit.cover), // Adjust fit as needed
-                    ),
-                  ),
+    return GestureDetector(
+      onTap: onTileTap,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Apptheme.appthemelite,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        height: MediaQuery.of(context).size.height * 0.15,
+        width: MediaQuery.of(context).size.width * 0.28,
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.28,
+              height: MediaQuery.of(context).size.height * 0.09,
+              decoration: BoxDecoration(
+                color: Apptheme.plaincolor,
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  topLeft: Radius.circular(10),
                 ),
-                Container(
-                  height: height * 0.35,
-                  width: width,
-                  decoration: const BoxDecoration(
-                    color: Color.fromRGBO(252, 213, 208, 1),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(12.0),
-                      bottomRight: Radius.circular(12.0),
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      name,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+              ),
+              child: Align(
+                alignment: AlignmentDirectional.bottomCenter,
+                child: Image.network(imgUrl, fit: BoxFit.cover),
+              ),
             ),
-          ),
-        );
-      },
+            Expanded(
+              child: Center(
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return Text(
+                      name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: constraints.maxWidth * 0.125, // Adjust the multiplier as needed
+                      ),
+                      textAlign: TextAlign.center,
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
+

@@ -14,7 +14,7 @@ class HomeLabTest extends StatelessWidget {
         ConsultationHeader(
           title: "Get Your First Lab Test Done",
           subtitle: "Get up to 15% off on your first grooming",
-          onPressed: () {},
+          onPressedViewAll: () {},
           showViewAllButton: true,
         ),
         Padding(

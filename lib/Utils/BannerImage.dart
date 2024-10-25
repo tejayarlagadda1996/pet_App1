@@ -1,35 +1,37 @@
 import 'package:flutter/material.dart';
 
 class BannerImage extends StatelessWidget {
-  final String imgUrl;
-  const BannerImage({super.key, required this.imgUrl});
+  final String? imgUrl;
+  final String? imagepath;
+  const BannerImage({
+    super.key,
+    this.imgUrl,
+    this.imagepath,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-        child: Image.asset(imgUrl),
-      );
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+      child: imagepath != null
+          ? Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+                imagepath!,
+                fit: BoxFit.fitWidth,
+                width: MediaQuery.of(context).size.width,
+              ),
+          )
+          : imgUrl != null
+              ? Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.network(
+                    imgUrl!,
+                    fit: BoxFit.fitWidth,
+                    width: MediaQuery.of(context).size.width,
+                  ),
+              )
+              : const SizedBox.shrink(),
+    );
   }
 }
-
-    // return LayoutBuilder(
-    //   builder: (context, constraints) {
-    //     double width = constraints.maxWidth * 0.8;
-    //     double height = constraints.maxHeight * 0.5;
-
-    //     return Center(
-    //       child: Container(
-    //         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-    //         width: width,
-    //         height: height,
-    //         child: Image.asset(
-    //           imgUrl,
-    //           fit: BoxFit.cover,
-    //           width: width,
-    //           height: height,
-    //         ),
-    //       ),
-    //     );
-    //   },
-    // );

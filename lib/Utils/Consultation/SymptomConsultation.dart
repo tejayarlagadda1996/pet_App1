@@ -22,11 +22,7 @@ class SymptomConsultation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConsultationTemplate(
-      title: "Consultation Based on Symptoms",
-      subtitle:
-          "Get up to 15% off on your first Consultation\nBased on Symptoms",
       labels: _labels,
-      showViewAllButton: showViewAll,
     );
   }
 }

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 class ConsultationHeader extends StatelessWidget {
   final String title;
   final String subtitle;
-  final VoidCallback onPressed;
+  final VoidCallback onPressedViewAll;
   final bool showViewAllButton;
 
   const ConsultationHeader({
     super.key,
     required this.title,
     required this.subtitle,
-    required this.onPressed,
+    required this.onPressedViewAll,
     required this.showViewAllButton,
   });
 
@@ -39,7 +39,7 @@ class ConsultationHeader extends StatelessWidget {
               ),
               if (showViewAllButton)
                 TextButton(
-                  onPressed: onPressed,
+                  onPressed: onPressedViewAll,
                   child: const Text(
                     "View All",
                     style: TextStyle(

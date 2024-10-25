@@ -1,71 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pet_app/Grooming/view/GroomingRoot.dart';
+import 'package:pet_app/Home/model/HomedataModel.dart';
 import 'package:pet_app/Home/views/HomeServiceTile.dart';
-import 'package:pet_app/PetShop/views/PetShopRoot.dart';
-import 'package:pet_app/Treatment/views/TreatmentRoot.dart';
+import 'package:pet_app/Utils/Consultation/ConsultationHeader.dart';
 
 class SelectAService extends StatelessWidget {
-  const SelectAService({super.key});
+  const SelectAService({
+    super.key,
+    required this.popularServices,
+  });
+  final PopularServices popularServices;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 14.0, top: 14, bottom: 8),
-          child: Text(
-            "Select a Service",
-            style: TextStyle(
-              color: Color.fromRGBO(26, 25, 25, 1),
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+        ConsultationHeader(
+          title: popularServices.labelName??'',
+          subtitle: popularServices.labelShortDescription??'',
+          onPressedViewAll: () {},
+          showViewAllButton: false,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            runSpacing: 12,
+            spacing: 16,
+            children: List.generate(
+              popularServices.services!.length,
+              (index) {
+                final service = popularServices.services?[index];
+                return HomeServiceTile(
+                  imgUrl: service?.mobileImageUrl??'',
+                  name: service?.serviceName??'',
+                  onTileTap: (){},
+                );
+              },
             ),
           ),
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: HomeServiceTile(
-                name: "Grooming",
-                imgUrl: "assets/grooming_icon.png",
-                onTileTap: () {
-                  Get.to(() => GroomingRoot());
-                },
-              ),
-            ),
-            Expanded(
-              child: HomeServiceTile(
-                name: "Pet Shop",
-                imgUrl: "assets/pet_shop_icon.png",
-                onTileTap: () {
-                  Get.to(() => const PetShopRoot());
-                },
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 20),
-        Row(
-          children: [
-            Expanded(
-              child: HomeServiceTile(
-                name: "Treatment",
-                imgUrl: "assets/treatment_icon.png",
-                onTileTap: () {
-                  Get.to(() => const TreatmentRoot());
-                },
-              ),
-            ),
-            Expanded(
-              child: HomeServiceTile(
-                name: "Lab Test",
-                imgUrl: "assets/lab_test_icon.png",
-                onTileTap: () {},
-              ),
-            ),
-          ],
         ),
         const SizedBox(height: 20),
       ],

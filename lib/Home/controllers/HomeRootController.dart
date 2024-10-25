@@ -1,9 +1,9 @@
+import 'package:flutter/widgets.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/Home/model/HomedataModel.dart';
 import 'package:pet_app/Utils/LocationService.dart';
 import 'package:pet_app/Utils/globals.dart';
-
 import '../../Networkmanager/PetAppRest.dart';
 
 class Homerootcontroller extends GetxController {
@@ -11,34 +11,35 @@ class Homerootcontroller extends GetxController {
   var longitude = 0.0.obs;
   final LocationService _locationService = LocationService();
   var isLoading = false.obs;
-  // var hasFetchedData = false.obs; // Flag to track data fetching
-  // var errormessage = ''.obs;
-  // var bannerimages = <String>[];
-  // var popularservices = <Services>[].obs;
-  // PetConditions petConditions = PetConditions();
-  // PetBehaviors petBehaviors = PetBehaviors();
-  // PetSymptoms petSymptoms = PetSymptoms();
-  // PetFoodProducts petFoodProducts = PetFoodProducts();
-  // PetAccessories petAccessories = PetAccessories();
-  // PetMedicines petMedicines = PetMedicines();
-  // LabTestServices labTestServices = LabTestServices();
-  // GroomingServices groomingServices = GroomingServices();
-  // PetClinics petClinics = PetClinics();
-  // PetConsultationImage petConsultationImage = PetConsultationImage();
-  // PetDiagnosticsImage petDiagnosticsImage = PetDiagnosticsImage();
-  // PetFoodProductImage petFoodProductImage = PetFoodProductImage();
-  // Consultation pampersImage = Consultation();
-  // AtHomeDoctorsModel doctorsModel = AtHomeDoctorsModel();
+  var errormessage = ''.obs;
+  var bannerimages = <String>[];
+  var popularServices = Rxn<PopularServices>();
+  var petConditions = Rxn<PetConditions>();
+  var petBehaviors = Rxn<PetBehaviors>();
+  var petSymptoms = Rxn<PetSymptoms>();
+  var petFoodProducts = Rxn<PetFoodProducts>();
+  var petAccessories = Rxn<PetAccessories>();
+  var petMedicines = Rxn<PetMedicines>();
+  var labTestServices = Rxn<LabTestServices>();
+  var groomingServices = Rxn<GroomingServices>();
+  var petClinics = Rxn<PetClinics>();
+  var petConsultationImage = ''.obs;
+  var petDiagnosticsImage = Rxn<PetDiagnosticsImage>();
+  var petFoodProductImage = Rxn<PetFoodProductImage>();
+  var pampersImage = Rxn<Consultation>();
+  var doctorsModel = Rxn<AtHomeDoctors>();
   var bottombarIndex = 0.obs;
+  final PageController homePageController = PageController();
 
   @override
   void onInit() {
     super.onInit();
-    // fetchHomescreendata();
+    fetchHomescreendata();
   }
 
   void bottombarnavigation(int index) {
     bottombarIndex(index);
+    homePageController.jumpToPage(index);
   }
 
   void fetchLocation() async {
@@ -62,27 +63,34 @@ class Homerootcontroller extends GetxController {
     try {
       var result = await petapprest.get(
         endpoint,
-        // (data) => HomedataModel.fromJson(data),
+        (data) => HomedataModel.fromJson(data),
         (status) => print(status),
         Authentication.tokenauth,
       );
       bannerimages.assignAll(
           result!.homeScreen!.banners!.homeBanners!.map((e) => e.bannerImage!));
-      popularservices.assignAll(result.homeScreen!.popularServices!.services!);
-      petConditions = result.homeScreen!.petConditions!;
-      petBehaviors = result.homeScreen!.petBehaviors!;
-      petSymptoms = result.homeScreen!.petSymptoms!;
-      petFoodProducts = result.homeScreen!.petFoodProducts!;
-      petAccessories = result.homeScreen!.petAccessories!;
-      petMedicines = result.homeScreen!.petMedicines!;
-      labTestServices = result.homeScreen!.labTestServices!;
-      groomingServices = result.homeScreen!.groomingServices!;
-      petClinics = result.homeScreen!.petClinics!;
-      petConsultationImage = result.homeScreen!.petConsultationImage!;
-      petDiagnosticsImage = result.homeScreen!.petDiagnosticsImage!;
-      petFoodProductImage = result.homeScreen!.petFoodProductImage!;
-      doctorsModel = result.homeScreen!.atHomeDoctors!;
-      hasFetchedData(true); // Data fetched successfully
+      popularServices.value =
+          result.homeScreen?.popularServices ?? PopularServices();
+      petConditions.value = result.homeScreen?.petConditions ?? PetConditions();
+      petBehaviors.value = result.homeScreen?.petBehaviors ?? PetBehaviors();
+      petSymptoms.value = result.homeScreen?.petSymptoms ?? PetSymptoms();
+      petFoodProducts.value =
+          result.homeScreen?.petFoodProducts ?? PetFoodProducts();
+      petAccessories.value =
+          result.homeScreen?.petAccessories ?? PetAccessories();
+      petMedicines.value = result.homeScreen?.petMedicines ?? PetMedicines();
+      labTestServices.value =
+          result.homeScreen?.labTestServices ?? LabTestServices();
+      groomingServices.value =
+          result.homeScreen?.groomingServices ?? GroomingServices();
+      petClinics.value = result.homeScreen?.petClinics ?? PetClinics();
+      petConsultationImage.value =
+          result.homeScreen?.petConsultationImage?.consultation?.imageUrl ?? '';
+      petDiagnosticsImage.value =
+          result.homeScreen?.petDiagnosticsImage ?? PetDiagnosticsImage();
+      petFoodProductImage.value =
+          result.homeScreen?.petFoodProductImage ?? PetFoodProductImage();
+      doctorsModel.value = result.homeScreen?.atHomeDoctors ?? AtHomeDoctors();
     } catch (e) {
       errormessage('Failed to fetch home screen data: $e');
       print("Error fetching home screen data: $e");

@@ -15,7 +15,7 @@ class GroomingPackageCard extends StatelessWidget {
         ConsultationHeader(
           title: "Popular Grooming Package",
           subtitle: "Get up to 15% off on your first grooming",
-          onPressed: () {},
+          onPressedViewAll: () {},
           showViewAllButton: true,
         ),
         Padding(
